@@ -18,7 +18,7 @@ export default function Effects() {
   return (
     <effectComposer ref={composer} args={[gl]}>
       <renderPass attachArray="passes" scene={scene} camera={camera} />
-      <unrealBloomPass attachArray="passes" args={[undefined, 0.4, 0.8, 0]} />
+      <unrealBloomPass attachArray="passes" args={[undefined, 0.2, 0.8, 0]} />
     </effectComposer>
   );
 }

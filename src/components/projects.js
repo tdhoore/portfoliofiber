@@ -27,6 +27,7 @@ export default function Model(props) {
           <pointLight
             name="Point037_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -39,7 +40,9 @@ export default function Model(props) {
         >
           <pointLight
             name="Point038_Orientation"
+            distance={0.1}
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -53,6 +56,7 @@ export default function Model(props) {
           <pointLight
             name="Point039_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -66,6 +70,7 @@ export default function Model(props) {
           <pointLight
             name="Point040_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -79,6 +84,7 @@ export default function Model(props) {
           <pointLight
             name="Point041_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -88,6 +94,7 @@ export default function Model(props) {
           <pointLight
             name="Point042_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -101,6 +108,7 @@ export default function Model(props) {
           <pointLight
             name="Point043_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -110,6 +118,7 @@ export default function Model(props) {
           <pointLight
             name="Point044_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <object3D
@@ -119,6 +128,7 @@ export default function Model(props) {
           <pointLight
             name="Point045_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            distance={0.1}
           />
         </object3D>
         <mesh
@@ -302,6 +312,7 @@ export default function Model(props) {
               <meshStandardMaterial
                 attach="material"
                 {...gltf.__$[35].material}
+                emissiveIntensity={7}
                 name="Material.002"
               />
             </mesh>
