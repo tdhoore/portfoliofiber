@@ -16,20 +16,44 @@ export default function Model(props) {
   const actions = useRef();
   const [mixer] = useState(() => new THREE.AnimationMixer());
   useFrame((state, delta) => mixer.update(delta));
-  /*useEffect(() => {
+  useEffect(() => {
+    console.log(gltf.animations);
     actions.current = {
-      "home_bottom_right_anim": mixer.clipAction(gltf.animations[0], group.current),
-,      "home_top_left_anim": mixer.clipAction(gltf.animations[1], group.current),
-,      "home_bottom_left_anim": mixer.clipAction(gltf.animations[2], group.current),
-,      "home_top_right_anim": mixer.clipAction(gltf.animations[3], group.current),
-,      "home_bottom_right_anim": mixer.clipAction(gltf.animations[4], group.current),
-    }
-    return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip))
-  }, [])*/
+      home_bottom_right_anim: mixer.clipAction(
+        gltf.animations[0],
+        group.current
+      ),
+      home_top_left_anim: mixer.clipAction(gltf.animations[1], group.current),
+      home_bottom_left_anim: mixer.clipAction(
+        gltf.animations[2],
+        group.current
+      ),
+      home_top_right_anim: mixer.clipAction(gltf.animations[3], group.current)
+    };
+
+    //stop itteration
+    Object.keys(actions.current).forEach(key => {
+      actions.current[key].clampWhenFinished = true;
+      actions.current[key].setLoop(THREE.LoopOnce);
+    });
+
+    window.addEventListener("keydown", () => {
+      actions.current.home_bottom_right_anim.play();
+      actions.current.home_top_left_anim.play();
+      actions.current.home_bottom_left_anim.play();
+      actions.current.home_top_right_anim.play();
+    });
+    return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
+  }, []);
 
   return (
     <group ref={group} {...props}>
-      <scene name="Scene">
+      <scene
+        name="Scene"
+        onKeyDown={() => {
+          console.log("sdfg");
+        }}
+      >
         <object3D
           name="Camera005"
           position={[

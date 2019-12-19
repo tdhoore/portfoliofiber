@@ -5,7 +5,7 @@ import { Canvas } from "react-three-fiber";
 import Model from "./components/projects";
 import FallBack from "./FallBack";
 import Effects from "./components/Effects";
-
+//<fog attach="fog" args={["#141414", 0, 16]} />
 function App() {
   return (
     <div style={{ height: "100vh" }}>
@@ -18,16 +18,17 @@ function App() {
           gl.alpha = true;
           gl.setClearColor(new THREE.Color("#141414"));
         }}
+        //141414
         //0d0d0d
+        //2.16
       >
-        <fog attach="fog" args={["#141414", 1, 100]} />
         <Suspense fallback={<FallBack />}>
           <Model />
         </Suspense>
         <directionalLight
           color="#60CAE0"
           intensity={2}
-          position={[5, 12, 2.3]}
+          position={[-1.043, 11.269, -1.538]}
         />
         <Effects />
       </Canvas>
