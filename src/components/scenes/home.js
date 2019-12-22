@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLoader, useFrame } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-import homeMesh from "../meshes/home.gltf";
+import homeMesh from "../../meshes/home.gltf";
+import { blueColor, pinkColor } from "../../material/materials";
 
 export default function Model(props) {
   const group = useRef();
@@ -48,26 +49,7 @@ export default function Model(props) {
 
   return (
     <group ref={group} {...props}>
-      <scene
-        name="Scene"
-        onKeyDown={() => {
-          console.log("sdfg");
-        }}
-      >
-        <object3D
-          name="Camera005"
-          position={[
-            -0.08510543406009674,
-            2.091782808303833,
-            2.044254779815674
-          ]}
-          rotation={[1.5707962925663537, 0, 0]}
-        >
-          <perspectiveCamera
-            name="Camera005_Orientation"
-            rotation={[-1.5707962925663537, 0, 0]}
-          />
-        </object3D>
+      <scene name="Scene">
         <object3D
           name="Point029"
           position={[
@@ -79,6 +61,8 @@ export default function Model(props) {
           <pointLight
             name="Point029_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={pinkColor}
+            distance={2.68}
           />
         </object3D>
         <object3D
@@ -92,6 +76,8 @@ export default function Model(props) {
           <pointLight
             name="Point030_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={blueColor}
+            distance={0.25}
           />
         </object3D>
         <object3D
@@ -105,6 +91,8 @@ export default function Model(props) {
           <pointLight
             name="Point031_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={blueColor}
+            distance={0.25}
           />
         </object3D>
         <object3D
@@ -118,6 +106,8 @@ export default function Model(props) {
           <pointLight
             name="Point032_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={blueColor}
+            distance={0.25}
           />
         </object3D>
         <object3D
@@ -127,6 +117,8 @@ export default function Model(props) {
           <pointLight
             name="Point033_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={blueColor}
+            distance={0.25}
           />
         </object3D>
         <object3D
@@ -140,6 +132,8 @@ export default function Model(props) {
           <pointLight
             name="Point034_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={blueColor}
+            distance={1}
           />
         </object3D>
         <object3D
@@ -153,6 +147,8 @@ export default function Model(props) {
           <pointLight
             name="Point035_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={pinkColor}
+            distance={1}
           />
         </object3D>
         <object3D
@@ -162,6 +158,8 @@ export default function Model(props) {
           <pointLight
             name="Point036_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
+            color={pinkColor}
+            distance={1}
           />
         </object3D>
         <mesh
@@ -171,6 +169,7 @@ export default function Model(props) {
             6.634069919586182,
             -4.117544651031494
           ]}
+          castShadow={true}
         >
           <group
             name="Cube119"
@@ -239,6 +238,7 @@ export default function Model(props) {
         <mesh
           name="home_bottom_right"
           position={[2.1219847202301025, -2, -4.117544651031494]}
+          receiveShadow={true}
         >
           <group
             name="Cube121"

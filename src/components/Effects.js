@@ -5,6 +5,7 @@ import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
+import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader";
 
 extend({ EffectComposer, ShaderPass, RenderPass, UnrealBloomPass, FilmPass });
 
@@ -18,7 +19,18 @@ export default function Effects() {
   return (
     <effectComposer ref={composer} args={[gl]}>
       <renderPass attachArray="passes" scene={scene} camera={camera} />
-      <unrealBloomPass attachArray="passes" args={[undefined, 0.2, 0.8, 0]} />
+      <shaderPass
+        attachArray="passes"
+        args={[FXAAShader]}
+        uniforms-resolution-value={[1 / size.width, 1 / size.height]}
+        renderToScreen
+      />
+      <unrealBloomPass
+        attachArray="passes"
+        args={[undefined, 1.5, 0.4, 0.85]}
+      />
+      <filmPass attachArray="passes" args={[0.05, 0.5, 1500, false]} />
     </effectComposer>
   );
 }
+//args={[undefined, 1.5, 0.4, 0.85]}
