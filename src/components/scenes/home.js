@@ -4,7 +4,12 @@ import { useLoader, useFrame } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import homeMesh from "../../meshes/home.gltf";
-import { blueColor, pinkColor } from "../../material/materials";
+import {
+  blueColor,
+  pinkColor,
+  defaultMat,
+  glowMat
+} from "../../material/materials";
 
 export default function Model(props) {
   const group = useRef();
@@ -62,7 +67,8 @@ export default function Model(props) {
             name="Point029_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
-            distance={2.68}
+            distance={2.5}
+            intensity={1}
           />
         </object3D>
         <object3D
@@ -77,7 +83,7 @@ export default function Model(props) {
             name="Point030_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
-            distance={0.25}
+            distance={5}
           />
         </object3D>
         <object3D
@@ -92,7 +98,7 @@ export default function Model(props) {
             name="Point031_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
-            distance={0.25}
+            distance={5}
           />
         </object3D>
         <object3D
@@ -107,7 +113,7 @@ export default function Model(props) {
             name="Point032_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
-            distance={0.25}
+            distance={5}
           />
         </object3D>
         <object3D
@@ -118,7 +124,7 @@ export default function Model(props) {
             name="Point033_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
-            distance={0.25}
+            distance={5}
           />
         </object3D>
         <object3D
@@ -133,7 +139,8 @@ export default function Model(props) {
             name="Point034_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
-            distance={1}
+            distance={2}
+            intensity={0.2}
           />
         </object3D>
         <object3D
@@ -148,18 +155,35 @@ export default function Model(props) {
             name="Point035_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
-            distance={1}
+            distance={2}
+            intensity={0.25}
+          />
+        </object3D>
+        <object3D
+          name="Point035 copy"
+          position={[
+            2.0738419771194458,
+            2.7362266182899475,
+            -4.215659141540527
+          ]}
+        >
+          <pointLight
+            name="Point035copy_Orientation"
+            rotation={[-1.5707962925663537, 0, 0]}
+            color={blueColor}
+            distance={2}
+            intensity={0.25}
           />
         </object3D>
         <object3D
           name="Point036"
-          position={[2.1219847202301025, -2, -4.117544651031494]}
+          position={[2.1219847202301025, 0, -4.117544651031494]}
         >
           <pointLight
             name="Point036_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
-            distance={1}
+            distance={2}
           />
         </object3D>
         <mesh
@@ -169,7 +193,8 @@ export default function Model(props) {
             6.634069919586182,
             -4.117544651031494
           ]}
-          castShadow={true}
+          castShadow
+          receiveShadow
         >
           <group
             name="Cube119"
@@ -183,7 +208,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[21].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[21].material}
+                {...defaultMat}
                 name="Material.003"
               />
             </mesh>
@@ -191,7 +216,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[22].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[22].material}
+                {...glowMat}
                 name="Material.002"
               />
             </mesh>
@@ -208,7 +233,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[24].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[24].material}
+                {...defaultMat}
                 name="Material.003"
               />
             </mesh>
@@ -216,7 +241,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[25].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[25].material}
+                {...glowMat}
                 name="Material.002"
               />
             </mesh>
@@ -231,6 +256,8 @@ export default function Model(props) {
             -1.0850317478179932,
             -5.85163688659668
           ]}
+          castShadow
+          receiveShadow
         >
           <bufferGeometry attach="geometry" {...gltf.__$[26].geometry} />
           <meshStandardMaterial attach="material" {...gltf.__$[26].material} />
@@ -238,7 +265,8 @@ export default function Model(props) {
         <mesh
           name="home_bottom_right"
           position={[2.1219847202301025, -2, -4.117544651031494]}
-          receiveShadow={true}
+          castShadow
+          receiveShadow
         >
           <group
             name="Cube121"
@@ -252,7 +280,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[29].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[29].material}
+                {...defaultMat}
                 name="Material.003"
               />
             </mesh>
@@ -260,7 +288,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[30].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[30].material}
+                {...glowMat}
                 name="Material.002"
               />
             </mesh>
@@ -268,13 +296,15 @@ export default function Model(props) {
           <bufferGeometry attach="geometry" {...gltf.__$[27].geometry} />
           <meshStandardMaterial
             attach="material"
-            {...gltf.__$[27].material}
+            {...defaultMat}
             name="Material.003"
           />
         </mesh>
         <mesh
           name="home_top_right"
           position={[4.939019680023193, 4.817034721374512, -5.85163688659668]}
+          castShadow
+          receiveShadow
         >
           <group
             name="Cube122"
@@ -288,7 +318,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[33].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[33].material}
+                {...defaultMat}
                 name="Material.003"
               />
             </mesh>
@@ -296,7 +326,7 @@ export default function Model(props) {
               <bufferGeometry attach="geometry" {...gltf.__$[34].geometry} />
               <meshStandardMaterial
                 attach="material"
-                {...gltf.__$[34].material}
+                {...glowMat}
                 name="Material.002"
               />
             </mesh>
@@ -304,7 +334,7 @@ export default function Model(props) {
           <bufferGeometry attach="geometry" {...gltf.__$[31].geometry} />
           <meshStandardMaterial
             attach="material"
-            {...gltf.__$[31].material}
+            {...defaultMat}
             name="Material.003"
           />
         </mesh>

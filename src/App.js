@@ -2,10 +2,10 @@ import React, { Suspense } from "react";
 import * as THREE from "three";
 import "./App.css";
 import { Canvas } from "react-three-fiber";
-import Model from "./components/scenes/projects";
+import Model from "./components/scenes/home";
 import FallBack from "./FallBack";
 import Effects from "./components/Effects";
-//<fog attach="fog" args={["#141414", 0, 16]} />
+
 function App() {
   return (
     <div style={{ height: "100vh" }}>
@@ -16,22 +16,24 @@ function App() {
           gl.gammaInput = true;
           gl.toneMapping = THREE.Uncharted2ToneMapping;
           gl.alpha = true;
-          gl.setClearColor(new THREE.Color("#141414"));
+          gl.setClearColor(new THREE.Color("#0a0a0a"));
         }}
       >
         <fog attach="fog" args={["#141414", 0, 16]} />
         <Suspense fallback={<FallBack />}>
           <Model />
         </Suspense>
-        <directionalLight
-          color="#60CAE0"
-          intensity={0.5}
-          position={[-4.43, 30.469, -0.163]}
-        />
+
         <Effects />
       </Canvas>
     </div>
   );
 }
-
+/*
+ <directionalLight
+          color="#60CAE0"
+          intensity={0.5}
+          position={[-4.43, 30.469, -0.163]}
+        />
+*/
 export default App;
