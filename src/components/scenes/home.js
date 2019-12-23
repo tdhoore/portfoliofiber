@@ -23,7 +23,6 @@ export default function Model(props) {
   const [mixer] = useState(() => new THREE.AnimationMixer());
   useFrame((state, delta) => mixer.update(delta));
   useEffect(() => {
-    console.log(gltf.animations);
     actions.current = {
       home_bottom_right_anim: mixer.clipAction(
         gltf.animations[0],
@@ -49,6 +48,28 @@ export default function Model(props) {
       actions.current.home_bottom_left_anim.play();
       actions.current.home_top_right_anim.play();
     });
+
+    //tester
+
+    Object.keys(actions.current).forEach(key => {
+      console.log(mixer.time + actions.current[key].getClip().duration - 0.001);
+      /* actions.current[key].startAt(
+        mixer.time + actions.current[key].getClip().duration
+      );*/
+      //time scale for instatnd results
+      actions.current[key].timeScale = 50000;
+      actions.current[key].play();
+    });
+
+    //end tester
+
+    window.addEventListener("resize", () => {
+      //set animations to end
+      Object.keys(actions.current).forEach(key => {
+        actions.current[key].stop();
+      });
+    });
+
     return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
   }, []);
 

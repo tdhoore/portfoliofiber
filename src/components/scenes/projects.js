@@ -36,12 +36,30 @@ export default function Model(props) {
       actions.current[key].clampWhenFinished = true;
       actions.current[key].setLoop(THREE.LoopOnce);
     });
-    console.log();
+
+    Object.keys(actions.current).forEach(key => {
+      /* actions.current[key].startAt(
+        mixer.time + actions.current[key].getClip().duration
+      );*/
+      actions.current[key].timeScale = 50000;
+      actions.current[key].play();
+    });
+
     window.addEventListener("keydown", () => {
       actions.current.blimp.play();
       actions.current.drone1.play();
       actions.current.drone2.play();
     });
+
+    window.addEventListener("resize", () => {
+      //set animations to end
+      Object.keys(actions.current).forEach(key => {
+        actions.current[key].stop();
+        actions.current[key].reset();
+        actions.current[key].play();
+      });
+    });
+
     return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
   }, []);
 
