@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import * as THREE from "three";
 import "./App.css";
 import { Canvas } from "react-three-fiber";
-import Model from "./components/scenes/home";
+import Model from "./components/scenes/about";
 import FallBack from "./FallBack";
 import Effects from "./components/Effects";
 
