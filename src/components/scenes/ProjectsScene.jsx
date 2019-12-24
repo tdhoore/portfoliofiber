@@ -11,7 +11,7 @@ import {
   glowMatPink
 } from "../../material/materials";
 
-export default function Model(props) {
+export default function ProjectsScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
 
@@ -61,7 +61,7 @@ export default function Model(props) {
     });
 
     return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
-  }, []);
+  }, [gltf.animations, mixer]);
 
   return (
     <group ref={group} {...props}>

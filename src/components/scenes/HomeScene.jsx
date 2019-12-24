@@ -11,7 +11,7 @@ import {
   glowMat
 } from "../../material/materials";
 
-export default function Model(props) {
+export default function HomeScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh, loader => {
     const dracoLoader = new DRACOLoader();
@@ -52,10 +52,6 @@ export default function Model(props) {
     //tester
 
     Object.keys(actions.current).forEach(key => {
-      console.log(mixer.time + actions.current[key].getClip().duration - 0.001);
-      /* actions.current[key].startAt(
-        mixer.time + actions.current[key].getClip().duration
-      );*/
       //time scale for instatnd results
       actions.current[key].timeScale = 50000;
       actions.current[key].play();
@@ -67,6 +63,8 @@ export default function Model(props) {
       //set animations to end
       Object.keys(actions.current).forEach(key => {
         actions.current[key].stop();
+
+        actions.current[key].play();
       });
     });
 

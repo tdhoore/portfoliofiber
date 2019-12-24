@@ -23,6 +23,7 @@ code {
   bottom: 0;
   mix-blend-mode: soft-light;
   opacity: 0.1;
+  pointer-events: none;
   background: linear-gradient(
     150deg,
     rgba(255, 68, 180, 1) 0%,

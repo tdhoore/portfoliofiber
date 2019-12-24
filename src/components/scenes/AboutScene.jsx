@@ -10,7 +10,7 @@ import {
   glowMat
 } from "../../material/materials";
 
-export default function Model(props) {
+export default function AboutScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh);
 
