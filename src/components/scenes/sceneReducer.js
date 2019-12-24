@@ -1,7 +1,7 @@
 const initialState = {
   title: "",
   url: "",
-  actions: []
+  actions: {}
 };
 
 export default (state = initialState, action) => {

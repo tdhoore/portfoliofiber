@@ -1,6 +1,5 @@
-import * as THREE from "three";
-import React, { useEffect, useRef } from "react";
-import { useLoader, useFrame } from "react-three-fiber";
+import React, { useRef } from "react";
+import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import homeMesh from "../../meshes/about.gltf";
 import {
@@ -9,8 +8,11 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
+import { clearActions } from "./api";
 
 export default function AboutScene(props) {
+  clearActions();
+
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh);
 

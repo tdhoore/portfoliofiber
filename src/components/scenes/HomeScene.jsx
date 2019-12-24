@@ -10,20 +10,23 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
+import { setActions, clearActions, getCurrentactions } from "./api";
 
 export default function HomeScene(props) {
+  clearActions();
+
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh, loader => {
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath("/draco-gltf/");
     loader.setDRACOLoader(dracoLoader);
   });
-
-  const actions = useRef();
   const [mixer] = useState(() => new THREE.AnimationMixer());
+
   useFrame((state, delta) => mixer.update(delta));
+
   useEffect(() => {
-    actions.current = {
+    const actions = setActions({
       home_bottom_right_anim: mixer.clipAction(
         gltf.animations[0],
         group.current
@@ -34,37 +37,37 @@ export default function HomeScene(props) {
         group.current
       ),
       home_top_right_anim: mixer.clipAction(gltf.animations[3], group.current)
-    };
+    });
 
     //stop itteration
-    Object.keys(actions.current).forEach(key => {
-      actions.current[key].clampWhenFinished = true;
-      actions.current[key].setLoop(THREE.LoopOnce);
+    Object.keys(actions).forEach(key => {
+      actions[key].clampWhenFinished = true;
+      actions[key].setLoop(THREE.LoopOnce);
     });
 
     window.addEventListener("keydown", () => {
-      actions.current.home_bottom_right_anim.play();
-      actions.current.home_top_left_anim.play();
-      actions.current.home_bottom_left_anim.play();
-      actions.current.home_top_right_anim.play();
+      actions.home_bottom_right_anim.play();
+      actions.home_top_left_anim.play();
+      actions.home_bottom_left_anim.play();
+      actions.home_top_right_anim.play();
     });
 
     //tester
 
-    Object.keys(actions.current).forEach(key => {
+    Object.keys(actions).forEach(key => {
       //time scale for instatnd results
-      actions.current[key].timeScale = 50000;
-      actions.current[key].play();
+      actions[key].timeScale = 50000;
+      actions[key].play();
     });
 
     //end tester
 
     window.addEventListener("resize", () => {
       //set animations to end
-      Object.keys(actions.current).forEach(key => {
-        actions.current[key].stop();
+      Object.keys(getCurrentactions()).forEach(key => {
+        actions[key].stop();
 
-        actions.current[key].play();
+        actions[key].play();
       });
     });
 

@@ -1,9 +1,5 @@
-export const setActions = actions => {
+export const actions = actions => {
   return { type: "SET_ACTIONS", payload: actions };
-};
-
-export const clearActions = () => {
-  return setActions([]);
 };
 
 export const titleAndUrl = (title = "", url = "") => {

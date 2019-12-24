@@ -10,8 +10,11 @@ import {
   glowMat,
   glowMatPink
 } from "../../material/materials";
+import { setActions, clearActions, getCurrentactions } from "./api";
 
 export default function ProjectsScene(props) {
+  clearActions();
+
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
 
@@ -19,44 +22,40 @@ export default function ProjectsScene(props) {
   const drone1 = useRef();
   const drone2 = useRef();
 
-  const actions = useRef();
   const [mixer] = useState(() => new THREE.AnimationMixer());
 
   useFrame((state, delta) => mixer.update(delta));
 
   useEffect(() => {
-    actions.current = {
+    const actions = setActions({
       blimp: mixer.clipAction(gltf.animations[0], mainBlimp.current),
       drone1: mixer.clipAction(gltf.animations[1], drone1.current),
       drone2: mixer.clipAction(gltf.animations[2], drone2.current)
-    };
-
-    //stop itteration
-    Object.keys(actions.current).forEach(key => {
-      actions.current[key].clampWhenFinished = true;
-      actions.current[key].setLoop(THREE.LoopOnce);
     });
 
-    Object.keys(actions.current).forEach(key => {
-      /* actions.current[key].startAt(
-        mixer.time + actions.current[key].getClip().duration
-      );*/
-      actions.current[key].timeScale = 50000;
-      actions.current[key].play();
+    //stop itteration
+    Object.keys(actions).forEach(key => {
+      actions[key].clampWhenFinished = true;
+      actions[key].setLoop(THREE.LoopOnce);
+    });
+
+    Object.keys(actions).forEach(key => {
+      actions[key].timeScale = 50000;
+      actions[key].play();
     });
 
     window.addEventListener("keydown", () => {
-      actions.current.blimp.play();
-      actions.current.drone1.play();
-      actions.current.drone2.play();
+      actions.blimp.play();
+      actions.drone1.play();
+      actions.drone2.play();
     });
-
+    console.log(getCurrentactions());
     window.addEventListener("resize", () => {
       //set animations to end
-      Object.keys(actions.current).forEach(key => {
-        actions.current[key].stop();
-        actions.current[key].reset();
-        actions.current[key].play();
+      Object.keys(getCurrentactions()).forEach(key => {
+        actions[key].stop();
+
+        actions[key].play();
       });
     });
 
