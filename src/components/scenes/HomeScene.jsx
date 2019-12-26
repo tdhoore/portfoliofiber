@@ -10,7 +10,12 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
-import { setActions, clearActions, getCurrentactions } from "./api";
+import {
+  setActions,
+  clearActions,
+  getCurrentactions,
+  setCanAnimate
+} from "./api";
 
 export default function HomeScene(props) {
   clearActions();
@@ -21,12 +26,12 @@ export default function HomeScene(props) {
     dracoLoader.setDecoderPath("/draco-gltf/");
     loader.setDRACOLoader(dracoLoader);
   });
+
   const [mixer] = useState(() => new THREE.AnimationMixer());
+  let actions = {};
 
-  useFrame((state, delta) => mixer.update(delta));
-
-  useEffect(() => {
-    const actions = setActions({
+  const setLocalActions = () => {
+    actions = setActions({
       home_bottom_right_anim: mixer.clipAction(
         gltf.animations[0],
         group.current
@@ -44,35 +49,51 @@ export default function HomeScene(props) {
       actions[key].clampWhenFinished = true;
       actions[key].setLoop(THREE.LoopOnce);
     });
+  };
 
-    window.addEventListener("keydown", () => {
-      actions.home_bottom_right_anim.play();
-      actions.home_top_left_anim.play();
-      actions.home_bottom_left_anim.play();
-      actions.home_top_right_anim.play();
-    });
-
-    //tester
-
-    Object.keys(actions).forEach(key => {
-      //time scale for instatnd results
+  const endAnimation = () => {
+    Object.keys(getCurrentactions()).forEach(key => {
       actions[key].timeScale = 50000;
+      actions[key].stop();
       actions[key].play();
     });
 
-    //end tester
+    //disable the animation
+    setCanAnimate("Home", false);
+  };
+
+  const playAnimation = () => {
+    Object.keys(actions).forEach(key => {
+      actions[key].play();
+    });
+
+    //disable the animation
+    setCanAnimate("Home", false);
+  };
+
+  useFrame((state, delta) => mixer.update(delta));
+
+  useEffect(() => {
+    //setup current actions
+    setLocalActions();
+
+    //play init animations
+    if (props.canAnimate) {
+      playAnimation();
+    } else {
+      endAnimation();
+    }
 
     window.addEventListener("resize", () => {
-      //set animations to end
-      Object.keys(getCurrentactions()).forEach(key => {
-        actions[key].stop();
+      //reset local actions
+      setLocalActions();
 
-        actions[key].play();
-      });
+      //set animations to end
+      endAnimation();
     });
 
     return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
-  }, []);
+  }, [gltf.animations, mixer, endAnimation, playAnimation, setLocalActions]);
 
   return (
     <group ref={group} {...props}>

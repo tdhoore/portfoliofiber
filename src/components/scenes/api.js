@@ -1,6 +1,6 @@
 import { store } from "../../redux/configureStore";
 import { push } from "connected-react-router";
-import { titleAndUrl, actions } from "./sceneActions";
+import { titleAndUrl, actions, canAnimateAction } from "./sceneActions";
 
 export const setTitleAndUrl = (title = "", url = "") => {
   store.dispatch(push(url));
@@ -9,7 +9,6 @@ export const setTitleAndUrl = (title = "", url = "") => {
 
 export const setActions = (anims = {}) => {
   store.dispatch(actions(anims));
-  console.log(getCurrentactions());
   return getCurrentactions();
 };
 
@@ -19,4 +18,12 @@ export const clearActions = () => {
 
 export const getCurrentactions = () => {
   return store.getState().sceneReducer.actions;
+};
+
+export const setCanAnimate = (title = "", canAnimate = false) => {
+  store.dispatch(canAnimateAction(title, canAnimate));
+};
+
+export const setAllCanAnimate = (canAnimate = false) => {
+  store.dispatch("", canAnimate);
 };

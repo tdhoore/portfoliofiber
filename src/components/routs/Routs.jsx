@@ -3,22 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import { history } from "../../redux/configureStore";
 import Page from "../core/Page";
+import { useSelector } from "react-redux";
 
 export default function() {
-  const navRoutes = [
-    {
-      title: "Home",
-      url: "/"
-    },
-    {
-      title: "Work",
-      url: "/work"
-    },
-    {
-      title: "About",
-      url: "/about"
-    }
-  ];
+  const navRoutes = useSelector(state => state.sceneReducer.pages);
 
   return (
     <ConnectedRouter history={history}>
