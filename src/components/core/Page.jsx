@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
 import HomeScene from "../scenes/HomeScene";
 import ProjectsScene from "../scenes/ProjectsScene";
@@ -21,6 +21,10 @@ const Page = props => {
         return null;
     }
   };
+
+  useEffect(() => {
+    //set inital scroll controlls
+  }, []);
 
   return (
     <div>

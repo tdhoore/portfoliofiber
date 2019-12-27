@@ -1,0 +1,54 @@
+@import "vars.scss";
+@import "fonts.scss";
+
+::selection {
+  background-color: $pink;
+  color: $textColor;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "rajdhani", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bgColor;
+  overflow: hidden;
+  color: $textColor;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gradiant {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.1;
+  pointer-events: none;
+  background: linear-gradient(150deg, $pink 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+nav {
+  position: absolute;
+  z-index: 1000;
+
+  & li a {
+    text-decoration: none;
+    color: $textColor;
+  }
+}
