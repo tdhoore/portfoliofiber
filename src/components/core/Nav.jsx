@@ -1,23 +1,20 @@
 import React from "react";
-import { setTitleAndUrl } from "../scenes/api";
+import { setCurretPageIndex } from "../scenes/api";
 
 const Nav = props => {
   const handleClickNav = e => {
     e.preventDefault();
-    setTitleAndUrl(
-      e.currentTarget.textContent,
-      e.currentTarget.getAttribute("href")
-    );
+    setCurretPageIndex(parseInt(e.currentTarget.dataset.index, 10));
   };
 
   return (
     <div>
       <nav>
         <ul>
-          {props.routes.map(route => {
+          {props.routes.map((route, index) => {
             return (
               <li key={route.url}>
-                <a href={route.url} onClick={handleClickNav}>
+                <a href={route.url} onClick={handleClickNav} data-index={index}>
                   {route.title}
                 </a>
               </li>

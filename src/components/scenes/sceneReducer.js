@@ -1,6 +1,4 @@
 const initialState = {
-  title: "",
-  url: "",
   pages: [
     {
       title: "Home",
@@ -18,6 +16,7 @@ const initialState = {
       canAnimate: true
     }
   ],
+  currentPageIndex: 0,
   actions: {}
 };
 
@@ -28,16 +27,11 @@ export default (state = initialState, action) => {
         ...state,
         actions: action.payload
       };
-    case "SET_TITLE_URL":
-      return {
-        ...state,
-        ...action.payload
-      };
     case "SET_CANANIMATE":
       const pages = state.pages.map(page => {
         if (
           page.title.toLowerCase() === action.payload.title.toLowerCase() ||
-          page.title === ""
+          action.payload.title === ""
         ) {
           //set animation
           page.canAnimate = action.payload.canAnimate;
@@ -49,6 +43,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         ...pages
+      };
+    case "SET_CURRENTPAGE":
+      return {
+        ...state,
+        ...action.payload
       };
     default:
       return state;

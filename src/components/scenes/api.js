@@ -1,11 +1,6 @@
 import { store } from "../../redux/configureStore";
 import { push } from "connected-react-router";
-import { titleAndUrl, actions, canAnimateAction } from "./sceneActions";
-
-export const setTitleAndUrl = (title = "", url = "") => {
-  store.dispatch(push(url));
-  store.dispatch(titleAndUrl(title, url));
-};
+import { actions, canAnimateAction, curretPageIndex } from "./sceneActions";
 
 export const setActions = (anims = {}) => {
   store.dispatch(actions(anims));
@@ -25,5 +20,30 @@ export const setCanAnimate = (title = "", canAnimate = false) => {
 };
 
 export const setAllCanAnimate = (canAnimate = false) => {
-  store.dispatch("", canAnimate);
+  store.dispatch(canAnimateAction("", canAnimate));
+};
+
+export const getCurrentPageIndex = () => {
+  return store.getState().sceneReducer.currentPageIndex;
+};
+
+export const setCurretPageIndex = (index, animate = false) => {
+  const pages = store.getState().sceneReducer.pages;
+
+  if (index >= 0 && pages.length > index) {
+    //index is present so change it
+    if (!animate) {
+      console.log("dfgfdg");
+      //if a nav item is pressed disable all animation from here on out
+      setAllCanAnimate();
+
+      //push a new url and set the new page index
+      store.dispatch(push(pages[index].url));
+      store.dispatch(curretPageIndex(index));
+    } else {
+      //
+      //store.dispatch(push(pages[index].url));
+      //store.dispatch(curretPageIndex(index));
+    }
+  }
 };
