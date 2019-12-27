@@ -5,9 +5,21 @@ import ProjectsScene from "../scenes/ProjectsScene";
 import AboutScene from "../scenes/AboutScene";
 import BaseScene from "../scenes/BaseScene";
 import { useSelector } from "react-redux";
+import ScrollController from "../core/ScrollController";
+
+const scrollController = new ScrollController();
 
 const Page = props => {
   const pages = useSelector(state => state.sceneReducer.pages);
+  const currentPageIndex = useSelector(
+    state => state.sceneReducer.currentPageIndex
+  );
+
+  //add listender
+  scrollController.addListener();
+
+  //check if animating
+  scrollController.updateCanAnimate(currentPageIndex);
 
   const getScene = sceneName => {
     switch (sceneName) {
@@ -21,10 +33,6 @@ const Page = props => {
         return null;
     }
   };
-
-  useEffect(() => {
-    //set inital scroll controlls
-  }, []);
 
   return (
     <div>

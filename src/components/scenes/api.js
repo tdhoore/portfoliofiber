@@ -27,23 +27,27 @@ export const getCurrentPageIndex = () => {
   return store.getState().sceneReducer.currentPageIndex;
 };
 
-export const setCurretPageIndex = (index, animate = false) => {
+export const setCurretPageIndex = (
+  index,
+  animate = false,
+  disableAll = false
+) => {
   const pages = store.getState().sceneReducer.pages;
 
   if (index >= 0 && pages.length > index) {
     //index is present so change it
     if (!animate) {
-      console.log("dfgfdg");
       //if a nav item is pressed disable all animation from here on out
-      setAllCanAnimate();
+      if (disableAll) {
+        setAllCanAnimate();
+      }
 
       //push a new url and set the new page index
       store.dispatch(push(pages[index].url));
       store.dispatch(curretPageIndex(index));
     } else {
-      //
-      //store.dispatch(push(pages[index].url));
-      //store.dispatch(curretPageIndex(index));
+      //play outroAnimation
+      //then in the hook itself use this function to set the new index
     }
   }
 };

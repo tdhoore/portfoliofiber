@@ -5,6 +5,7 @@ export default class ScrollController {
     this.listenerExists = false;
 
     this.dir = 0;
+    this.currentPageIndex = 0;
 
     this.isAnimating = false;
   }
@@ -18,19 +19,29 @@ export default class ScrollController {
     }
   }
 
+  updateCanAnimate(newIndex) {
+    if (newIndex !== this.currentPageIndex) {
+      this.isAnimating = false;
+    }
+  }
+
   handleScoll(e) {
     if (!this.isAnimating) {
       //wait for the animation or task to complete
       this.isAnimating = true;
 
       if (e.deltaY < 0) {
-        this.dir = 1;
-      } else {
         this.dir = -1;
+      } else {
+        this.dir = 1;
       }
 
+      //set currentIndex
+      this.currentPageIndex = getCurrentPageIndex();
+
+      console.log("scroll" + (this.currentPageIndex + this.dir));
       //next scene
-      setCurretPageIndex(getCurrentPageIndex() + this.dir, true);
+      setCurretPageIndex(this.currentPageIndex + this.dir, true);
     }
   }
 }

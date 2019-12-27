@@ -4,7 +4,11 @@ import { setCurretPageIndex } from "../scenes/api";
 const Nav = props => {
   const handleClickNav = e => {
     e.preventDefault();
-    setCurretPageIndex(parseInt(e.currentTarget.dataset.index, 10));
+    setCurretPageIndex(
+      parseInt(e.currentTarget.dataset.index, 10),
+      false,
+      true
+    );
   };
 
   return (
