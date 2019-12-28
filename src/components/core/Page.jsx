@@ -36,6 +36,7 @@ const Page = props => {
   return (
     <div>
       <Nav routes={props.allRoutes} />
+
       <BaseScene currentScene={getScene(props.route.title)} />
     </div>
   );

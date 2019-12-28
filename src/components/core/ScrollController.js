@@ -39,7 +39,6 @@ export default class ScrollController {
       //set currentIndex
       this.currentPageIndex = getCurrentPageIndex();
 
-      console.log("scroll " + (this.currentPageIndex + this.dir));
       //next scene
       setCurretPageIndex(this.currentPageIndex + this.dir, true);
     }

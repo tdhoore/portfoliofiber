@@ -17,9 +17,22 @@ import {
   setCanAnimate,
   getCanAnimate
 } from "./api";
+import { useSpring, animated as a } from "react-spring/three";
 
 export default function HomeScene(props) {
   clearActions();
+  let isOutroSet = false;
+
+  //spring animations
+  const [outroAnim, setOutroAnim] = useSpring(() => ({
+    position: [0, 0, 0],
+    config: { mass: 5, tension: 350, friction: 100 },
+    onRest: () => {
+      if (isOutroSet) {
+        console.log("tester");
+      }
+    }
+  }));
 
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh, loader => {
@@ -72,6 +85,11 @@ export default function HomeScene(props) {
     setCanAnimate("Home", false);
   };
 
+  const outroAnimation = () => {
+    isOutroSet = true;
+    setOutroAnim({ position: [0, 0, 5] });
+  };
+
   useFrame((state, delta) => mixer.update(delta));
 
   useEffect(() => {
@@ -93,11 +111,15 @@ export default function HomeScene(props) {
       endAnimation();
     });
 
+    window.addEventListener("keydown", () => {
+      outroAnimation();
+    });
+
     return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
   }, [gltf.animations, mixer, endAnimation, playAnimation, setLocalActions]);
 
   return (
-    <group ref={group} {...props}>
+    <a.group ref={group} {...props} {...outroAnim}>
       <scene name="Scene">
         <object3D
           name="Point029"
@@ -383,6 +405,6 @@ export default function HomeScene(props) {
           />
         </mesh>
       </scene>
-    </group>
+    </a.group>
   );
 }

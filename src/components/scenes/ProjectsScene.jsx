@@ -72,7 +72,7 @@ export default function ProjectsScene(props) {
     setLocalActions();
 
     //play init animations
-    if (getCanAnimate("Home")) {
+    if (getCanAnimate("Work")) {
       playAnimation();
     } else {
       endAnimation();
