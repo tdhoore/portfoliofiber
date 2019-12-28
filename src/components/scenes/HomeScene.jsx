@@ -16,14 +16,22 @@ import {
   getCurrentactions,
   setCanAnimate,
   getCanAnimate,
-  setCurretPageIndex
+  setCurretPageIndex,
+  setInitCurretPageIndex
 } from "./api";
 import { useSpring, animated as a } from "react-spring/three";
 
 export default function HomeScene(props) {
+  //clear all animations
   clearActions();
+
+  //set init page index
+  setInitCurretPageIndex(0);
+
+  //check if the outro needs to be played
   let isOutroSet = false;
 
+  //add the scroll class
   const scroll = props.scrollController;
 
   //spring animations
@@ -89,8 +97,16 @@ export default function HomeScene(props) {
   };
 
   const outroAnimation = () => {
-    isOutroSet = true;
-    setOutroAnim({ position: [0, 0, 5] });
+    if (getCanAnimate("Work")) {
+      isOutroSet = true;
+
+      //disable the animation
+      setCanAnimate("Home", false);
+
+      setOutroAnim({ position: [0, 0, 5] });
+    } else {
+      setCurretPageIndex(1);
+    }
   };
 
   useFrame((state, delta) => mixer.update(delta));
@@ -98,6 +114,9 @@ export default function HomeScene(props) {
   useEffect(() => {
     //setup current actions
     setLocalActions();
+
+    //this hook is made so there is no animation happening
+    scroll.isAnimating = false;
 
     //play init animations
     if (getCanAnimate("Home")) {

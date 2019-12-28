@@ -42,10 +42,12 @@ export default class ScrollController {
       this.currentPageIndex = getCurrentPageIndex();
 
       //trigger the outro animation
-      window.dispatchEvent(this.playOutroEvent);
+      if (this.dir > 0) {
+        window.dispatchEvent(this.playOutroEvent);
+      }
 
       //next scene
-      setCurretPageIndex(this.currentPageIndex + this.dir, true);
+      setCurretPageIndex(this.currentPageIndex + this.dir, this.dir > 0);
     }
   }
 }

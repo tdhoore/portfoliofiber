@@ -15,11 +15,35 @@ import {
   clearActions,
   getCurrentactions,
   setCanAnimate,
-  getCanAnimate
+  getCanAnimate,
+  setCurretPageIndex,
+  setInitCurretPageIndex
 } from "./api";
+import { useSpring, animated as a } from "react-spring/three";
 
 export default function ProjectsScene(props) {
+  //clear all animations
   clearActions();
+
+  //set init page index
+  setInitCurretPageIndex(1);
+
+  //check if the outro needs to be played
+  let isOutroSet = false;
+
+  //add the scroll class
+  const scroll = props.scrollController;
+
+  //spring animations
+  const [outroAnim, setOutroAnim] = useSpring(() => ({
+    position: [0, 0, 0],
+    config: { mass: 5, tension: 350, friction: 100 },
+    onRest: () => {
+      if (isOutroSet) {
+        setCurretPageIndex(2);
+      }
+    }
+  }));
 
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
@@ -65,11 +89,27 @@ export default function ProjectsScene(props) {
     setCanAnimate("Work", false);
   };
 
+  const outroAnimation = () => {
+    if (getCanAnimate("About")) {
+      isOutroSet = true;
+
+      //disable the animation
+      setCanAnimate("Work", false);
+
+      setOutroAnim({ position: [0, 7, 0] });
+    } else {
+      setCurretPageIndex(1);
+    }
+  };
+
   useFrame((state, delta) => mixer.update(delta));
 
   useEffect(() => {
     //setup current actions
     setLocalActions();
+
+    //this hook is made so there is no animation happening
+    scroll.isAnimating = false;
 
     //play init animations
     if (getCanAnimate("Work")) {
@@ -86,11 +126,15 @@ export default function ProjectsScene(props) {
       endAnimation();
     });
 
+    window.addEventListener("playOutro", () => {
+      outroAnimation();
+    });
+
     return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
   }, [gltf.animations, mixer, endAnimation, playAnimation, setLocalActions]);
 
   return (
-    <group ref={group} {...props}>
+    <a.group ref={group} {...props} {...outroAnim}>
       <scene name="Scene">
         <group
           name="blimp001"
@@ -252,6 +296,6 @@ export default function ProjectsScene(props) {
           </group>
         </group>
       </scene>
-    </group>
+    </a.group>
   );
 }

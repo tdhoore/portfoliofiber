@@ -25,9 +25,9 @@ const Page = props => {
       case "Home":
         return <HomeScene scrollController={scrollController} />;
       case "Work":
-        return <ProjectsScene />;
+        return <ProjectsScene scrollController={scrollController} />;
       case "About":
-        return <AboutScene />;
+        return <AboutScene scrollController={scrollController} />;
       default:
         return null;
     }
@@ -36,7 +36,6 @@ const Page = props => {
   return (
     <div>
       <Nav routes={props.allRoutes} />
-
       <BaseScene currentScene={getScene(props.route.title)} />
     </div>
   );

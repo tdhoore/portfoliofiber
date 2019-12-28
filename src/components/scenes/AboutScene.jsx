@@ -8,10 +8,13 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
-import { clearActions } from "./api";
+import { clearActions, setInitCurretPageIndex } from "./api";
 
 export default function AboutScene(props) {
   clearActions();
+
+  //set init page index
+  setInitCurretPageIndex(2);
 
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh);

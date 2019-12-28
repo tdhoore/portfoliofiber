@@ -40,8 +40,12 @@ export const getCurrentPageIndex = () => {
   return store.getState().sceneReducer.currentPageIndex;
 };
 
+export const setInitCurretPageIndex = index => {
+  store.dispatch(curretPageIndex(index));
+};
+
 export const setCurretPageIndex = (
-  index,
+  index = -1,
   animate = false,
   disableAll = false
 ) => {
@@ -54,7 +58,7 @@ export const setCurretPageIndex = (
       if (disableAll) {
         setAllCanAnimate();
       }
-
+      console.log("fdgfdg");
       //push a new url and set the new page index
       store.dispatch(push(pages[index].url));
       store.dispatch(curretPageIndex(index));
