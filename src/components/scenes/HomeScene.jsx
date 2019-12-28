@@ -15,7 +15,8 @@ import {
   clearActions,
   getCurrentactions,
   setCanAnimate,
-  getCanAnimate
+  getCanAnimate,
+  setCurretPageIndex
 } from "./api";
 import { useSpring, animated as a } from "react-spring/three";
 
@@ -23,13 +24,15 @@ export default function HomeScene(props) {
   clearActions();
   let isOutroSet = false;
 
+  const scroll = props.scrollController;
+
   //spring animations
   const [outroAnim, setOutroAnim] = useSpring(() => ({
     position: [0, 0, 0],
     config: { mass: 5, tension: 350, friction: 100 },
     onRest: () => {
       if (isOutroSet) {
-        console.log("tester");
+        setCurretPageIndex(1);
       }
     }
   }));
@@ -111,7 +114,7 @@ export default function HomeScene(props) {
       endAnimation();
     });
 
-    window.addEventListener("keydown", () => {
+    window.addEventListener("playOutro", () => {
       outroAnimation();
     });
 

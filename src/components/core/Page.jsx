@@ -23,7 +23,7 @@ const Page = props => {
   const getScene = sceneName => {
     switch (sceneName) {
       case "Home":
-        return <HomeScene />;
+        return <HomeScene scrollController={scrollController} />;
       case "Work":
         return <ProjectsScene />;
       case "About":

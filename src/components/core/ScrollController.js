@@ -2,11 +2,13 @@ import { setCurretPageIndex, getCurrentPageIndex } from "../scenes/api";
 
 export default class ScrollController {
   constructor() {
+    this.playOutroEvent = new Event("playOutro");
     this.listenerExists = false;
 
     this.dir = 0;
     this.currentPageIndex = 0;
 
+    this.outroAnimFunc = false;
     this.isAnimating = false;
   }
 
@@ -38,6 +40,9 @@ export default class ScrollController {
 
       //set currentIndex
       this.currentPageIndex = getCurrentPageIndex();
+
+      //trigger the outro animation
+      window.dispatchEvent(this.playOutroEvent);
 
       //next scene
       setCurretPageIndex(this.currentPageIndex + this.dir, true);
