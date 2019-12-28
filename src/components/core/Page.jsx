@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Nav from "./Nav";
 import HomeScene from "../scenes/HomeScene";
 import ProjectsScene from "../scenes/ProjectsScene";
@@ -10,7 +10,6 @@ import ScrollController from "../core/ScrollController";
 const scrollController = new ScrollController();
 
 const Page = props => {
-  const pages = useSelector(state => state.sceneReducer.pages);
   const currentPageIndex = useSelector(
     state => state.sceneReducer.currentPageIndex
   );
@@ -24,11 +23,11 @@ const Page = props => {
   const getScene = sceneName => {
     switch (sceneName) {
       case "Home":
-        return <HomeScene canAnimate={pages[0].canAnimate} />;
+        return <HomeScene />;
       case "Work":
-        return <ProjectsScene canAnimate={pages[1].canAnimate} />;
+        return <ProjectsScene />;
       case "About":
-        return <AboutScene canAnimate={pages[2].canAnimate} />;
+        return <AboutScene />;
       default:
         return null;
     }

@@ -19,6 +19,19 @@ export const setCanAnimate = (title = "", canAnimate = false) => {
   store.dispatch(canAnimateAction(title, canAnimate));
 };
 
+export const getCanAnimate = (title = "") => {
+  const pages = store.getState().sceneReducer.pages;
+  let result = true;
+
+  pages.forEach(page => {
+    if (page.title.toLowerCase() === title.toLowerCase()) {
+      result = page.canAnimate;
+    }
+  });
+
+  return result;
+};
+
 export const setAllCanAnimate = (canAnimate = false) => {
   store.dispatch(canAnimateAction("", canAnimate));
 };

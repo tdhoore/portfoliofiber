@@ -14,7 +14,8 @@ import {
   setActions,
   clearActions,
   getCurrentactions,
-  setCanAnimate
+  setCanAnimate,
+  getCanAnimate
 } from "./api";
 
 export default function ProjectsScene(props) {
@@ -71,7 +72,7 @@ export default function ProjectsScene(props) {
     setLocalActions();
 
     //play init animations
-    if (props.canAnimate) {
+    if (getCanAnimate("Home")) {
       playAnimation();
     } else {
       endAnimation();
