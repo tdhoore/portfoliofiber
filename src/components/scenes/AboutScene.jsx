@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import homeMesh from "../../meshes/about.gltf";
@@ -8,7 +8,13 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
-import { clearActions, setInitCurretPageIndex } from "./api";
+import {
+  clearActions,
+  setInitCurretPageIndex,
+  getCanAnimate,
+  setAllCanAnimate
+} from "./api";
+import { useSpring, animated as a } from "react-spring/three";
 
 export default function AboutScene(props) {
   clearActions();
@@ -19,8 +25,27 @@ export default function AboutScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh);
 
+  //spring animations
+  const [introAnim, setIntroAnim] = useSpring(() => ({
+    position: [0, -10, 0],
+    config: getCanAnimate("About")
+      ? { mass: 5, tension: 350, friction: 100 }
+      : { duration: 1 }
+  }));
+
+  useEffect(() => {
+    playIntro();
+  });
+
+  const playIntro = () => {
+    setIntroAnim({ position: [0, 0, 0] });
+
+    //disable the animation
+    setAllCanAnimate(false);
+  };
+
   return (
-    <group ref={group} {...props}>
+    <a.group ref={group} {...props} {...introAnim}>
       <scene name="Scene">
         <object3D
           name="Point037"
@@ -320,6 +345,6 @@ export default function AboutScene(props) {
           <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
       </scene>
-    </group>
+    </a.group>
   );
 }

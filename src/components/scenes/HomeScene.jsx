@@ -31,9 +31,6 @@ export default function HomeScene(props) {
   //check if the outro needs to be played
   let isOutroSet = false;
 
-  //add the scroll class
-  const scroll = props.scrollController;
-
   //spring animations
   const [outroAnim, setOutroAnim] = useSpring(() => ({
     position: [0, 0, 0],
@@ -114,9 +111,6 @@ export default function HomeScene(props) {
   useEffect(() => {
     //setup current actions
     setLocalActions();
-
-    //this hook is made so there is no animation happening
-    scroll.isAnimating = false;
 
     //play init animations
     if (getCanAnimate("Home")) {

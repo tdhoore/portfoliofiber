@@ -10,6 +10,8 @@ export default class ScrollController {
 
     this.outroAnimFunc = false;
     this.isAnimating = false;
+
+    this.timeOut = 1000;
   }
 
   addListener() {
@@ -23,7 +25,7 @@ export default class ScrollController {
 
   updateCanAnimate(newIndex) {
     if (newIndex !== this.currentPageIndex) {
-      this.isAnimating = false;
+      //this.isAnimating = false;
     }
   }
 
@@ -48,6 +50,11 @@ export default class ScrollController {
 
       //next scene
       setCurretPageIndex(this.currentPageIndex + this.dir, this.dir > 0);
+
+      //add control back after a wile
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, this.timeOut);
     }
   }
 }

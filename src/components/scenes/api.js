@@ -58,7 +58,7 @@ export const setCurretPageIndex = (
       if (disableAll) {
         setAllCanAnimate();
       }
-      console.log("fdgfdg");
+
       //push a new url and set the new page index
       store.dispatch(push(pages[index].url));
       store.dispatch(curretPageIndex(index));

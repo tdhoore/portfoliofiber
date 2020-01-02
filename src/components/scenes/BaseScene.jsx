@@ -10,10 +10,12 @@ const BasicScene = props => {
       <Canvas
         camera={{ position: [0, 2.16, 0], fov: 35 }}
         onCreated={({ gl }) => {
-          gl.gammaInput = true;
-          gl.toneMapping = THREE.Uncharted2ToneMapping;
-          gl.alpha = true;
-          gl.setClearColor(new THREE.Color("#0a0a0a"));
+          if (gl) {
+            gl.gammaInput = true;
+            gl.toneMapping = THREE.Uncharted2ToneMapping;
+            gl.alpha = true;
+            gl.setClearColor(new THREE.Color("#0a0a0a"));
+          }
         }}
       >
         <fog attach="fog" args={["#0a0a0a", 0, 16]} />

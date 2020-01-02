@@ -31,9 +31,6 @@ export default function ProjectsScene(props) {
   //check if the outro needs to be played
   let isOutroSet = false;
 
-  //add the scroll class
-  const scroll = props.scrollController;
-
   //spring animations
   const [outroAnim, setOutroAnim] = useSpring(() => ({
     position: [0, 0, 0],
@@ -98,7 +95,7 @@ export default function ProjectsScene(props) {
 
       setOutroAnim({ position: [0, 7, 0] });
     } else {
-      setCurretPageIndex(1);
+      setCurretPageIndex(2);
     }
   };
 
@@ -107,9 +104,6 @@ export default function ProjectsScene(props) {
   useEffect(() => {
     //setup current actions
     setLocalActions();
-
-    //this hook is made so there is no animation happening
-    scroll.isAnimating = false;
 
     //play init animations
     if (getCanAnimate("Work")) {
