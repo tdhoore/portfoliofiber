@@ -17,6 +17,7 @@ const initialState = {
     }
   ],
   currentPageIndex: 0,
+  glitch: false,
   actions: {}
 };
 
@@ -45,6 +46,11 @@ export default (state = initialState, action) => {
         ...pages
       };
     case "SET_CURRENTPAGE":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "SET_GLITCH":
       return {
         ...state,
         ...action.payload

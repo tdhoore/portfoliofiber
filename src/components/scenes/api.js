@@ -1,6 +1,11 @@
 import { store } from "../../redux/configureStore";
 import { push } from "connected-react-router";
-import { actions, canAnimateAction, curretPageIndex } from "./sceneActions";
+import {
+  actions,
+  canAnimateAction,
+  curretPageIndex,
+  glitch
+} from "./sceneActions";
 
 export const setActions = (anims = {}) => {
   store.dispatch(actions(anims));
@@ -57,6 +62,9 @@ export const setCurretPageIndex = (
       //if a nav item is pressed disable all animation from here on out
       if (disableAll) {
         setAllCanAnimate();
+
+        //play the glitch animation
+        playGlitch();
       }
 
       //push a new url and set the new page index
@@ -67,4 +75,13 @@ export const setCurretPageIndex = (
       //then in the hook itself use this function to set the new index
     }
   }
+};
+
+export const playGlitch = () => {
+  store.dispatch(glitch(true));
+
+  //deactivate after timer
+  setTimeout(() => {
+    store.dispatch(glitch(false));
+  }, 250);
 };

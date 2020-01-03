@@ -9,3 +9,7 @@ export const canAnimateAction = (title = "", canAnimate = false) => {
 export const curretPageIndex = (currentPageIndex = 0) => {
   return { type: "SET_CURRENTPAGE", payload: { currentPageIndex } };
 };
+
+export const glitch = (glitch = false) => {
+  return { type: "SET_GLITCH", payload: { glitch } };
+};
