@@ -17,7 +17,8 @@ import {
   setCanAnimate,
   getCanAnimate,
   setCurretPageIndex,
-  setInitCurretPageIndex
+  setInitCurretPageIndex,
+  playGlitch
 } from "./api";
 import { useSpring, animated as a } from "react-spring/three";
 
@@ -110,6 +111,8 @@ export default function ProjectsScene(props) {
       playAnimation();
     } else {
       endAnimation();
+
+      playGlitch();
     }
 
     window.addEventListener("resize", () => {

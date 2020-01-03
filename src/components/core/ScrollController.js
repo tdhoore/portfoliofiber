@@ -49,7 +49,12 @@ export default class ScrollController {
       }
 
       //next scene
-      setCurretPageIndex(this.currentPageIndex + this.dir, this.dir > 0);
+      setCurretPageIndex(
+        this.currentPageIndex + this.dir,
+        this.dir > 0,
+        false,
+        this.dir < 0
+      );
 
       //add control back after a wile
       setTimeout(() => {

@@ -62,9 +62,6 @@ export const setCurretPageIndex = (
       //if a nav item is pressed disable all animation from here on out
       if (disableAll) {
         setAllCanAnimate();
-
-        //play the glitch animation
-        playGlitch();
       }
 
       //push a new url and set the new page index

@@ -12,7 +12,8 @@ import {
   clearActions,
   setInitCurretPageIndex,
   getCanAnimate,
-  setAllCanAnimate
+  setAllCanAnimate,
+  playGlitch
 } from "./api";
 import { useSpring, animated as a } from "react-spring/three";
 
@@ -25,16 +26,23 @@ export default function AboutScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh);
 
+  const canAnimate = getCanAnimate("About");
+  console.log();
   //spring animations
   const [introAnim, setIntroAnim] = useSpring(() => ({
     position: [0, -10, 0],
-    config: getCanAnimate("About")
+    config: canAnimate
       ? { mass: 5, tension: 350, friction: 100 }
       : { duration: 1 }
   }));
 
   useEffect(() => {
     playIntro();
+
+    //play glitch if needed
+    if (!canAnimate) {
+      playGlitch();
+    }
   });
 
   const playIntro = () => {
