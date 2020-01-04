@@ -13,7 +13,7 @@ const Nav = props => {
   };
 
   return (
-    <div>
+    <div className="mainNav">
       <nav>
         <ul>
           {props.routes.map((route, index) => {

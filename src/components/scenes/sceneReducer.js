@@ -11,7 +11,7 @@ const initialState = {
       canAnimate: true
     },
     {
-      title: "About",
+      title: "Chat",
       url: "/about",
       canAnimate: true
     }

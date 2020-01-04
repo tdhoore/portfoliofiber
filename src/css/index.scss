@@ -43,12 +43,73 @@ ul {
   background: linear-gradient(150deg, $pink 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-nav {
+.mainNav {
   position: absolute;
+  top: 0;
+  left: 50%;
   z-index: 1000;
+  transform: translateX(-50%);
+
+  & ul {
+    display: flex;
+  }
 
   & li a {
+    position: relative;
+    display: block;
     text-decoration: none;
     color: $textColor;
+    font-family: "press_start", "impact", sans-serif;
+    padding: $pad * 4;
+    font-size: $pad * 2;
+  }
+
+  & li a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: $pad * 2;
+    left: $pad * 2;
+    z-index: -1;
+    background-color: #fff;
+    //background-image: url("../assets/img/texture.gif");
+    width: calc(100% - 3.2rem);
+    height: calc(100% - 3.2rem);
+    opacity: 0;
+  }
+
+  & li a:hover {
+    color: #000;
+  }
+
+  & li a:hover::before {
+    opacity: 1;
+    animation: buttonOnFlicker 150ms;
+  }
+}
+
+@keyframes buttonOnFlicker {
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
