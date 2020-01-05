@@ -74,8 +74,8 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #000;
-    filter: blur(4rem);
+    background-color: $bgColor;
+    filter: blur(2rem);
   }
 }
 
