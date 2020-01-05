@@ -35,8 +35,15 @@ const Page = props => {
 
   return (
     <div>
-      <Nav routes={props.allRoutes} />
-      <BaseScene currentScene={getScene(props.route.title)} />
+      <header className="mainHeader">
+        <h1 className="mainTitle">
+          <span>Tim D'hoore</span>
+        </h1>
+        <Nav routes={props.allRoutes} />
+      </header>
+      <main>
+        <BaseScene currentScene={getScene(props.route.title)} />
+      </main>
     </div>
   );
 };

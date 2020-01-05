@@ -1,5 +1,6 @@
 @import "vars.scss";
 @import "fonts.scss";
+@import "animation.scss";
 
 ::selection {
   background-color: $pink;
@@ -24,6 +25,19 @@ body {
   color: $textColor;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -43,13 +57,35 @@ ul {
   background: linear-gradient(150deg, $pink 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.mainNav {
+.mainHeader {
   position: absolute;
-  top: 0;
-  left: 50%;
+  top: $pad * 3;
+  right: $pad * 3;
   z-index: 1000;
-  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
 
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    filter: blur(4rem);
+  }
+}
+
+.mainTitle {
+  & span {
+    display: none;
+  }
+}
+
+.mainNav {
   & ul {
     display: flex;
   }
@@ -59,22 +95,36 @@ ul {
     display: block;
     text-decoration: none;
     color: $textColor;
-    font-family: "press_start", "impact", sans-serif;
-    padding: $pad * 4;
+    margin: 0 $pad;
+    padding: $pad $pad * 2;
     font-size: $pad * 2;
+    border-width: $line;
+    border-style: solid;
   }
 
   & li a::before {
     content: "";
     display: block;
     position: absolute;
-    top: $pad * 2;
-    left: $pad * 2;
-    z-index: -1;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: #fff;
-    //background-image: url("../assets/img/texture.gif");
-    width: calc(100% - 3.2rem);
-    height: calc(100% - 3.2rem);
+    opacity: 0;
+  }
+
+  & li a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/img/texture.gif);
     opacity: 0;
   }
 
@@ -86,30 +136,17 @@ ul {
     opacity: 1;
     animation: buttonOnFlicker 150ms;
   }
+
+  & li a:hover::after {
+    opacity: 0.1;
+    animation: buttonOnFlickerGrain 150ms;
+  }
 }
 
-@keyframes buttonOnFlicker {
-  0% {
-    opacity: 0;
-  }
+.notSelectedNav {
+  border-color: rgba(255, 255, 255, 0);
+}
 
-  45% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  75% {
-    opacity: 1;
-  }
-
-  80% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.selectedNav {
+  border-color: $textColor;
 }

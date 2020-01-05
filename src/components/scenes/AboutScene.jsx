@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import homeMesh from "../../meshes/about.gltf";
+import aboutMesh from "../../meshes/about.gltf";
 import {
   blueColor,
   pinkColor,
@@ -24,10 +24,10 @@ export default function AboutScene(props) {
   setInitCurretPageIndex(2);
 
   const group = useRef();
-  const gltf = useLoader(GLTFLoader, homeMesh);
+  const gltf = useLoader(GLTFLoader, aboutMesh);
 
   const canAnimate = getCanAnimate("About");
-  console.log();
+  console.log(canAnimate);
   //spring animations
   const [introAnim, setIntroAnim] = useSpring(() => ({
     position: [0, -10, 0],
