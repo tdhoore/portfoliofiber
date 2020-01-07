@@ -68,7 +68,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
             distance={4}
-            intensity={0}
+            intensity={0.2}
           />
         </object3D>
         <object3D
@@ -84,7 +84,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
             distance={0.25}
-            intensity={30}
+            intensity={1}
           />
         </object3D>
         <object3D
@@ -100,7 +100,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
             distance={7}
-            intensity={1}
+            intensity={0.4}
           />
         </object3D>
         <object3D
@@ -116,7 +116,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
             distance={1.79}
-            intensity={4}
+            intensity={1}
           />
         </object3D>
         <object3D
@@ -132,7 +132,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
             distance={8}
-            intensity={4}
+            intensity={0.3}
           />
         </object3D>
         <object3D
@@ -144,7 +144,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
             distance={3}
-            intensity={2}
+            intensity={0.5}
           />
         </object3D>
         <object3D
@@ -159,8 +159,8 @@ export default function AboutScene(props) {
             name="Point043_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
-            distance={2.66}
-            intensity={10}
+            distance={4.66}
+            intensity={1}
           />
         </object3D>
         <object3D
@@ -172,7 +172,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
             distance={2.66}
-            intensity={10}
+            intensity={1}
           />
         </object3D>
         <object3D
@@ -184,7 +184,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={blueColor}
             distance={2.66}
-            intensity={10}
+            intensity={1}
           />
         </object3D>
         <mesh

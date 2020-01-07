@@ -28,7 +28,7 @@ export default function BgPillars(props) {
   });
 
   return (
-    <a.group ref={group} {...props} {...posAnim} scale={[1, 2, 1]}>
+    <a.group ref={group} {...props} {...posAnim}>
       <scene name="Scene">
         <mesh
           name="Cube132"

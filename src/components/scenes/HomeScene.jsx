@@ -107,6 +107,15 @@ export default function HomeScene(props) {
     }
   };
 
+  const resizeHome = () => {
+    console.log("I'm resizing");
+    //reset local actions
+    setLocalActions();
+
+    //set animations to end
+    endAnimation();
+  };
+
   useFrame((state, delta) => mixer.update(delta));
 
   useEffect(() => {
@@ -122,19 +131,17 @@ export default function HomeScene(props) {
       playGlitch();
     }
 
-    window.addEventListener("resize", () => {
-      //reset local actions
-      setLocalActions();
+    window.addEventListener("resize", resizeHome);
 
-      //set animations to end
-      endAnimation();
-    });
+    window.addEventListener("playOutro", outroAnimation);
 
-    window.addEventListener("playOutro", () => {
-      outroAnimation();
-    });
+    return () => {
+      //remove listeners
+      window.removeEventListener("resize", resizeHome);
+      window.removeEventListener("playOutro", outroAnimation);
 
-    return () => gltf.animations.forEach(clip => mixer.uncacheClip(clip));
+      return gltf.animations.forEach(clip => mixer.uncacheClip(clip));
+    };
   }, [gltf.animations, mixer, endAnimation, playAnimation, setLocalActions]);
 
   return (
