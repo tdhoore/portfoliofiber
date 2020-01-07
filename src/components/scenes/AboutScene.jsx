@@ -27,7 +27,7 @@ export default function AboutScene(props) {
   const gltf = useLoader(GLTFLoader, aboutMesh);
 
   const canAnimate = getCanAnimate("About");
-  console.log(canAnimate);
+
   //spring animations
   const [introAnim, setIntroAnim] = useSpring(() => ({
     position: [0, -10, 0],
@@ -68,7 +68,7 @@ export default function AboutScene(props) {
             rotation={[-1.5707962925663537, 0, 0]}
             color={pinkColor}
             distance={4}
-            intensity={3}
+            intensity={0}
           />
         </object3D>
         <object3D

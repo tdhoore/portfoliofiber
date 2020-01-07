@@ -33,6 +33,19 @@ const Page = props => {
     }
   };
 
+  const getInitPageIndex = sceneName => {
+    switch (sceneName) {
+      case "Home":
+        return 0;
+      case "Work":
+        return 1;
+      case "About":
+        return 2;
+      default:
+        return 1;
+    }
+  };
+
   return (
     <div>
       <header className="mainHeader">
@@ -42,7 +55,10 @@ const Page = props => {
         <Nav routes={props.allRoutes} />
       </header>
       <main>
-        <BaseScene currentScene={getScene(props.route.title)} />
+        <BaseScene
+          currentScene={getScene(props.route.title)}
+          currentPageIndex={getInitPageIndex(props.route.title)}
+        />
       </main>
     </div>
   );

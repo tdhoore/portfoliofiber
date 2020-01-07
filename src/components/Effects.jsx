@@ -7,7 +7,6 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass";
-import { useSelector } from "react-redux";
 
 extend({
   EffectComposer,
@@ -38,10 +37,7 @@ export default function Effects(props) {
         uniforms-resolution-value={[1 / size.width, 1 / size.height]}
         renderToScreen
       />
-      <unrealBloomPass
-        attachArray="passes"
-        args={[undefined, 1.5, 0.4, 0.85]}
-      />
+      <unrealBloomPass attachArray="passes" args={[undefined, 1.5, 0.4, 0.2]} />
       <filmPass attachArray="passes" args={[0.05, 0.5, 1500, false]} />
       {props.glitch ? <glitchPass attachArray="passes" renderToScreen /> : null}
     </effectComposer>
