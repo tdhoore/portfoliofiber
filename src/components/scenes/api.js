@@ -28,8 +28,12 @@ export const getCanAnimate = (title = "") => {
   const pages = store.getState().sceneReducer.pages;
   let result = true;
 
-  pages.forEach(page => {
-    if (page.title.toLowerCase() === title.toLowerCase()) {
+  pages.forEach((page, index) => {
+    if (typeof title === "string") {
+      if (page.title.toLowerCase() === title.toLowerCase()) {
+        result = page.canAnimate;
+      }
+    } else if (index === title) {
       result = page.canAnimate;
     }
   });

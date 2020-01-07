@@ -3,25 +3,10 @@ import * as THREE from "three";
 import { Canvas } from "react-three-fiber";
 import Effects from "../Effects";
 import { useSelector } from "react-redux";
-import { useSpring, animated as a } from "react-spring/three";
 import BgPillars from "./bgPillars";
-import { getCurrentPageIndex } from "./api";
 
 const BasicScene = props => {
   const glitch = useSelector(state => state.sceneReducer.glitch);
-
-  console.log("index", props.currentPageIndex);
-  const [fogAnim, setFogAnim] = useSpring(() => ({
-    distance: props.currentPageIndex > 0 ? 45 : 14,
-    config: { mass: 5, tension: 350, friction: 100 }
-  }));
-
-  useEffect(() => {
-    console.log(props.currentPageIndex > 0);
-    setFogAnim({
-      distance: props.currentPageIndex > 0 ? 45 : 14
-    });
-  });
 
   return (
     <div style={{ height: "100vh" }}>
@@ -37,17 +22,10 @@ const BasicScene = props => {
           }
         }}
       >
-        <a.fog
-          attach="fog"
-          args={fogAnim.distance.interpolate(d => {
-            console.log(d);
-
-            return ["#0a0a0a", 0, d];
-          })}
-        />
+        <fog attach="fog" args={["#0a0a0a", 0, 45]} />
         <Suspense fallback={null}>{props.currentScene}</Suspense>
         <Suspense fallback={null}>
-          <BgPillars />
+          <BgPillars currentPageIndex={props.currentPageIndex} />
         </Suspense>
         <Effects glitch={glitch} />
       </Canvas>

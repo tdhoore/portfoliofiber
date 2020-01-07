@@ -1,14 +1,34 @@
-import React, { useRef } from "react";
-import { useLoader, useFrame } from "react-three-fiber";
+import React, { useRef, useEffect } from "react";
+import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import bgPillars from "../../meshes/bgPillars.gltf";
+import { useSpring, animated as a } from "react-spring/three";
+import { getCanAnimate } from "./api";
 
 export default function BgPillars(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, bgPillars);
 
+  const canAnimate = getCanAnimate(props.currentPageIndex);
+
+  const [posAnim, setPosAnim] = useSpring(() => ({
+    position: [0, 0, -20],
+    config: { mass: 5, tension: 350, friction: 100 }
+  }));
+
+  useEffect(() => {
+    if (props.currentPageIndex > 0) {
+      setPosAnim({
+        position: [0, 0, 0],
+        config: canAnimate
+          ? { mass: 5, tension: 350, friction: 100 }
+          : { duration: 1 }
+      });
+    }
+  });
+
   return (
-    <group ref={group} {...props}>
+    <a.group ref={group} {...props} {...posAnim} scale={[1, 2, 1]}>
       <scene name="Scene">
         <mesh
           name="Cube132"
@@ -105,6 +125,6 @@ export default function BgPillars(props) {
           <meshStandardMaterial attach="material" {...gltf.__$[10].material} />
         </mesh>
       </scene>
-    </group>
+    </a.group>
   );
 }
