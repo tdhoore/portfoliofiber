@@ -17,7 +17,6 @@ export default function BgPillars(props) {
   }));
 
   useEffect(() => {
-    console.log(canAnimate);
     setPosAnim({
       position: [0, 0, 0],
       config: canAnimate
