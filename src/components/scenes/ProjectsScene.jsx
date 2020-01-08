@@ -86,7 +86,7 @@ export default function ProjectsScene(props) {
       //disable the animation
       setCanAnimate("Work", false);
 
-      setIntroAnim({ position: [0, 7, -1] });
+      setIntroAnim({ position: [0, 4, -1] });
     } else {
       setCurretPageIndex(2);
     }
