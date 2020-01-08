@@ -35,7 +35,7 @@ export default function HomeScene(props) {
   //spring animations
   const [outroAnim, setOutroAnim] = useSpring(() => ({
     position: [0, 0, 0],
-    config: { mass: 5, tension: 350, friction: 100 },
+    config: { mass: 5, tension: 500, friction: 100 },
     onRest: () => {
       if (isOutroSet) {
         setCurretPageIndex(1);

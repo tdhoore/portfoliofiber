@@ -30,7 +30,7 @@ export default function AboutScene(props) {
 
   //spring animations
   const [introAnim, setIntroAnim] = useSpring(() => ({
-    position: [0, -10, 0],
+    position: [0, -10, 2],
     config: canAnimate
       ? { mass: 5, tension: 350, friction: 100 }
       : { duration: 1 }
@@ -46,7 +46,7 @@ export default function AboutScene(props) {
   });
 
   const playIntro = () => {
-    setIntroAnim({ position: [0, 0, 0] });
+    setIntroAnim({ position: [0, 0, 2] });
 
     //disable the animation
     setAllCanAnimate(false);

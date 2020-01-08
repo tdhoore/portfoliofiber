@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import React, { useEffect, useRef } from "react";
-import { useLoader, useFrame } from "react-three-fiber";
+import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useSpring, animated as a } from "react-spring/three";
-import projects from "../../meshes/projects.gltf";
+import projects from "../../meshes/projects.glb";
 import {
   blueColor,
   pinkColor,
@@ -15,12 +15,10 @@ import {
   setInitCurretPageIndex,
   getCanAnimate,
   setAllCanAnimate,
-  playGlitch,
-  setCanAnimate,
-  setCurretPageIndex
+  playGlitch
 } from "./api";
 
-export default function ProjectsScene(props) {
+export default function ProjectScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
 
@@ -32,31 +30,12 @@ export default function ProjectsScene(props) {
 
   const canAnimate = getCanAnimate("Work");
 
-  //check if the outro needs to be played
-  let isOutroSet = false;
-
-  //spring animations
-  const [outroAnim, setOutroAnim] = useSpring(() => ({
-    position: [0, 0, -1],
-    config: { mass: 5, tension: 350, friction: 100 },
-    onRest: () => {
-      if (isOutroSet) {
-        setCurretPageIndex(2);
-      }
-    }
-  }));
-
   //spring animations
   const [introAnim, setIntroAnim] = useSpring(() => ({
-    position: [0, 0, -50],
+    position: [0, 0, 0],
     config: canAnimate
       ? { mass: 5, tension: 350, friction: 100 }
-      : { duration: 1 },
-    onRest: () => {
-      if (isOutroSet) {
-        setCurretPageIndex(2);
-      }
-    }
+      : { duration: 1 }
   }));
 
   useEffect(() => {
@@ -66,34 +45,17 @@ export default function ProjectsScene(props) {
     if (!canAnimate) {
       playGlitch();
     }
-
-    window.addEventListener("playOutro", outroAnimation);
-
-    return () => {
-      //remove listeners
-      window.removeEventListener("playOutro", outroAnimation);
-    };
-  }, []);
+  });
 
   const playIntro = () => {
-    setIntroAnim({ position: [0, 0, -1] });
-  };
+    setIntroAnim({ position: [0, 0, 0] });
 
-  const outroAnimation = () => {
-    if (getCanAnimate("About")) {
-      isOutroSet = true;
-
-      //disable the animation
-      setCanAnimate("Work", false);
-
-      setIntroAnim({ position: [0, 7, -1] });
-    } else {
-      setCurretPageIndex(2);
-    }
+    //disable the animation
+    setAllCanAnimate(false);
   };
 
   return (
-    <a.group ref={group} {...props} position={[0, 0, -1]} {...introAnim}>
+    <a.group ref={group} {...props} position={[0, 0, -1]}>
       <scene name="Scene">
         <group
           name="pillar"
@@ -121,7 +83,7 @@ export default function ProjectsScene(props) {
           </mesh>
         </group>
         <group
-          name="leftArm"
+          name="arm"
           position={[
             -1.9037938117980957,
             2.091780185699463,
@@ -140,15 +102,13 @@ export default function ProjectsScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[6].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[6].material}
               {...glowMat}
-              emissiveIntensity={1}
               name="Material.002"
             />
           </mesh>
         </group>
         <group
-          name="rightArm"
+          name="armLeft"
           position={[1.9037938117980957, 2.091780185699463, -4.082165241241455]}
           scale={[-1, 1, 1]}
         >
@@ -164,9 +124,7 @@ export default function ProjectsScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[6].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[6].material}
               {...glowMat}
-              emissiveIntensity={1}
               name="Material.002"
             />
           </mesh>

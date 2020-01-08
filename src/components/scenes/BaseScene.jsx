@@ -7,17 +7,15 @@ import BgPillars from "./bgPillars";
 
 const BasicScene = props => {
   const glitch = useSelector(state => state.sceneReducer.glitch);
-
+  //<div className="gradiant"></div>
   return (
     <div style={{ height: "100vh" }}>
-      <div className="gradiant"></div>
       <Canvas
         camera={{ position: [0, 2.16, 0], fov: 35 }}
         onCreated={({ gl }) => {
           if (gl) {
             gl.gammaInput = true;
             gl.toneMapping = THREE.Uncharted2ToneMapping;
-            gl.alpha = true;
             gl.setClearColor(new THREE.Color("#0a0a0a"));
           }
         }}
