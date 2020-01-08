@@ -9,48 +9,21 @@ export default function BgPillars(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, bgPillars);
 
-  const canAnimate = getCanAnimate(props.currentPageIndex);
-
-  const getStartPos = () => {
-    switch (props.currentPageIndex) {
-      case 0:
-        return [0, 0, -20];
-      case 1:
-        return [0, 0, -20];
-      case 2:
-        return [0, 0, 0];
-      default:
-        return [0, 0, -20];
-    }
-  };
-
-  const getEndPos = () => {
-    switch (props.currentPageIndex) {
-      case 0:
-        return [0, 0, -20];
-      case 1:
-        return [0, 0, 0];
-      case 2:
-        return [0, 2, 0];
-      default:
-        return [0, 0, -20];
-    }
-  };
+  const canAnimate = getCanAnimate("About");
 
   const [posAnim, setPosAnim] = useSpring(() => ({
-    position: getStartPos(),
+    position: [0, -10, 0],
     config: { mass: 5, tension: 350, friction: 100 }
   }));
 
   useEffect(() => {
-    if (props.currentPageIndex > 0) {
-      setPosAnim({
-        position: getEndPos(),
-        config: canAnimate
-          ? { mass: 5, tension: 350, friction: 100 }
-          : { duration: 1 }
-      });
-    }
+    console.log(canAnimate);
+    setPosAnim({
+      position: [0, 0, 0],
+      config: canAnimate
+        ? { mass: 5, tension: 350, friction: 100 }
+        : { duration: 1 }
+    });
   });
 
   return (

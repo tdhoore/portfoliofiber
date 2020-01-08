@@ -4,10 +4,21 @@ import { Canvas } from "react-three-fiber";
 import Effects from "../Effects";
 import { useSelector } from "react-redux";
 import BgPillars from "./bgPillars";
+import { setAllCanAnimate } from "./api";
+
+let isFirstCall = true;
 
 const BasicScene = props => {
   const glitch = useSelector(state => state.sceneReducer.glitch);
   //<div className="gradiant"></div>
+
+  //disable animations if not page 0
+  if (props.currentPageIndex !== 0 && isFirstCall) {
+    setAllCanAnimate(false);
+  }
+
+  isFirstCall = false;
+
   return (
     <div style={{ height: "100vh" }}>
       <Canvas
@@ -23,7 +34,7 @@ const BasicScene = props => {
         <fog attach="fog" args={["#0a0a0a", 0, 45]} />
         <Suspense fallback={null}>{props.currentScene}</Suspense>
         <Suspense fallback={null}>
-          <BgPillars currentPageIndex={props.currentPageIndex} />
+          {props.currentPageIndex === 2 ? <BgPillars /> : null}
         </Suspense>
         <Effects glitch={glitch} />
       </Canvas>

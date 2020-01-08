@@ -33,7 +33,11 @@ export default function AboutScene(props) {
     position: [0, -10, 2],
     config: canAnimate
       ? { mass: 5, tension: 350, friction: 100 }
-      : { duration: 1 }
+      : { duration: 1 },
+    onRest: () => {
+      //disable the animation
+      setAllCanAnimate(false);
+    }
   }));
 
   useEffect(() => {
@@ -47,9 +51,6 @@ export default function AboutScene(props) {
 
   const playIntro = () => {
     setIntroAnim({ position: [0, 0, 2] });
-
-    //disable the animation
-    setAllCanAnimate(false);
   };
 
   return (

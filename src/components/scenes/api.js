@@ -31,7 +31,6 @@ export const getCanAnimate = (title = "") => {
   pages.forEach((page, index) => {
     if (typeof title === "string") {
       if (page.title.toLowerCase() === title.toLowerCase()) {
-        console.log(page);
         result = page.canAnimate;
       }
     } else if (index === title) {
