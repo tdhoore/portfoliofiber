@@ -6,6 +6,7 @@ import AboutScene from "../scenes/AboutScene";
 import BaseScene from "../scenes/BaseScene";
 import { useSelector } from "react-redux";
 import ScrollController from "../core/ScrollController";
+import { setCurretPageIndex } from "../scenes/api";
 
 const scrollController = new ScrollController();
 
@@ -46,19 +47,20 @@ const Page = props => {
     }
   };
 
+  /*if (currentPageIndex !== getInitPageIndex(props.route.title)) {
+    //setCurretPageIndex(getInitPageIndex(props.route.title));
+  }*/
+
   return (
     <div>
       <header className="mainHeader">
         <h1 className="mainTitle">
           <span>Tim D'hoore</span>
         </h1>
-        <Nav routes={props.allRoutes} />
+        <Nav routes={props.allRoutes} scrollController={scrollController} />
       </header>
       <main>
-        <BaseScene
-          currentScene={getScene(props.route.title)}
-          currentPageIndex={getInitPageIndex(props.route.title)}
-        />
+        <BaseScene />
       </main>
     </div>
   );

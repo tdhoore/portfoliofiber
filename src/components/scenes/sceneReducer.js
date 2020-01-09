@@ -3,17 +3,20 @@ const initialState = {
     {
       title: "Home",
       url: "/",
-      canAnimate: true
+      canAnimate: true,
+      camPos: [0, 0, 0]
     },
     {
       title: "Work",
       url: "/work",
-      canAnimate: true
+      canAnimate: true,
+      camPos: [0, 0, 45]
     },
     {
       title: "About",
       url: "/about",
-      canAnimate: true
+      canAnimate: true,
+      camPos: [0, -10, 45]
     }
   ],
   currentPageIndex: 0,

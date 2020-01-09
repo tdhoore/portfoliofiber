@@ -61,20 +61,13 @@ export const setCurretPageIndex = (
   const pages = store.getState().sceneReducer.pages;
 
   if (index >= 0 && pages.length > index) {
-    //index is present so change it
-    if (!animate) {
-      //if a nav item is pressed disable all animation from here on out
-      if (disableAll) {
-        setAllCanAnimate();
-      }
-
-      //push a new url and set the new page index
-      store.dispatch(push(pages[index].url));
-      store.dispatch(curretPageIndex(index));
-    } else {
-      //play outroAnimation
-      //then in the hook itself use this function to set the new index
+    if (disableAll) {
+      //setAllCanAnimate();
     }
+    console.log("change", index);
+    //push a new url and set the new page index
+    //store.dispatch(push(pages[index].url));
+    store.dispatch(curretPageIndex(index));
   }
 };
 
@@ -85,4 +78,12 @@ export const playGlitch = () => {
   setTimeout(() => {
     store.dispatch(glitch(false));
   }, 250);
+};
+
+export const pushNewPage = (index = -1) => {
+  if (getCurrentPageIndex() !== index && index !== -1) {
+    console.log("tester");
+    const pages = store.getState().sceneReducer.pages;
+    //store.dispatch(push(pages[index].url));
+  }
 };

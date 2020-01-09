@@ -2,7 +2,7 @@ import { setCurretPageIndex, getCurrentPageIndex } from "../scenes/api";
 
 export default class ScrollController {
   constructor() {
-    this.playOutroEvent = new Event("playOutro");
+    this.moveSceneEvent = new Event("moveScene");
     this.listenerExists = false;
 
     this.dir = 0;
@@ -45,7 +45,7 @@ export default class ScrollController {
 
       //trigger the outro animation
       if (this.dir > 0) {
-        window.dispatchEvent(this.playOutroEvent);
+        window.dispatchEvent(this.moveSceneEvent);
       }
 
       //next scene

@@ -25,29 +25,18 @@ export default function ProjectsScene(props) {
   const gltf = useLoader(GLTFLoader, projects);
 
   //clear all animations
-  clearActions();
+  //clearActions();
 
   //set init page index
-  setInitCurretPageIndex(1);
+  //setInitCurretPageIndex(1);
 
-  const canAnimate = getCanAnimate("Work");
+  //const canAnimate = getCanAnimate("Work");
 
   //check if the outro needs to be played
-  let isOutroSet = false;
+  //let isOutroSet = false;
 
   //spring animations
-  const [outroAnim, setOutroAnim] = useSpring(() => ({
-    position: [0, 0, -1],
-    config: { mass: 5, tension: 350, friction: 100 },
-    onRest: () => {
-      if (isOutroSet) {
-        setCurretPageIndex(2);
-      }
-    }
-  }));
-
-  //spring animations
-  const [introAnim, setIntroAnim] = useSpring(() => ({
+  /*const [introAnim, setIntroAnim] = useSpring(() => ({
     position: [0, 0, -50],
     config: canAnimate
       ? { mass: 5, tension: 350, friction: 100 }
@@ -57,25 +46,25 @@ export default function ProjectsScene(props) {
         setCurretPageIndex(2);
       }
     }
-  }));
+  }));*/
 
   useEffect(() => {
-    playIntro();
+    //playIntro();
 
     //play glitch if needed
-    if (!canAnimate) {
-      playGlitch();
+    /*if (!canAnimate) {
+      //playGlitch();
     }
 
-    window.addEventListener("playOutro", outroAnimation);
+    window.addEventListener("playOutro", outroAnimation);*/
 
     return () => {
       //remove listeners
-      window.removeEventListener("playOutro", outroAnimation);
+      // window.removeEventListener("playOutro", outroAnimation);
     };
   }, []);
 
-  const playIntro = () => {
+  /* const playIntro = () => {
     setIntroAnim({ position: [0, 0, -1] });
   };
 
@@ -90,88 +79,78 @@ export default function ProjectsScene(props) {
     } else {
       setCurretPageIndex(2);
     }
-  };
-
+  };*/
+  //[0,0,-1]
   return (
-    <a.group ref={group} {...props} position={[0, 0, -1]} {...introAnim}>
-      <scene name="Scene">
-        <group
-          name="pillar"
-          position={[
-            -0.08510500192642212,
-            4.568455219268799,
-            -4.082165241241455
-          ]}
-        >
-          <mesh name="Cube.302_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[2].geometry} />
-            <meshStandardMaterial
-              attach="material"
-              {...defaultMat}
-              name="default"
-            />
-          </mesh>
-          <mesh name="Cube.302_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[3].geometry} />
-            <meshStandardMaterial
-              attach="material"
-              {...glowMat}
-              name="Material.002"
-            />
-          </mesh>
-        </group>
-        <group
-          name="leftArm"
-          position={[
-            -1.9037938117980957,
-            2.091780185699463,
-            -4.082165241241455
-          ]}
-        >
-          <mesh name="Cube.320_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[5].geometry} />
-            <meshStandardMaterial
-              attach="material"
-              {...defaultMat}
-              name="default"
-            />
-          </mesh>
-          <mesh name="Cube.320_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[6].geometry} />
-            <meshStandardMaterial
-              attach="material"
-              {...gltf.__$[6].material}
-              {...glowMat}
-              emissiveIntensity={1}
-              name="Material.002"
-            />
-          </mesh>
-        </group>
-        <group
-          name="rightArm"
-          position={[1.9037938117980957, 2.091780185699463, -4.082165241241455]}
-          scale={[-1, 1, 1]}
-        >
-          <mesh name="Cube.320_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[5].geometry} />
-            <meshStandardMaterial
-              attach="material"
-              {...defaultMat}
-              name="default"
-            />
-          </mesh>
-          <mesh name="Cube.320_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[6].geometry} />
-            <meshStandardMaterial
-              attach="material"
-              {...gltf.__$[6].material}
-              {...glowMat}
-              emissiveIntensity={1}
-              name="Material.002"
-            />
-          </mesh>
-        </group>
-      </scene>
-    </a.group>
+    <group ref={group} {...props} position={[0, 0, -46]}>
+      <group
+        name="pillar"
+        position={[-0.08510500192642212, 4.568455219268799, -4.082165241241455]}
+      >
+        <mesh name="Cube.302_0">
+          <bufferGeometry attach="geometry" {...gltf.__$[2].geometry} />
+          <meshStandardMaterial
+            attach="material"
+            {...defaultMat}
+            name="default"
+          />
+        </mesh>
+        <mesh name="Cube.302_1">
+          <bufferGeometry attach="geometry" {...gltf.__$[3].geometry} />
+          <meshStandardMaterial
+            attach="material"
+            {...glowMat}
+            name="Material.002"
+          />
+        </mesh>
+      </group>
+      <group
+        name="leftArm"
+        position={[-1.9037938117980957, 2.091780185699463, -4.082165241241455]}
+      >
+        <mesh name="Cube.320_0">
+          <bufferGeometry attach="geometry" {...gltf.__$[5].geometry} />
+          <meshStandardMaterial
+            attach="material"
+            {...defaultMat}
+            name="default"
+          />
+        </mesh>
+        <mesh name="Cube.320_1">
+          <bufferGeometry attach="geometry" {...gltf.__$[6].geometry} />
+          <meshStandardMaterial
+            attach="material"
+            {...gltf.__$[6].material}
+            {...glowMat}
+            emissiveIntensity={1}
+            name="Material.002"
+          />
+        </mesh>
+      </group>
+      <group
+        name="rightArm"
+        position={[1.9037938117980957, 2.091780185699463, -4.082165241241455]}
+        scale={[-1, 1, 1]}
+      >
+        <mesh name="Cube.320_0">
+          <bufferGeometry attach="geometry" {...gltf.__$[5].geometry} />
+          <meshStandardMaterial
+            attach="material"
+            {...defaultMat}
+            name="default"
+          />
+        </mesh>
+        <mesh name="Cube.320_1">
+          <bufferGeometry attach="geometry" {...gltf.__$[6].geometry} />
+          <meshStandardMaterial
+            attach="material"
+            {...gltf.__$[6].material}
+            {...glowMat}
+            emissiveIntensity={1}
+            name="Material.002"
+          />
+        </mesh>
+      </group>
+    </group>
   );
 }
