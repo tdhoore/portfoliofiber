@@ -3,12 +3,12 @@ import Nav from "./Nav";
 import HomeScene from "../scenes/HomeScene";
 import ProjectsScene from "../scenes/ProjectsScene";
 import AboutScene from "../scenes/AboutScene";
-import BaseScene from "../scenes/BaseScene";
 import { useSelector } from "react-redux";
 import ScrollController from "../core/ScrollController";
 import { setCurretPageIndex } from "../scenes/api";
 
 const scrollController = new ScrollController();
+let isFirstCall = true;
 
 const Page = props => {
   const currentPageIndex = useSelector(
@@ -47,9 +47,10 @@ const Page = props => {
     }
   };
 
-  /*if (currentPageIndex !== getInitPageIndex(props.route.title)) {
-    //setCurretPageIndex(getInitPageIndex(props.route.title));
-  }*/
+  if (isFirstCall) {
+    isFirstCall = false;
+    setCurretPageIndex(getInitPageIndex(props.route.title));
+  }
 
   return (
     <div>
@@ -59,9 +60,6 @@ const Page = props => {
         </h1>
         <Nav routes={props.allRoutes} scrollController={scrollController} />
       </header>
-      <main>
-        <BaseScene />
-      </main>
     </div>
   );
 };

@@ -83,6 +83,18 @@ export default function ProjectsScene(props) {
   //[0,0,-1]
   return (
     <group ref={group} {...props} position={[0, 0, -46]}>
+      <mesh name="Cube.302_0">
+        <boxBufferGeometry
+          attach="geometry"
+          args={[1, 1, 1]}
+          position={[0, 0, -2]}
+        />
+        <meshStandardMaterial
+          attach="material"
+          {...defaultMat}
+          name="default"
+        />
+      </mesh>
       <group
         name="pillar"
         position={[-0.08510500192642212, 4.568455219268799, -4.082165241241455]}

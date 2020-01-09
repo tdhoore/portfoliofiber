@@ -12,7 +12,7 @@ export default function BgPillars(props) {
   useEffect(() => {});
 
   return (
-    <group ref={group} {...props} position={[0, 0, -45]}>
+    <group ref={group} {...props} position={[0, 0, -45]} scale={[1, 4, 1]}>
       <mesh
         name="Cube132"
         position={[5.493315696716309, 1.6918048858642578, -21.14675521850586]}

@@ -64,10 +64,10 @@ export const setCurretPageIndex = (
     if (disableAll) {
       //setAllCanAnimate();
     }
-    console.log("change", index);
-    //push a new url and set the new page index
-    //store.dispatch(push(pages[index].url));
+
     store.dispatch(curretPageIndex(index));
+    store.dispatch(push(pages[index].url));
+    //window.history.pushState(null, "", pages[index].url);
   }
 };
 
@@ -78,12 +78,4 @@ export const playGlitch = () => {
   setTimeout(() => {
     store.dispatch(glitch(false));
   }, 250);
-};
-
-export const pushNewPage = (index = -1) => {
-  if (getCurrentPageIndex() !== index && index !== -1) {
-    console.log("tester");
-    const pages = store.getState().sceneReducer.pages;
-    //store.dispatch(push(pages[index].url));
-  }
 };

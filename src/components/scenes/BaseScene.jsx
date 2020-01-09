@@ -12,14 +12,17 @@ import {
   setAllCanAnimate,
   getCanAnimate,
   pushNewPage,
-  getCurrentPageIndex
+  getCurrentPageIndex,
+  setCurretPageIndex
 } from "./api";
 
 let isFirstCall = true;
 
 const BasicScene = props => {
   const glitch = useSelector(state => state.sceneReducer.glitch);
-
+  const currentPageIndex = useSelector(
+    state => state.sceneReducer.currentPageIndex
+  );
   const pages = useSelector(state => state.sceneReducer.pages);
 
   //<div className="gradiant"></div>
@@ -33,29 +36,27 @@ const BasicScene = props => {
 
   const [moveScene, setMoveScene] = useSpring(() => ({
     position: [0, 0, 0],
-    config: getCanAnimate(0)
-      ? { mass: 5, tension: 350, friction: 100 }
-      : { duration: 1 },
+    config: true ? { mass: 5, tension: 350, friction: 100 } : { duration: 1 },
     onRest: () => {
       //done animation so set new scene
+      console.log("oldIndex", currentPageIndex);
       //pushNewPage(currentPageIndex);
     }
   }));
 
   useEffect(() => {
-    console.log("tester");
     //add custom listener for moving the camera
-    window.addEventListener("moveScene", moveSceneFunc);
+    /*window.addEventListener("moveScene", moveSceneFunc);
 
     return () => {
       window.removeEventListener("moveScene", moveSceneFunc);
-    };
-    //moveSceneFunc();
+    };*/
+    moveSceneFunc();
   });
 
   const moveSceneFunc = () => {
     setMoveScene({
-      position: pages[1].camPos
+      position: pages[currentPageIndex].camPos
     });
   };
 
@@ -85,8 +86,5 @@ const BasicScene = props => {
     </div>
   );
 };
-/**
- *
- *
- */
+
 export default BasicScene;

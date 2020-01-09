@@ -75,9 +75,10 @@ export default function HomeScene(props) {
   };
 
   const endAnimation = () => {
-    Object.keys(getCurrentactions()).forEach(key => {
-      actions[key].timeScale = 50000;
+    setLocalActions();
+    Object.keys(actions).forEach(key => {
       actions[key].stop();
+      actions[key].timeScale = 50000;
       actions[key].play();
     });
 
@@ -123,21 +124,23 @@ export default function HomeScene(props) {
     setLocalActions();
 
     //play init animations
-    if (getCanAnimate("Home")) {
+    /*if (getCanAnimate("Home")) {
       playAnimation();
     } else {
       endAnimation();
 
       playGlitch();
-    }
+    }*/
 
-    //window.addEventListener("resize", resizeHome);
+    playAnimation();
+
+    window.addEventListener("resize", resizeHome);
 
     //window.addEventListener("playOutro", outroAnimation);
 
     return () => {
       //remove listeners
-      //window.removeEventListener("resize", resizeHome);
+      window.removeEventListener("resize", resizeHome);
       //window.removeEventListener("playOutro", outroAnimation);
 
       return gltf.animations.forEach(clip => mixer.uncacheClip(clip));

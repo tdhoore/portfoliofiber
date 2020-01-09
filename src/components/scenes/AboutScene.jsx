@@ -54,7 +54,7 @@ export default function AboutScene(props) {
   };
 
   return (
-    <a.group ref={group} {...props} position={[0, -12, -45]}>
+    <a.group ref={group} {...props} position={[0, -12, -43]}>
       <object3D
         name="Point037"
         position={[-1.0482673645019531, 3.090208053588867, -10.642123222351074]}

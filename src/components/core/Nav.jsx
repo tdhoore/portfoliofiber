@@ -5,15 +5,12 @@ import { useSelector } from "react-redux";
 const Nav = props => {
   const handleClickNav = e => {
     e.preventDefault();
-    /*setCurretPageIndex(
+    setCurretPageIndex(
       parseInt(e.currentTarget.dataset.index, 10),
       false,
       true,
       true
-    );*/
-
-    //send move event
-    window.dispatchEvent(props.scrollController.moveSceneEvent);
+    );
   };
 
   const currentPageIndex = useSelector(
