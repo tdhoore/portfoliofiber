@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import aboutMesh from "../../meshes/about.gltf";
@@ -8,53 +8,13 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
-import {
-  clearActions,
-  setInitCurretPageIndex,
-  getCanAnimate,
-  setAllCanAnimate,
-  playGlitch
-} from "./api";
-import { useSpring, animated as a } from "react-spring/three";
 
 export default function AboutScene(props) {
-  //clearActions();
-
-  //set init page index
-  //setInitCurretPageIndex(2);
-
   const group = useRef();
   const gltf = useLoader(GLTFLoader, aboutMesh);
 
-  //const canAnimate = getCanAnimate("About");
-
-  //spring animations
-  /*const [introAnim, setIntroAnim] = useSpring(() => ({
-    position: [0, -10, 2],
-    config: canAnimate
-      ? { mass: 5, tension: 350, friction: 100 }
-      : { duration: 1 },
-    onRest: () => {
-      //disable the animation
-      setAllCanAnimate(false);
-    }
-  }));*/
-
-  useEffect(() => {
-    /*playIntro();
-
-    //play glitch if needed
-    if (!canAnimate) {
-      playGlitch();
-    }*/
-  });
-
-  const playIntro = () => {
-    //setIntroAnim({ position: [0, 0, 2] });
-  };
-
   return (
-    <a.group ref={group} {...props} position={[0, -12, -43]}>
+    <group ref={group} {...props} position={[0, -12, -43]}>
       <object3D
         name="Point037"
         position={[-1.0482673645019531, 3.090208053588867, -10.642123222351074]}
@@ -328,6 +288,6 @@ export default function AboutScene(props) {
         <bufferGeometry attach="geometry" {...gltf.__$[32].geometry} />
         <meshStandardMaterial attach="material" {...defaultMat} />
       </mesh>
-    </a.group>
+    </group>
   );
 }

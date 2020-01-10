@@ -10,39 +10,9 @@ import {
   defaultMat,
   glowMat
 } from "../../material/materials";
-import {
-  setActions,
-  clearActions,
-  getCurrentactions,
-  setCanAnimate,
-  getCanAnimate,
-  setCurretPageIndex,
-  setInitCurretPageIndex,
-  playGlitch
-} from "./api";
-import { useSpring, animated as a } from "react-spring/three";
+import { setActions, clearActions, setCanAnimate } from "./api";
 
 export default function HomeScene(props) {
-  //clear all animations
-  /*clearActions();
-
-  //set init page index
-  setInitCurretPageIndex(0);
-
-  //check if the outro needs to be played
-  let isOutroSet = false;
-
-  //spring animations
-  const [outroAnim, setOutroAnim] = useSpring(() => ({
-    position: [0, 0, 0],
-    config: { mass: 5, tension: 500, friction: 100 },
-    onRest: () => {
-      if (isOutroSet) {
-        setCurretPageIndex(1);
-      }
-    }
-  }));*/
-
   const group = useRef();
   const gltf = useLoader(GLTFLoader, homeMesh, loader => {
     const dracoLoader = new DRACOLoader();
@@ -95,19 +65,6 @@ export default function HomeScene(props) {
     setCanAnimate("Home", false);
   };
 
-  /*const outroAnimation = () => {
-    if (getCanAnimate("Work")) {
-      isOutroSet = true;
-
-      //disable the animation
-      setCanAnimate("Home", false);
-
-      setOutroAnim({ position: [0, 0, 5] });
-    } else {
-      setCurretPageIndex(1);
-    }
-  };*/
-
   const resizeHome = () => {
     console.log("I'm resizing");
     //reset local actions
@@ -123,25 +80,16 @@ export default function HomeScene(props) {
     //setup current actions
     setLocalActions();
 
-    //play init animations
-    /*if (getCanAnimate("Home")) {
-      playAnimation();
-    } else {
-      endAnimation();
-
-      playGlitch();
-    }*/
-
     playAnimation();
 
     window.addEventListener("resize", resizeHome);
 
-    //window.addEventListener("playOutro", outroAnimation);
-
     return () => {
       //remove listeners
       window.removeEventListener("resize", resizeHome);
-      //window.removeEventListener("playOutro", outroAnimation);
+
+      //clear actions
+      clearActions();
 
       return gltf.animations.forEach(clip => mixer.uncacheClip(clip));
     };

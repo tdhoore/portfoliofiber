@@ -8,18 +8,8 @@ import AboutScene from "../scenes/AboutScene";
 import { useSelector } from "react-redux";
 import BgPillars from "./bgPillars";
 import { useSpring, animated as a } from "react-spring/three";
-import {
-  setAllCanAnimate,
-  getCanAnimate,
-  pushNewPage,
-  getCurrentPageIndex,
-  setCurretPageIndex
-} from "./api";
-
-let isFirstCall = true;
 
 const BasicScene = props => {
-  const glitch = useSelector(state => state.sceneReducer.glitch);
   const currentPageIndex = useSelector(
     state => state.sceneReducer.currentPageIndex
   );
@@ -27,30 +17,12 @@ const BasicScene = props => {
 
   //<div className="gradiant"></div>
 
-  //disable animations if not page 0
-  /*if (props.currentPageIndex !== 0 && isFirstCall) {
-    //setAllCanAnimate(false);
-  }*/
-
-  isFirstCall = false;
-
   const [moveScene, setMoveScene] = useSpring(() => ({
     position: [0, 0, 0],
-    config: true ? { mass: 5, tension: 350, friction: 100 } : { duration: 1 },
-    onRest: () => {
-      //done animation so set new scene
-      console.log("oldIndex", currentPageIndex);
-      //pushNewPage(currentPageIndex);
-    }
+    config: true ? { mass: 5, tension: 350, friction: 100 } : { duration: 1 }
   }));
 
   useEffect(() => {
-    //add custom listener for moving the camera
-    /*window.addEventListener("moveScene", moveSceneFunc);
-
-    return () => {
-      window.removeEventListener("moveScene", moveSceneFunc);
-    };*/
     moveSceneFunc();
   });
 
@@ -62,6 +34,7 @@ const BasicScene = props => {
 
   return (
     <div style={{ height: "100vh" }}>
+      <div className="tester"></div>
       <Canvas
         camera={{ position: [0, 2.16, 0], fov: 35 }}
         onCreated={({ gl }) => {

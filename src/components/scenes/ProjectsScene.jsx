@@ -1,100 +1,76 @@
-import * as THREE from "three";
 import React, { useEffect, useRef } from "react";
-import { useLoader, useFrame } from "react-three-fiber";
+import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useSpring, animated as a } from "react-spring/three";
 import projects from "../../meshes/projects.gltf";
-import {
-  blueColor,
-  pinkColor,
-  defaultMat,
-  glowMat
-} from "../../material/materials";
-import {
-  clearActions,
-  setInitCurretPageIndex,
-  getCanAnimate,
-  setAllCanAnimate,
-  playGlitch,
-  setCanAnimate,
-  setCurretPageIndex
-} from "./api";
+import { defaultMat, glowMat } from "../../material/materials";
 
 export default function ProjectsScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
 
-  //clear all animations
-  //clearActions();
+  const map = (value, x1, y1, x2, y2) =>
+    ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
 
-  //set init page index
-  //setInitCurretPageIndex(1);
+  const maxArmPosX = 1.9037938117980957;
+  const maxWidth = 1024;
 
-  //const canAnimate = getCanAnimate("Work");
+  const [armPosLeft, setArmPosLeft] = useSpring(() => ({
+    position: [-1.9037938117980957, 2.091780185699463, -4.082165241241455],
+    config: { duration: 1 }
+  }));
+  const [armPosRight, setArmPosRight] = useSpring(() => ({
+    position: [1.9037938117980957, 2.091780185699463, -4.082165241241455],
+    config: { duration: 1 }
+  }));
 
-  //check if the outro needs to be played
-  //let isOutroSet = false;
+  const moveArmFunc = e => {
+    const currentwidth =
+      window.innerWidth > maxWidth ? maxWidth : window.innerWidth;
+    const newValue = map(currentwidth, 0, maxWidth, 0, maxArmPosX);
 
-  //spring animations
-  /*const [introAnim, setIntroAnim] = useSpring(() => ({
-    position: [0, 0, -50],
-    config: canAnimate
-      ? { mass: 5, tension: 350, friction: 100 }
-      : { duration: 1 },
-    onRest: () => {
-      if (isOutroSet) {
-        setCurretPageIndex(2);
-      }
-    }
-  }));*/
+    setArmPosLeft({
+      position: [-newValue, 2.091780185699463, -4.082165241241455]
+    });
+    setArmPosRight({
+      position: [newValue, 2.091780185699463, -4.082165241241455]
+    });
+  };
 
   useEffect(() => {
-    //playIntro();
+    //move intial value
+    moveArmFunc();
 
-    //play glitch if needed
-    /*if (!canAnimate) {
-      //playGlitch();
-    }
-
-    window.addEventListener("playOutro", outroAnimation);*/
+    window.addEventListener("resize", moveArmFunc);
 
     return () => {
       //remove listeners
-      // window.removeEventListener("playOutro", outroAnimation);
+      window.removeEventListener("resize", moveArmFunc);
     };
   }, []);
 
-  /* const playIntro = () => {
-    setIntroAnim({ position: [0, 0, -1] });
-  };
-
-  const outroAnimation = () => {
-    if (getCanAnimate("About")) {
-      isOutroSet = true;
-
-      //disable the animation
-      setCanAnimate("Work", false);
-
-      setIntroAnim({ position: [0, 4, -1] });
-    } else {
-      setCurretPageIndex(2);
-    }
-  };*/
-  //[0,0,-1]
   return (
     <group ref={group} {...props} position={[0, 0, -46]}>
-      <mesh name="Cube.302_0">
-        <boxBufferGeometry
-          attach="geometry"
-          args={[1, 1, 1]}
-          position={[0, 0, -2]}
-        />
-        <meshStandardMaterial
-          attach="material"
-          {...defaultMat}
-          name="default"
-        />
-      </mesh>
+      <group position={[20, 0, -5]}>
+        <mesh name="Cube.302_0">
+          <boxBufferGeometry attach="geometry" args={[5, 50, 5]} />
+          <meshStandardMaterial
+            attach="material"
+            {...defaultMat}
+            name="default"
+          />
+        </mesh>
+      </group>
+      <group position={[-20, 0, -5]}>
+        <mesh name="Cube.302_0">
+          <boxBufferGeometry attach="geometry" args={[5, 50, 5]} />
+          <meshStandardMaterial
+            attach="material"
+            {...defaultMat}
+            name="default"
+          />
+        </mesh>
+      </group>
       <group
         name="pillar"
         position={[-0.08510500192642212, 4.568455219268799, -4.082165241241455]}
@@ -116,10 +92,7 @@ export default function ProjectsScene(props) {
           />
         </mesh>
       </group>
-      <group
-        name="leftArm"
-        position={[-1.9037938117980957, 2.091780185699463, -4.082165241241455]}
-      >
+      <a.group name="leftArm" {...armPosLeft}>
         <mesh name="Cube.320_0">
           <bufferGeometry attach="geometry" {...gltf.__$[5].geometry} />
           <meshStandardMaterial
@@ -138,12 +111,8 @@ export default function ProjectsScene(props) {
             name="Material.002"
           />
         </mesh>
-      </group>
-      <group
-        name="rightArm"
-        position={[1.9037938117980957, 2.091780185699463, -4.082165241241455]}
-        scale={[-1, 1, 1]}
-      >
+      </a.group>
+      <a.group name="rightArm" {...armPosRight} scale={[-1, 1, 1]}>
         <mesh name="Cube.320_0">
           <bufferGeometry attach="geometry" {...gltf.__$[5].geometry} />
           <meshStandardMaterial
@@ -162,7 +131,7 @@ export default function ProjectsScene(props) {
             name="Material.002"
           />
         </mesh>
-      </group>
+      </a.group>
     </group>
   );
 }
