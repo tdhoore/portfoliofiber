@@ -1,8 +1,5 @@
 import React from "react";
 import Nav from "./Nav";
-import HomeScene from "../scenes/HomeScene";
-import ProjectsScene from "../scenes/ProjectsScene";
-import AboutScene from "../scenes/AboutScene";
 import { useSelector } from "react-redux";
 import ScrollController from "../core/ScrollController";
 import { setCurretPageIndex } from "../scenes/api";
@@ -20,19 +17,6 @@ const Page = props => {
 
   //check if animating
   scrollController.updateCanAnimate(currentPageIndex);
-
-  const getScene = sceneName => {
-    switch (sceneName) {
-      case "Home":
-        return <HomeScene scrollController={scrollController} />;
-      case "Work":
-        return <ProjectsScene scrollController={scrollController} />;
-      case "About":
-        return <AboutScene scrollController={scrollController} />;
-      default:
-        return null;
-    }
-  };
 
   const getInitPageIndex = sceneName => {
     switch (sceneName) {
@@ -53,13 +37,14 @@ const Page = props => {
   }
 
   return (
-    <div>
+    <div style={{ display: "relative", height: "100vh" }}>
       <header className="mainHeader">
         <h1 className="mainTitle">
           <span>Tim D'hoore</span>
         </h1>
         <Nav routes={props.allRoutes} scrollController={scrollController} />
       </header>
+      <div className="tester">text</div>
     </div>
   );
 };

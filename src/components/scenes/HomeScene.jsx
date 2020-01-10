@@ -66,7 +66,6 @@ export default function HomeScene(props) {
   };
 
   const resizeHome = () => {
-    console.log("I'm resizing");
     //reset local actions
     setLocalActions();
 
@@ -93,7 +92,14 @@ export default function HomeScene(props) {
 
       return gltf.animations.forEach(clip => mixer.uncacheClip(clip));
     };
-  }, [gltf.animations, mixer, endAnimation, playAnimation, setLocalActions]);
+  }, [
+    gltf.animations,
+    mixer,
+    endAnimation,
+    playAnimation,
+    setLocalActions,
+    resizeHome
+  ]);
 
   return (
     <group ref={group} {...props}>

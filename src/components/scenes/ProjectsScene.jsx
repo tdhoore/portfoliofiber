@@ -47,7 +47,7 @@ export default function ProjectsScene(props) {
       //remove listeners
       window.removeEventListener("resize", moveArmFunc);
     };
-  }, []);
+  }, [moveArmFunc]);
 
   return (
     <group ref={group} {...props} position={[0, 0, -46]}>

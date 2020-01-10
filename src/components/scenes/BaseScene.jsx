@@ -33,8 +33,7 @@ const BasicScene = props => {
   };
 
   return (
-    <div style={{ height: "100vh" }}>
-      <div className="tester"></div>
+    <div className="canvasHolder">
       <Canvas
         camera={{ position: [0, 2.16, 0], fov: 35 }}
         onCreated={({ gl }) => {

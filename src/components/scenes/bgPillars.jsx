@@ -2,8 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import bgPillars from "../../meshes/bgPillars.glb";
-import { useSpring, animated as a } from "react-spring/three";
-import { getCanAnimate } from "./api";
 
 export default function BgPillars(props) {
   const group = useRef();
