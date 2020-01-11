@@ -44,9 +44,8 @@ const Page = props => {
         </h1>
         <Nav routes={props.allRoutes} scrollController={scrollController} />
       </header>
-      <div className="tester">text</div>
     </div>
   );
 };
-
+//<div className="tester">text</div>
 export default Page;
