@@ -3,7 +3,7 @@
 @import "animation.scss";
 
 ::selection {
-  background-color: $pink;
+  background-color: rgba(255, 68, 180, 0.5);
   color: $textColor;
 }
 
@@ -35,6 +35,14 @@ h1,
 h2,
 h3,
 h4 {
+  margin: 0;
+  font-family: "press_start", Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
+  letter-spacing: 0.1rem;
+  font-weight: normal;
+}
+
+p {
   margin: 0;
 }
 
@@ -164,6 +172,16 @@ ul {
   width: 100vw;
 }
 
+.contentWrapper {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
 .tester {
   position: absolute;
   z-index: 1000;
@@ -173,4 +191,32 @@ ul {
   height: 58%;
   background-color: rgba(255, 0, 0, 0.5);
   transform: translate(-50%, -50%);
+}
+
+/* HOME */
+.homeArticle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & img {
+    display: block;
+    order: -1;
+    width: 40%;
+    max-width: $pad * 20;
+  }
+
+  & h2 {
+    margin-top: $pad * 3;
+    font-size: $pad * 3;
+    text-align: center;
+  }
+
+  & p {
+    margin-top: $pad;
+    font-size: $pad * 3;
+    text-align: center;
+  }
 }
