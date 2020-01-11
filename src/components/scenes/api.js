@@ -67,7 +67,6 @@ export const setCurretPageIndex = (
 
     store.dispatch(curretPageIndex(index));
     store.dispatch(push(pages[index].url));
-    //window.history.pushState(null, "", pages[index].url);
   }
 };
 
