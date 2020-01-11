@@ -9,11 +9,9 @@ export default function ProjectsScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
 
-  const map = (value, x1, y1, x2, y2) =>
-    ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
-
-  const maxArmPosX = 1.9037938117980957;
-  const maxWidth = 1024;
+  const armAdjust = -0.05;
+  const maxWidth = 1072;
+  const heightPercent = 58;
 
   const [armPosLeft, setArmPosLeft] = useSpring(() => ({
     position: [-1.9037938117980957, 2.091780185699463, -4.082165241241455],
@@ -27,7 +25,13 @@ export default function ProjectsScene(props) {
   const moveArmFunc = e => {
     const currentwidth =
       window.innerWidth > maxWidth ? maxWidth : window.innerWidth;
-    const newValue = map(currentwidth, 0, maxWidth, 0, maxArmPosX);
+
+    const currentObjectHeight = (window.innerHeight / 100) * heightPercent;
+
+    const newValue =
+      window.innerWidth > maxWidth
+        ? currentwidth / currentObjectHeight
+        : currentwidth / currentObjectHeight + armAdjust;
 
     setArmPosLeft({
       position: [-newValue, 2.091780185699463, -4.082165241241455]
