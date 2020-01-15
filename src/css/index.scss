@@ -184,11 +184,20 @@ ul {
 
 /* HOME */
 .homeArticle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  & .homeAnimationHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
 
   & img {
     display: block;
@@ -208,6 +217,48 @@ ul {
     font-size: $pad * 3;
     text-align: center;
   }
+}
+
+.homeOutlineHolder {
+  position: absolute;
+  width: 52rem;
+  height: 52rem;
+  transform: rotate(45deg);
+}
+
+.homeOutline {
+  position: absolute;
+  width: 100%;
+  height: $line;
+  background-color: #fff;
+
+  transform-origin: center right;
+  box-shadow: 0 0 2rem $blue;
+}
+.homeOutline1 {
+  top: 0;
+  left: 0;
+  width: $line;
+  height: 100%;
+  transform-origin: center top;
+}
+.homeOutline2 {
+  bottom: 0;
+  left: 0;
+  transform-origin: center left;
+}
+.homeOutline3 {
+  top: 0;
+  right: 0;
+  width: $line;
+  height: 100%;
+  transform-origin: center bottom;
+}
+
+.blueBg {
+  z-index: -1;
+  background-color: $blue;
+  opacity: 0.3;
 }
 
 /* WORK */

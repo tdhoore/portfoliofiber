@@ -102,7 +102,7 @@ export default function HomeScene(props) {
   ]);
 
   return (
-    <group ref={group} {...props}>
+    <group ref={group} {...props} position={[0.1, 0.05, 0]}>
       <object3D
         name="Point029"
         position={[
