@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import image from "../../../assets/img/tester.png";
 
 const WorkItem = props => {
   return (
@@ -14,7 +15,7 @@ const WorkItem = props => {
           </header>
         </div>
         <div className="imgHolder">
-          <img src={props.image} alt={props.title} />
+          <img src={image} alt={props.title} />
         </div>
       </article>
     </Link>
