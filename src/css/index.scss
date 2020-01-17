@@ -36,8 +36,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: "press_start", Impact, Haettenschweiler, "Arial Narrow Bold",
-    sans-serif;
+  font-family: $fontBig;
   letter-spacing: 0.1rem;
   font-weight: normal;
 }
@@ -50,6 +49,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+button:focus {
+  outline: none;
 }
 
 .hide {
@@ -67,6 +70,40 @@ ul {
   opacity: 0.1;
   pointer-events: none;
   background: linear-gradient(150deg, $pink 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.solidButton {
+  position: relative;
+  font-size: 0;
+  background: none;
+  width: $pad * 6;
+  height: $pad * 6;
+  border: none;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/img/texture.gif);
+    opacity: 0.1;
+  }
 }
 
 .mainHeader {
@@ -275,8 +312,56 @@ ul {
 }
 
 .workHolder {
+  position: relative;
   margin-top: 4vh;
   width: 100%;
   height: 58vh;
   background-color: rgba(255, 0, 0, 0.5);
+}
+
+.navButtonsWork {
+  position: absolute;
+  bottom: -13%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    position: relative;
+    font-family: $fontBig;
+    font-size: $pad * 2;
+    height: $pad * 6;
+    padding: 0 $pad * 2;
+    display: flex;
+    align-items: center;
+    border-bottom: solid $textColor $line;
+    border-top: solid $textColor $line;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    //position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $textColor;
+    height: $line;
+    flex: 2;
+  }
+
+  &::after {
+    margin-left: $pad * 4;
+    margin-right: 5%;
+  }
+
+  &::before {
+    margin-right: $pad * 4;
+    margin-left: 5%;
+  }
+}
+
+.workItem {
 }

@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 
 const NavButtons = props => {
   return (
-    <div className="">
-      <button onClick={/* Get from API*/}>Previous</button>
-      <p>
-        {props.currentWork /* API */}/{props.totalWorks /* API */}
-      </p>
-      <button onClick={/* Get from API*/}>Next</button>
+    <div className="navButtonsWork">
+      <button className="solidButton">Previous</button>
+      <p>1/5</p>
+      <button className="solidButton">Next</button>
     </div>
   );
 };

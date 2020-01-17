@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 const WorkItem = props => {
   return (
-    <Link to={props.url}>
-      <article className="">
+    <Link to={props.url} className="workItem">
+      <article>
         <header>
           <h3>{props.title}</h3>
           <p>{props.category}</p>
         </header>
-        <img src={props.image} alt={props.title} />
+        <div className="imgHolder">
+          <img src={props.image} alt={props.title} />
+        </div>
       </article>
     </Link>
   );
