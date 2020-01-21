@@ -4,7 +4,7 @@ import image from "../../../assets/img/tester.png";
 
 const WorkItem = props => {
   return (
-    <Link to={props.url} className="workItem">
+    <Link to={"/work"} className="workItem">
       <article>
         <header>
           <h3>Oreo cake</h3>

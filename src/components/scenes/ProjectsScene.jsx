@@ -12,7 +12,7 @@ export default function ProjectsScene(props) {
   const armAdjust = -0.1;
   const maxWidth = 1072;
   const heightPercent = 58;
-  //820 + 48
+
   const [armPosLeft, setArmPosLeft] = useSpring(() => ({
     position: [-1.9037938117980957, 2.091780185699463, -4.082165241241455],
     config: { duration: 1 }
