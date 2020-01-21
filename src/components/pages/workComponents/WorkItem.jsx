@@ -6,14 +6,10 @@ const WorkItem = props => {
   return (
     <Link to={props.url} className="workItem">
       <article>
-        <div className="headerWrapper">
-          <header>
-            <div className="headerContentWrapper">
-              <h3>Oreo cake</h3>
-              <p>category</p>
-            </div>
-          </header>
-        </div>
+        <header>
+          <h3>Oreo cake</h3>
+          <p>category</p>
+        </header>
         <div className="imgHolder">
           <img src={image} alt={props.title} />
         </div>
