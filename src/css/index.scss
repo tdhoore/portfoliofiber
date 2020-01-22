@@ -323,6 +323,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   margin-top: 8vh;
+  display: none;
 
   & p {
     position: relative;
@@ -356,6 +357,14 @@ button:focus {
 }
 
 .workItem {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
   & article {
     color: $textColor;
     position: relative;
@@ -364,17 +373,25 @@ button:focus {
     width: 100%;
     height: 100%;
 
-    & header {
+    & .headerWrapper {
       position: absolute;
-      left: 5%;
+      top: 0;
+      left: 0;
+      right: 0;
       bottom: 0;
       z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    & header {
+      position: relative;
       display: flex;
       flex-direction: column-reverse;
       align-items: center;
       padding: $pad * 2;
       margin: $pad * 2;
-      max-width: 80%;
+      max-width: 70%;
 
       &::after {
         content: "";
@@ -466,23 +483,12 @@ button:focus {
     & .imgHolder {
       margin: 0 auto;
       height: 100%;
-      width: 90%;
-      overflow: hidden;
+      width: 80%;
+      max-width: $pad * 100;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 5%;
-        right: 5%;
-        bottom: 0;
-        box-shadow: $glow;
-        opacity: 0.6;
-      }
+      box-shadow: 0 0 4rem rgba($color: $blue, $alpha: 0.3);
 
       & img {
         object-fit: cover;
@@ -492,5 +498,64 @@ button:focus {
         height: 100%;
       }
     }
+  }
+}
+
+.workItemBack {
+  z-index: 1;
+
+  & header {
+    opacity: 0;
+  }
+
+  & .imgHolder {
+    position: relative;
+    background-color: rgba($color: $blue, $alpha: 0.1);
+
+    border: solid $line rgba($color: $textColor, $alpha: 0.1);
+  }
+
+  & img {
+    opacity: 0;
+  }
+}
+
+.workItemBack1 {
+  & article {
+    transform: translateX(8%);
+  }
+
+  & .imgHolder {
+    transform: scale(0.9);
+  }
+}
+
+.workItemBack-1 {
+  & article {
+    transform: translateX(-8%);
+  }
+
+  & .imgHolder {
+    transform: scale(0.9);
+  }
+}
+
+.workItemBack2 {
+  & article {
+    transform: translateX(16%);
+  }
+
+  & .imgHolder {
+    transform: scale(0.8);
+  }
+}
+
+.workItemBack-2 {
+  & article {
+    transform: translateX(-16%);
+  }
+
+  & .imgHolder {
+    transform: scale(0.8);
   }
 }
