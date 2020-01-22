@@ -19,9 +19,9 @@ const WorkItem = props => {
             <p>category</p>
           </header>
         </div>
-        <div className="imgHolder">
+        <Link className="imgHolder">
           <img src={image} alt={props.title} />
-        </div>
+        </Link>
       </article>
     </Link>
   );
