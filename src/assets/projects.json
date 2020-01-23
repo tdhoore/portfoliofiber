@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "title": "Project 1",
+    "mainImage": "url"
+  },
+  {
+    "id": 1,
+    "title": "Project 2",
+    "mainImage": "url"
+  },
+  {
+    "id": 2,
+    "title": "Project 3",
+    "mainImage": "url"
+  },
+  {
+    "id": 3,
+    "title": "Project 4",
+    "mainImage": "url"
+  },
+  {
+    "id": 4,
+    "title": "Project 5",
+    "mainImage": "url"
+  },
+  {
+    "id": 5,
+    "title": "Project 6",
+    "mainImage": "url"
+  },
+  {
+    "id": 6,
+    "title": "Project 7",
+    "mainImage": "url"
+  },
+  {
+    "id": 7,
+    "title": "Project 8",
+    "mainImage": "url"
+  }
+]
