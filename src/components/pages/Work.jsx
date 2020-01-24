@@ -42,11 +42,15 @@ const Work = props => {
   });
 
   useEffect(() => {
-    window.addEventListener("keydown", () => {
-      setDir(1);
-      setCurrentItem(currentItem + 1);
-    });
+    window.addEventListener("keydown", () => {});
   });
+
+  const updateCurrentItem = dir => {
+    if (currentItem + dir > 0 && currentItem + dir < projects.length) {
+      setDir(dir);
+      setCurrentItem(currentItem + dir);
+    }
+  };
 
   return (
     <section className="workSection">
@@ -56,9 +60,23 @@ const Work = props => {
       <a.div className="workHolder" style={{ ...delay }}>
         {transitions.map(({ item, props, key }) => (
           <a.div key={key} style={props} className="workAnim">
-            <button className="solidButton workNavButtons workNavButtonLeft"></button>
+            <button
+              className={
+                currentItem === 0
+                  ? "solidButton workNavButtons workNavButtonHidden"
+                  : "solidButton workNavButtons workNavButtonLeft"
+              }
+              onClick={() => updateCurrentItem(-1)}
+            ></button>
             <WorkItem content={item} />
-            <button className="solidButton workNavButtons workNavButtonRight"></button>
+            <button
+              className={
+                currentItem === projects.length - 1
+                  ? "solidButton workNavButtons workNavButtonHidden"
+                  : "solidButton workNavButtons workNavButtonRight"
+              }
+              onClick={() => updateCurrentItem(1)}
+            ></button>
           </a.div>
         ))}
       </a.div>

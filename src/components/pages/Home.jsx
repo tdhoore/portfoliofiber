@@ -4,7 +4,7 @@ import { useSpring, animated as a } from "react-spring";
 
 const Home = props => {
   const [mainLineAnimation, setMainLineAnimation] = useSpring(() => ({
-    rotAndZ: [-10, -10, -400],
+    rotAndZ: [0, 0, -400],
     config: { mass: 1, tension: 200, friction: 15 }
   }));
 

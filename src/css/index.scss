@@ -79,6 +79,7 @@ button:focus {
   width: $pad * 6;
   height: $pad * 6;
   border: none;
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -476,29 +477,22 @@ button:focus {
 }
 
 .workNavButtonLeft {
-  animation: moveLeft 1s forwards;
+  transform: translateX(100%);
+  animation: moveLeft 300ms 450ms forwards;
   border-right: none;
 }
 
 .workNavButtonRight {
-  animation: moveRight 1s forwards;
+  transform: translateX(-100%);
+  animation: moveRight 300ms 450ms forwards;
   border-left: none;
 }
 
-@keyframes moveLeft {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
+.workNavButtonHidden {
+  border: none;
+  box-shadow: none;
 
-@keyframes moveRight {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
+  &::after {
+    background: none;
   }
 }
