@@ -9,7 +9,7 @@ export default function ProjectsScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, projects);
 
-  const armAdjust = -0.1;
+  const armAdjust = 0;
   const maxWidth = 1072;
   const heightPercent = 58;
 

@@ -9,13 +9,18 @@ const Work = props => {
         <h2>Work</h2>
       </header>
       <div className="workHolder">
-        <WorkItem position={-1} />
+        <button className="solidButton workNavButtons"></button>
         <WorkItem />
-        <WorkItem position={1} />
-        <NavButtons />
+        <button className="solidButton workNavButtons"></button>
       </div>
     </section>
   );
 };
 
 export default Work;
+/*
+<WorkItem position={-1} />
+        <WorkItem />
+        <WorkItem position={1} />
+        <NavButtons />
+*/

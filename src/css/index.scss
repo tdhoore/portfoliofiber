@@ -308,7 +308,6 @@ button:focus {
   padding: 0 $pad * 3;
   width: 100vw;
   height: 100vh;
-  // background-color: rgba(0, 255, 0, 0.5);
 }
 
 .workHolder {
@@ -316,54 +315,13 @@ button:focus {
   margin-top: 4vh;
   width: 100%;
   height: 58vh;
-}
-
-.navButtonsWork {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8vh;
-  display: none;
-
-  & p {
-    position: relative;
-    font-family: $fontBig;
-    font-size: $pad * 2;
-    height: $pad * 6;
-    padding: 0 $pad * 2;
-    display: flex;
-    align-items: center;
-  }
-
-  &::after,
-  &::before {
-    content: "";
-    display: block;
-    background-color: $textColor;
-    height: $line;
-    flex: 2;
-    box-shadow: 0 0 2rem $blue;
-  }
-
-  &::after {
-    margin-left: $pad * 4;
-    margin-right: 5%;
-  }
-
-  &::before {
-    margin-right: $pad * 4;
-    margin-left: 5%;
-  }
 }
 
 .workItem {
-  display: block;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  height: 100%;
 
   & article {
     color: $textColor;
@@ -391,7 +349,6 @@ button:focus {
       align-items: center;
       padding: $pad * 2;
       margin: $pad * 2;
-      max-width: 70%;
 
       &::after {
         content: "";
@@ -470,25 +427,17 @@ button:focus {
           opacity: 0.1;
         }
       }
-
-      & .solidButton {
-        position: absolute;
-        z-index: 2;
-        top: $pad * 8;
-        left: 0;
-        transform: translateX(-50%);
-      }
     }
 
     & .imgHolder {
       margin: 0 auto;
       height: 100%;
-      width: 80%;
+      width: 100%;
       max-width: $pad * 100;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 0 4rem rgba($color: $blue, $alpha: 0.3);
+      box-shadow: 0 0 $pad rgba($color: $bgColor, $alpha: 0.8);
 
       & img {
         object-fit: cover;
@@ -511,8 +460,7 @@ button:focus {
   & .imgHolder {
     position: relative;
     background-color: rgba($color: $blue, $alpha: 0.1);
-
-    border: solid $line rgba($color: $textColor, $alpha: 0.1);
+    border: solid $line rgba($color: $textColor, $alpha: 0.2);
   }
 
   & img {
@@ -557,5 +505,16 @@ button:focus {
 
   & .imgHolder {
     transform: scale(0.8);
+  }
+}
+
+.workNavButtons {
+  z-index: -1;
+  width: $pad * 6;
+  height: 80%;
+  box-shadow: 0 0 4rem rgba($color: $blue, $alpha: 0.3);
+
+  &::before {
+    opacity: 1;
   }
 }
