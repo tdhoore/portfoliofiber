@@ -15,7 +15,7 @@ const WorkItem = props => {
       <article>
         <div className="headerWrapper">
           <header>
-            <h3>Oreo cake</h3>
+            <h3>{props.content.title}</h3>
             <p>category</p>
           </header>
         </div>

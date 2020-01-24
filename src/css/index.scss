@@ -316,7 +316,21 @@ button:focus {
   width: 100%;
   height: 58vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  max-width: $pad * 120;
+  overflow-x: hidden;
+  animation: buttonOnFlicker 150ms 1300ms;
+}
+
+.workAnim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  display: flex;
   align-items: center;
 }
 
@@ -433,7 +447,6 @@ button:focus {
       margin: 0 auto;
       height: 100%;
       width: 100%;
-      max-width: $pad * 100;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -450,71 +463,42 @@ button:focus {
   }
 }
 
-.workItemBack {
-  z-index: 1;
-
-  & header {
-    opacity: 0;
-  }
-
-  & .imgHolder {
-    position: relative;
-    background-color: rgba($color: $blue, $alpha: 0.1);
-    border: solid $line rgba($color: $textColor, $alpha: 0.2);
-  }
-
-  & img {
-    opacity: 0;
-  }
-}
-
-.workItemBack1 {
-  & article {
-    transform: translateX(8%);
-  }
-
-  & .imgHolder {
-    transform: scale(0.9);
-  }
-}
-
-.workItemBack-1 {
-  & article {
-    transform: translateX(-8%);
-  }
-
-  & .imgHolder {
-    transform: scale(0.9);
-  }
-}
-
-.workItemBack2 {
-  & article {
-    transform: translateX(16%);
-  }
-
-  & .imgHolder {
-    transform: scale(0.8);
-  }
-}
-
-.workItemBack-2 {
-  & article {
-    transform: translateX(-16%);
-  }
-
-  & .imgHolder {
-    transform: scale(0.8);
-  }
-}
-
 .workNavButtons {
   z-index: -1;
   width: $pad * 6;
   height: 80%;
   box-shadow: 0 0 4rem rgba($color: $blue, $alpha: 0.3);
+  border: solid $line $textColor;
 
   &::before {
-    opacity: 1;
+    opacity: 0;
+  }
+}
+
+.workNavButtonLeft {
+  animation: moveLeft 1s forwards;
+  border-right: none;
+}
+
+.workNavButtonRight {
+  animation: moveRight 1s forwards;
+  border-left: none;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

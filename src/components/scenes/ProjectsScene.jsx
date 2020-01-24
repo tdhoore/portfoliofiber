@@ -10,7 +10,7 @@ export default function ProjectsScene(props) {
   const gltf = useLoader(GLTFLoader, projects);
 
   const armAdjust = 0;
-  const maxWidth = 1072;
+  const maxWidth = 1024;
   const heightPercent = 58;
 
   const [armPosLeft, setArmPosLeft] = useSpring(() => ({
