@@ -21,6 +21,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $bgColor;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   color: $textColor;
 }
@@ -211,12 +213,12 @@ button:focus {
 }
 
 .contentWrapper {
-  position: absolute;
+  position: relative;
   z-index: 50;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
   overflow: auto;
 }
 
@@ -495,4 +497,26 @@ button:focus {
   &::after {
     background: none;
   }
+}
+
+/* WORKDETAIL */
+
+.workDetail {
+  position: absolute;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.blurSvg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(1rem);
 }

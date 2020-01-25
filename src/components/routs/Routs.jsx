@@ -29,16 +29,13 @@ export default function() {
         })}
         <Route
           path="/work/:title"
-          component={withRouter(props => {
-            console.log(props);
-            return (
-              <Page
-                {...props}
-                route={{ title: "Work", url: props.match.url }}
-                allRoutes={navRoutes}
-              />
-            );
-          })}
+          component={withRouter(props => (
+            <Page
+              {...props}
+              route={{ title: "Work", url: props.match.url }}
+              allRoutes={navRoutes}
+            />
+          ))}
         />
       </Switch>
       <BaseScene />

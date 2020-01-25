@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import WorkItem from "./workComponents/WorkItem";
 import { useTransition, animated as a, useSpring } from "react-spring";
 import projects from "../../assets/projects.json";
+import WorkDetail from "./workComponents/WorkDetail";
 
 const Work = props => {
   const [currentItem, setCurrentItem] = useState(0);
@@ -41,10 +42,6 @@ const Work = props => {
     }
   });
 
-  useEffect(() => {
-    window.addEventListener("keydown", () => {});
-  });
-
   const updateCurrentItem = dir => {
     if (currentItem + dir >= 0 && currentItem + dir < projects.length) {
       setDir(dir);
@@ -52,7 +49,9 @@ const Work = props => {
     }
   };
 
-  return (
+  return props.detail ? (
+    <WorkDetail />
+  ) : (
     <section className="workSection">
       <header className="hide">
         <h2>Work</h2>
@@ -85,9 +84,3 @@ const Work = props => {
 };
 
 export default Work;
-/*
-<WorkItem position={-1} />
-        <WorkItem />
-        <WorkItem position={1} />
-        <NavButtons />
-*/

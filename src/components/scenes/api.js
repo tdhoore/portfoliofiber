@@ -67,7 +67,7 @@ export const setCurretPageIndex = (
     }
 
     store.dispatch(curretPageIndex(index));
-    console.log("fucking url", url);
+
     if (url !== "") {
       store.dispatch(push(url));
     } else {

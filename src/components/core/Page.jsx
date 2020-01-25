@@ -39,7 +39,7 @@ const Page = props => {
       case "Home":
         return <Home />;
       case "Work":
-        return <Work />;
+        return <Work detail={props.match.params.title} />;
       case "About":
         return <About />;
       default:
