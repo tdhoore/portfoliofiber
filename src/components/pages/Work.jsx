@@ -46,7 +46,7 @@ const Work = props => {
   });
 
   const updateCurrentItem = dir => {
-    if (currentItem + dir > 0 && currentItem + dir < projects.length) {
+    if (currentItem + dir >= 0 && currentItem + dir < projects.length) {
       setDir(dir);
       setCurrentItem(currentItem + dir);
     }
