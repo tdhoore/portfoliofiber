@@ -27,6 +27,19 @@ export default function() {
             />
           );
         })}
+        <Route
+          path="/work/:title"
+          component={withRouter(props => {
+            console.log(props);
+            return (
+              <Page
+                {...props}
+                route={{ title: "Work", url: props.match.url }}
+                allRoutes={navRoutes}
+              />
+            );
+          })}
+        />
       </Switch>
       <BaseScene />
       <footer className="hide">Tim D'hoore &copy; {date.getFullYear()}</footer>

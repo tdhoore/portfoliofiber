@@ -2,41 +2,65 @@
   {
     "id": 0,
     "title": "Project 1",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 1,
     "title": "Project 2",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 2,
     "title": "Project 3",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 3,
     "title": "Project 4",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 4,
     "title": "Project 5",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 5,
     "title": "Project 6",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 6,
     "title": "Project 7",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
     "id": 7,
     "title": "Project 8",
-    "mainImage": "url"
+    "mainImage": "url",
+    "category": "Yeet",
+    "link": "/work/title",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   }
 ]

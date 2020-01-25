@@ -49,7 +49,12 @@ const Page = props => {
 
   if (isFirstCall) {
     isFirstCall = false;
-    setCurretPageIndex(getInitPageIndex(props.route.title));
+    setCurretPageIndex(
+      getInitPageIndex(props.route.title),
+      false,
+      false,
+      props.route.url
+    );
   }
 
   return (
@@ -64,5 +69,5 @@ const Page = props => {
     </div>
   );
 };
-//<div className="tester">text</div>
+
 export default Page;

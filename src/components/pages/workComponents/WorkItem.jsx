@@ -5,7 +5,7 @@ import image from "../../../assets/img/tester.png";
 const WorkItem = props => {
   return (
     <Link
-      to={"/work"}
+      to={props.content.link}
       className={
         props.position
           ? `workItem workItemBack workItemBack${props.position}`
@@ -16,7 +16,7 @@ const WorkItem = props => {
         <div className="headerWrapper">
           <header>
             <h3>{props.content.title}</h3>
-            <p>category</p>
+            <p>{props.content.category}</p>
           </header>
         </div>
         <div className="imgHolder">

@@ -8,7 +8,6 @@ const Nav = props => {
     setCurretPageIndex(
       parseInt(e.currentTarget.dataset.index, 10),
       false,
-      true,
       true
     );
   };

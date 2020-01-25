@@ -56,7 +56,8 @@ export const setInitCurretPageIndex = index => {
 export const setCurretPageIndex = (
   index = -1,
   animate = false,
-  disableAll = false
+  disableAll = false,
+  url = ""
 ) => {
   const pages = store.getState().sceneReducer.pages;
 
@@ -66,7 +67,12 @@ export const setCurretPageIndex = (
     }
 
     store.dispatch(curretPageIndex(index));
-    store.dispatch(push(pages[index].url));
+    console.log("fucking url", url);
+    if (url !== "") {
+      store.dispatch(push(url));
+    } else {
+      store.dispatch(push(pages[index].url));
+    }
   }
 };
 
