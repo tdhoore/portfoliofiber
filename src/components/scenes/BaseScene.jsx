@@ -4,7 +4,7 @@ import { Canvas } from "react-three-fiber";
 import Effects from "../Effects";
 import HomeScene from "../scenes/HomeScene";
 import ProjectsScene from "../scenes/ProjectsScene";
-import AboutScene from "../scenes/AboutScene";
+import AboutScene from "./AboutScene";
 import { useSelector } from "react-redux";
 import BgPillars from "./bgPillars";
 import WorkScene from "./WorkScene";

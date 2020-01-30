@@ -16,7 +16,7 @@ const initialState = {
       title: "About",
       url: "/about",
       canAnimate: true,
-      camPos: [0, 12, 45]
+      camPos: [0, 0, 60]
     }
   ],
   currentPageIndex: 0,
