@@ -49,37 +49,37 @@ const Work = props => {
     }
   };
 
-  return props.detail ? (
-    <WorkDetail />
-  ) : (
-    <section className="workSection">
-      <header className="hide">
-        <h2>Work</h2>
-      </header>
-      <a.div className="workHolder" style={{ ...delay }}>
-        {transitions.map(({ item, props, key }) => (
-          <a.div key={key} style={props} className="workAnim">
-            <button
-              className={
-                currentItem === 0
-                  ? "solidButton workNavButtons workNavButtonHidden"
-                  : "solidButton workNavButtons workNavButtonLeft"
-              }
-              onClick={() => updateCurrentItem(-1)}
-            ></button>
-            <WorkItem content={item} />
-            <button
-              className={
-                currentItem === projects.length - 1
-                  ? "solidButton workNavButtons workNavButtonHidden"
-                  : "solidButton workNavButtons workNavButtonRight"
-              }
-              onClick={() => updateCurrentItem(1)}
-            ></button>
-          </a.div>
-        ))}
-      </a.div>
-    </section>
+  return (
+    <div className={props.detail ? "blurSvg" : "hide"}>
+      <section className="workSection">
+        <header className="hide">
+          <h2>Work</h2>
+        </header>
+        <a.div className="workHolder" style={{ ...delay }}>
+          {transitions.map(({ item, props, key }) => (
+            <a.div key={key} style={props} className="workAnim">
+              <button
+                className={
+                  currentItem === 0
+                    ? "solidButton workNavButtons workNavButtonHidden"
+                    : "solidButton workNavButtons workNavButtonLeft"
+                }
+                onClick={() => updateCurrentItem(-1)}
+              ></button>
+              <WorkItem content={item} />
+              <button
+                className={
+                  currentItem === projects.length - 1
+                    ? "solidButton workNavButtons workNavButtonHidden"
+                    : "solidButton workNavButtons workNavButtonRight"
+                }
+                onClick={() => updateCurrentItem(1)}
+              ></button>
+            </a.div>
+          ))}
+        </a.div>
+      </section>
+    </div>
   );
 };
 

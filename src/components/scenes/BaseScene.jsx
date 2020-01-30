@@ -7,6 +7,7 @@ import ProjectsScene from "../scenes/ProjectsScene";
 import AboutScene from "../scenes/AboutScene";
 import { useSelector } from "react-redux";
 import BgPillars from "./bgPillars";
+import WorkScene from "./WorkScene";
 import { useSpring, animated as a } from "react-spring/three";
 
 const BasicScene = props => {
@@ -48,7 +49,8 @@ const BasicScene = props => {
         <Suspense fallback={null}>
           <a.group name="completeScene" {...moveScene}>
             <HomeScene />
-            <ProjectsScene />
+
+            <WorkScene />
             <AboutScene />
             <BgPillars />
           </a.group>
@@ -60,3 +62,4 @@ const BasicScene = props => {
 };
 
 export default BasicScene;
+//<ProjectsScene />
