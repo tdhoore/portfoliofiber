@@ -115,8 +115,8 @@ export default function WorkScene(props) {
             -0.9867019653320312
           ]}
         >
-          <bufferGeometry attach="geometry" {...gltf.__$[14].geometry} />
-          <meshStandardMaterial attach="material" name="sign" {...defaultMat} />
+          <bufferGeometry attach="geometry" {...gltf.__$[12].geometry} />
+          <meshStandardMaterial attach="material" {...defaultMat} name="sign" />
         </mesh>
         <mesh
           name="buildingLeft"
@@ -126,7 +126,7 @@ export default function WorkScene(props) {
             -1.561077356338501
           ]}
         >
-          <bufferGeometry attach="geometry" {...gltf.__$[15].geometry} />
+          <bufferGeometry attach="geometry" {...gltf.__$[13].geometry} />
           <meshStandardMaterial
             attach="material"
             {...defaultMat}
@@ -142,7 +142,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="CUPlane.000_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[17].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[15].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -150,7 +150,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="CUPlane.000_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[18].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[16].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -172,7 +172,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Cube.342_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[20].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[18].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -180,7 +180,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Cube.342_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[21].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[19].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -197,7 +197,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.033_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[23].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[21].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -205,10 +205,10 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.033_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[24].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[22].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...defaultMat}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -222,7 +222,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.037_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[26].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[24].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -230,7 +230,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.037_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[27].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[25].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -247,7 +247,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.026_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[29].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[27].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -255,7 +255,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.026_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[30].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[28].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -272,7 +272,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.021_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[32].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[30].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -280,7 +280,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.021_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[33].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[31].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -297,7 +297,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.053_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[35].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[33].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -305,7 +305,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.053_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[36].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[34].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -322,7 +322,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.054_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[38].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[36].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -330,7 +330,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.054_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[39].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[37].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -347,7 +347,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.057_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[41].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[39].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -355,7 +355,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.057_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[42].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[40].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -372,7 +372,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.058_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[44].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[42].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -380,7 +380,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.058_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[45].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[43].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -393,7 +393,7 @@ export default function WorkScene(props) {
           position={[-0.83458012342453, 2.459474802017212, 1.9122157096862793]}
         >
           <mesh name="Plane.059_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[47].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[45].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -401,7 +401,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.059_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[48].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[46].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -418,7 +418,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.060_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[50].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[48].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -426,10 +426,10 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.060_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[51].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[49].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...defaultMat}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -443,7 +443,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.061_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[53].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[51].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -451,7 +451,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.061_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[54].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[52].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -469,7 +469,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Cube.343_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[56].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[54].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -477,7 +477,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Cube.343_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[57].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[55].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -499,7 +499,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.015_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[59].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[57].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -507,7 +507,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.015_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[60].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[58].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -529,7 +529,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.017_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[62].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[60].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -537,7 +537,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.017_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[63].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[61].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -554,7 +554,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.050_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[65].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[63].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -562,7 +562,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.050_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[66].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[64].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
@@ -579,7 +579,7 @@ export default function WorkScene(props) {
           ]}
         >
           <mesh name="Plane.052_0">
-            <bufferGeometry attach="geometry" {...gltf.__$[68].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[66].geometry} />
             <meshStandardMaterial
               attach="material"
               {...defaultMat}
@@ -587,7 +587,7 @@ export default function WorkScene(props) {
             />
           </mesh>
           <mesh name="Plane.052_1">
-            <bufferGeometry attach="geometry" {...gltf.__$[69].geometry} />
+            <bufferGeometry attach="geometry" {...gltf.__$[67].geometry} />
             <meshStandardMaterial
               attach="material"
               {...glowMat}
