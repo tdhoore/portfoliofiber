@@ -1,4 +1,5 @@
-import React, { useRef, useMemo } from "react";
+import * as THREE from "three";
+import React, { useRef, useMemo, useEffect } from "react";
 import { useLoader } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import work from "../../meshes/work.glb";
@@ -11,7 +12,10 @@ export default function SignScene(props) {
 
   const image = useMemo(() => new TextureLoader().load(tester), []);
 
-  //image.center = false;
+  useEffect(() => {
+    image.wrapS = THREE.RepeatWrapping;
+    image.repeat.x = 1;
+  });
 
   return (
     <group ref={group} {...props} position={[0, 0.08, -46.6]}>
@@ -25,7 +29,7 @@ export default function SignScene(props) {
           name="sign"
           map={image}
           transparent
-          opacity={0.9}
+          opacity={0.95}
         />
       </mesh>
     </group>

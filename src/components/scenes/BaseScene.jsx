@@ -34,8 +34,6 @@ const BasicScene = props => {
     });
   };
 
-  const bloomScene = useRef();
-
   return (
     <div className="canvasHolder">
       <Canvas
@@ -49,20 +47,19 @@ const BasicScene = props => {
         }}
       >
         <fog attach="fog" args={["#0a0a0a", 0, 45]} />
+
         <Suspense fallback={null}>
+          <ambientLight intensity="0.05" color="#fff" />
+          <ambientLight intensity="0.08" color="#FF44B4" />
           <a.group name="completeScene" {...moveScene}>
-            <scene name="bloom" ref={bloomScene}>
-              <HomeScene />
-              <WorkScene />
-              <AboutScene />
-              <BgPillars />
-            </scene>
-            <scene name="noBloom">
-              <SignScene />
-            </scene>
+            <HomeScene />
+            <WorkScene />
+            <AboutScene />
+            <BgPillars />
+            <SignScene />
           </a.group>
           <Suspense fallback={<SignScene />}>
-            <Effects glitch={false} bloomScene={bloomScene} />
+            <Effects glitch={false} />
           </Suspense>
         </Suspense>
       </Canvas>
