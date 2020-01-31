@@ -12,7 +12,7 @@ import {
 export default function AboutScene(props) {
   const group = useRef();
   const gltf = useLoader(GLTFLoader, about);
-  console.log("tester");
+
   return (
     <group ref={group} {...props} position={[0, 0, -60]}>
       <scene name="Scene">
@@ -134,8 +134,8 @@ export default function AboutScene(props) {
           <pointLight
             name="Point010_Orientation"
             rotation={[-1.5707962925663537, 0, 0]}
-            distance={3}
-            intensity={0.2}
+            distance={4}
+            intensity={0.3}
             color={pinkColor}
           />
         </object3D>
@@ -148,7 +148,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[17].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[17].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube030"
@@ -159,7 +159,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[18].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[18].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube033"
@@ -170,7 +170,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[19].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[19].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube034"
@@ -181,7 +181,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[20].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[20].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube035"
@@ -192,7 +192,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[21].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[21].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube036"
@@ -203,14 +203,14 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[22].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[22].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube038"
           position={[9.806339263916016, 1.691805362701416, -15.374283790588379]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[23].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[23].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube040"
@@ -221,7 +221,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[24].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[24].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube041"
@@ -232,7 +232,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[25].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[25].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube042"
@@ -243,7 +243,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[26].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[26].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube044"
@@ -254,7 +254,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[27].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[27].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube045"
@@ -265,7 +265,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[28].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[28].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube046"
@@ -276,7 +276,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[29].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[29].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube048"
@@ -287,7 +287,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[30].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[30].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube049"
@@ -298,7 +298,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[31].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[31].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube050"
@@ -309,7 +309,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[32].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[32].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <mesh
           name="Cube053"
@@ -320,7 +320,7 @@ export default function AboutScene(props) {
           ]}
         >
           <bufferGeometry attach="geometry" {...gltf.__$[33].geometry} />
-          <meshStandardMaterial attach="material" {...gltf.__$[33].material} />
+          <meshStandardMaterial attach="material" {...defaultMat} />
         </mesh>
         <group
           name="Cube031"
@@ -334,7 +334,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[35].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[35].material}
+              {...defaultMat}
               name="default"
             />
           </mesh>
@@ -342,7 +342,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[36].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[36].material}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -359,7 +359,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[38].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[38].material}
+              {...defaultMat}
               name="default"
             />
           </mesh>
@@ -367,7 +367,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[39].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[39].material}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -384,7 +384,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[41].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[41].material}
+              {...defaultMat}
               name="default"
             />
           </mesh>
@@ -392,7 +392,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[42].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[42].material}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -409,7 +409,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[44].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[44].material}
+              {...defaultMat}
               name="default"
             />
           </mesh>
@@ -417,7 +417,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[45].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[45].material}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -434,7 +434,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[47].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[47].material}
+              {...defaultMat}
               name="default"
             />
           </mesh>
@@ -443,6 +443,7 @@ export default function AboutScene(props) {
             <meshStandardMaterial
               attach="material"
               {...gltf.__$[48].material}
+              {...glowMat}
               name="Material.002"
             />
           </mesh>
@@ -459,7 +460,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[50].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[50].material}
+              {...defaultMat}
               name="default"
             />
           </mesh>
@@ -467,7 +468,7 @@ export default function AboutScene(props) {
             <bufferGeometry attach="geometry" {...gltf.__$[51].geometry} />
             <meshStandardMaterial
               attach="material"
-              {...gltf.__$[51].material}
+              {...glowMat}
               name="Material"
             />
           </mesh>

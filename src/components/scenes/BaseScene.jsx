@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { Canvas } from "react-three-fiber";
 import Effects from "../Effects";
@@ -8,6 +8,7 @@ import AboutScene from "./AboutScene";
 import { useSelector } from "react-redux";
 import BgPillars from "./bgPillars";
 import WorkScene from "./WorkScene";
+import SignScene from "./SignScene";
 import { useSpring, animated as a } from "react-spring/three";
 
 const BasicScene = props => {
@@ -33,6 +34,8 @@ const BasicScene = props => {
     });
   };
 
+  const bloomScene = useRef();
+
   return (
     <div className="canvasHolder">
       <Canvas
@@ -48,14 +51,20 @@ const BasicScene = props => {
         <fog attach="fog" args={["#0a0a0a", 0, 45]} />
         <Suspense fallback={null}>
           <a.group name="completeScene" {...moveScene}>
-            <HomeScene />
-
-            <WorkScene />
-            <AboutScene />
-            <BgPillars />
+            <scene name="bloom" ref={bloomScene}>
+              <HomeScene />
+              <WorkScene />
+              <AboutScene />
+              <BgPillars />
+            </scene>
+            <scene name="noBloom">
+              <SignScene />
+            </scene>
           </a.group>
+          <Suspense fallback={<SignScene />}>
+            <Effects glitch={false} bloomScene={bloomScene} />
+          </Suspense>
         </Suspense>
-        <Effects glitch={false} />
       </Canvas>
     </div>
   );

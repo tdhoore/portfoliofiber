@@ -8,7 +8,6 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass";
-import { BloomEffect } from "postprocessing";
 
 extend({
   EffectComposer,
@@ -23,9 +22,6 @@ export default function Effects(props) {
   const composer = useRef();
   const { scene, gl, size, camera } = useThree();
 
-  const bloomLayer = new THREE.Layers();
-  bloomLayer.set(1);
-
   useEffect(() => {
     //set size for composer
     composer.current.setSize(size.width, size.height);
@@ -39,17 +35,16 @@ export default function Effects(props) {
   return (
     <effectComposer ref={composer} args={[gl]}>
       <renderPass attachArray="passes" scene={scene} camera={camera} />
-
       <shaderPass
         attachArray="passes"
         args={[FXAAShader]}
         uniforms-resolution-value={[1 / size.width, 1 / size.height]}
         renderToScreen
       />
-      <unrealBloomPass attachArray="passes" args={[undefined, 0.1, 0.1, 0.2]} />
+      <unrealBloomPass attachArray="passes" args={[undefined, 1.5, 0.4, 0.2]} />
       <filmPass attachArray="passes" args={[0.05, 0.5, 1500, false]} />
       {props.glitch ? <glitchPass attachArray="passes" renderToScreen /> : null}
     </effectComposer>
   );
 }
-/* <unrealBloomPass attachArray="passes" args={[undefined, 1.5, 0.4, 0.2]} />*/
+/*<unrealBloomPass attachArray="passes" args={[undefined, 1.5, 0.4, 0.2]} />*/

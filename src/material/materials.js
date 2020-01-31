@@ -10,7 +10,8 @@ export const defaultMat = {
 export const glowMat = {
   emissive: blueColor,
   roughness: 0,
-  fog: false
+  fog: false,
+  emissiveIntensity: 1
 };
 
 export const glowMatPink = {
