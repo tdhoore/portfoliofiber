@@ -311,6 +311,14 @@ button:focus {
   height: 100vh;
 }
 
+.workItem {
+  display: block;
+  opacity: 0;
+  text-decoration: none;
+  color: $textColor;
+  animation: glitchInText 292ms 5s forwards ease-in-out;
+}
+
 /* WORKDETAIL */
 
 .workDetail {

@@ -50,20 +50,41 @@
   }
 }
 
-@keyframes moveLeft {
+//292
+@keyframes glitchInText {
   0% {
-    transform: translateX(100%);
+    opacity: 0;
+    color: $blue;
+    text-shadow: 0 0 0 $blue, 0 0 0 $pink;
   }
-  100% {
-    transform: translateX(0);
-  }
-}
 
-@keyframes moveRight {
-  0% {
-    transform: translateX(-100%);
+  28% {
+    opacity: 0.5;
+    color: $blue;
+    text-shadow: 0.2rem 0.2rem 0 $blue, -0.2rem -0.2rem 0 $pink;
   }
+
+  56% {
+    opacity: 0;
+    color: $pink;
+    text-shadow: 0 0 0 $blue, 0 0 0 $pink;
+  }
+
+  70% {
+    opacity: 0.5;
+    color: $pink;
+    text-shadow: 0.2rem 0.2rem 0 $blue, -0.2rem -0.2rem 0 $pink;
+  }
+
+  84% {
+    opacity: 0;
+    color: $textColor;
+    text-shadow: 0.1rem 0.1rem 0 $blue, -0.1rem -0.1rem 0 $pink;
+  }
+
   100% {
-    transform: translateX(0);
+    opacity: 1;
+    color: $textColor;
+    text-shadow: 0 0 0 $blue, 0 0 0 $pink;
   }
 }
