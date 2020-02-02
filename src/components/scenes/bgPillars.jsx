@@ -16,9 +16,7 @@ export default function BgPillars(props) {
       <object3D position={[9.124, -1, -24.82]}>
         <pointLight distance={7.34} intensity={0.3} color={blueColor} />
       </object3D>
-      <object3D position={[-3.936, -1.369, -23.328]}>
-        <pointLight distance={9.86} intensity={0.2} color={blueColor} />
-      </object3D>
+
       <group scale={[1, 4, 1]}>
         <mesh
           name="Cube132"
