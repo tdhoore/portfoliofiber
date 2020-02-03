@@ -138,3 +138,13 @@
       0 0 0 rgba($color: $pink, $alpha: 0.5);
   }
 }
+
+@keyframes workCounterItem {
+  from {
+    transform: scaleY(0.4);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}

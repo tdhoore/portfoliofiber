@@ -82,8 +82,8 @@ button:focus {
   height: $pad * 8;
   border: none;
   cursor: pointer;
-  transition: transform 150ms ease;
-  transform: perspective(1920px);
+  transition: all 150ms ease-in-out;
+  border: solid 0 $textColor;
 
   &::before {
     content: "";
@@ -94,7 +94,8 @@ button:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: $textColor;
+    transition: all 150ms ease-in-out;
   }
 
   &::after {
@@ -108,10 +109,16 @@ button:focus {
     height: 100%;
     background-image: url(../assets/img/texture.gif);
     opacity: 0.1;
+    transition: all 150ms ease-in-out;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: scale(0.8);
   }
 
   &:hover {
-    //transform: perspective(1920px) translateZ(-400px) rotateY(-50deg);
+    border: solid $line $textColor;
   }
 }
 
@@ -417,14 +424,14 @@ button:focus {
 
 .workCounter {
   height: $pad * 8;
-  margin: 0 $pad;
+  margin: 0 $pad * 2;
   display: flex;
 
   & div {
     background-color: #fff;
     height: 100%;
     width: $line;
-    margin-left: $pad;
+    margin-left: $pad * 2;
     transition: all 300ms ease;
     transform: scaleY(0.2);
     animation: glitchInBg 292ms 83ms forwards ease-in-out;
@@ -435,21 +442,12 @@ button:focus {
   }
 
   & .big {
-    animation: tester 300ms forwards;
+    animation: workCounterItem 300ms forwards;
   }
 }
 
 .workNavButtons::before {
   animation: glitchInBg 292ms 83ms forwards ease-in-out;
-}
-@keyframes tester {
-  from {
-    transform: scaleY(0.4);
-  }
-
-  to {
-    transform: scaleY(1);
-  }
 }
 
 /* WORKDETAIL */
