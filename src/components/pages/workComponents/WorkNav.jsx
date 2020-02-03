@@ -20,7 +20,7 @@ const WorkNav = props => {
       <button
         className={
           currentItem === 0
-            ? "solidButton workNavButtons workNavButtonHidden"
+            ? "solidButton workNavButtons"
             : "solidButton workNavButtons workNavButtonLeft"
         }
         onClick={() => updateCurrentItem(-1)}
@@ -49,7 +49,7 @@ const WorkNav = props => {
       <button
         className={
           currentItem === projects.length - 1
-            ? "solidButton workNavButtons workNavButtonHidden"
+            ? "solidButton workNavButtons"
             : "solidButton workNavButtons workNavButtonRight"
         }
         onClick={() => updateCurrentItem(1)}

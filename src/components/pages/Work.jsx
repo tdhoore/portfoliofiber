@@ -19,6 +19,7 @@ const Work = props => {
       <TransitionGroup>
         <CSSTransition
           in={true}
+          appear={true}
           classNames="workAnim"
           timeout={292}
           key={currentItem}

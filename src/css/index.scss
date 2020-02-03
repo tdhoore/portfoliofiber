@@ -122,57 +122,6 @@ button:focus {
   }
 }
 
-.outlineButton {
-  position: relative;
-  font-size: 0;
-  background: none;
-  width: $pad * 6;
-  height: $pad * 6;
-  border: none;
-  cursor: pointer;
-  border: solid $line $textColor;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    opacity: 0;
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../assets/img/texture.gif);
-    opacity: 0;
-  }
-
-  &:hover {
-    color: #000;
-  }
-
-  &:hover::before {
-    opacity: 1;
-    animation: buttonOnFlicker 150ms;
-  }
-
-  &:hover::after {
-    opacity: 0.1;
-    animation: buttonOnFlickerGrain 150ms;
-  }
-}
-
 .mainHeader {
   position: absolute;
   top: $pad * 3;
@@ -408,14 +357,6 @@ button:focus {
   }
 }
 
-.workAnim-exit {
-  opacity: 0;
-}
-
-.workAnim-exit-active {
-  opacity: 0;
-}
-
 .workNav {
   margin-top: $pad * 4;
   display: flex;
@@ -435,6 +376,7 @@ button:focus {
     transition: all 300ms ease;
     transform: scaleY(0.2);
     animation: glitchInBg 292ms 83ms forwards ease-in-out;
+    opacity: 0;
   }
 
   & div:first-of-type {
@@ -442,12 +384,67 @@ button:focus {
   }
 
   & .big {
-    animation: workCounterItem 300ms forwards;
+    animation: glitchInBg 292ms 83ms forwards ease-in-out,
+      workCounterItem 300ms forwards;
   }
 }
 
 .workNavButtons::before {
   animation: glitchInBg 292ms 83ms forwards ease-in-out;
+  opacity: 0;
+}
+
+.workAnim-appear,
+.workAnim-appear-active,
+.workAnim-appear-done {
+  & .headerWrapper {
+    & h3 {
+      animation-delay: 1500ms;
+    }
+
+    & p {
+      animation-delay: 1583ms;
+    }
+  }
+
+  & .workNavButtons::before {
+    animation-delay: 1583ms;
+  }
+
+  & .workNavButtons::after {
+    opacity: 0;
+  }
+
+  & .workCounter div {
+    animation-delay: 1583ms;
+  }
+}
+
+.workAnim-appear,
+.workAnim-appear-active {
+  & .workNavButtons {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  & .workNavButtons:hover {
+    border: none;
+    cursor: auto;
+    transition-delay: 1000s;
+  }
+
+  & .workNavButtons:hover::before,
+  & .workNavButtons:hover::after {
+    transform: scale(1);
+  }
+}
+
+.workAnim-exit {
+  opacity: 0;
+}
+
+.workAnim-exit-active {
+  opacity: 0;
 }
 
 /* WORKDETAIL */
