@@ -78,10 +78,12 @@ button:focus {
   position: relative;
   font-size: 0;
   background: none;
-  width: $pad * 6;
-  height: $pad * 6;
+  width: $pad * 8;
+  height: $pad * 8;
   border: none;
   cursor: pointer;
+  transition: transform 150ms ease;
+  transform: perspective(1920px);
 
   &::before {
     content: "";
@@ -106,6 +108,61 @@ button:focus {
     height: 100%;
     background-image: url(../assets/img/texture.gif);
     opacity: 0.1;
+  }
+
+  &:hover {
+    //transform: perspective(1920px) translateZ(-400px) rotateY(-50deg);
+  }
+}
+
+.outlineButton {
+  position: relative;
+  font-size: 0;
+  background: none;
+  width: $pad * 6;
+  height: $pad * 6;
+  border: none;
+  cursor: pointer;
+  border: solid $line $textColor;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/img/texture.gif);
+    opacity: 0;
+  }
+
+  &:hover {
+    color: #000;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    animation: buttonOnFlicker 150ms;
+  }
+
+  &:hover::after {
+    opacity: 0.1;
+    animation: buttonOnFlickerGrain 150ms;
   }
 }
 
@@ -310,13 +367,89 @@ button:focus {
   width: 100vw;
   height: 100vh;
 }
+.workHolder {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  transform-origin: center left;
+  transform: perspective(1920px) rotateY(-10deg) translateY(-50%);
+}
 
 .workItem {
   display: block;
-  opacity: 0;
   text-decoration: none;
   color: $textColor;
-  animation: glitchInText 292ms 5s forwards ease-in-out;
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+
+  & h3 {
+    font-size: $pad * 8;
+    opacity: 0;
+    animation: glitchInText 292ms forwards ease-in-out;
+    max-width: $pad * 20;
+  }
+
+  & p {
+    margin-bottom: $pad;
+    font-size: $pad * 4;
+    opacity: 0;
+    animation: glitchInText 292ms 83ms forwards ease-in-out;
+  }
+}
+
+.workAnim-exit {
+  opacity: 0;
+}
+
+.workAnim-exit-active {
+  opacity: 0;
+}
+
+.workNav {
+  margin-top: $pad * 4;
+  display: flex;
+  align-items: stretch;
+}
+
+.workCounter {
+  height: $pad * 8;
+  margin: 0 $pad;
+  display: flex;
+
+  & div {
+    background-color: #fff;
+    height: 100%;
+    width: $line;
+    margin-left: $pad;
+    transition: all 300ms ease;
+    transform: scaleY(0.2);
+    animation: glitchInBg 292ms 83ms forwards ease-in-out;
+  }
+
+  & div:first-of-type {
+    margin-left: 0;
+  }
+
+  & .big {
+    animation: tester 300ms forwards;
+  }
+}
+
+.workNavButtons::before {
+  animation: glitchInBg 292ms 83ms forwards ease-in-out;
+}
+@keyframes tester {
+  from {
+    transform: scaleY(0.4);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
 }
 
 /* WORKDETAIL */

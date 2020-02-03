@@ -55,36 +55,86 @@
   0% {
     opacity: 0;
     color: $blue;
-    text-shadow: 0 0 0 $blue, 0 0 0 $pink;
+    text-shadow: 0 0 0 rgba($color: $blue, $alpha: 0.5),
+      0 0 0 rgba($color: $pink, $alpha: 0.5);
   }
 
   28% {
     opacity: 0.5;
     color: $blue;
-    text-shadow: 0.2rem 0.2rem 0 $blue, -0.2rem -0.2rem 0 $pink;
+    text-shadow: 0.4rem 0.4rem 0 rgba($color: $blue, $alpha: 0.5),
+      -0.4rem -0.4rem 0 rgba($color: $pink, $alpha: 0.5);
   }
 
   56% {
     opacity: 0;
     color: $pink;
-    text-shadow: 0 0 0 $blue, 0 0 0 $pink;
+    text-shadow: 0 0 0 rgba($color: $blue, $alpha: 0.5),
+      0 0 0 rgba($color: $pink, $alpha: 0.5);
   }
 
   70% {
     opacity: 0.5;
     color: $pink;
-    text-shadow: 0.2rem 0.2rem 0 $blue, -0.2rem -0.2rem 0 $pink;
+    text-shadow: 0.4rem 0.4rem 0 rgba($color: $blue, $alpha: 0.5),
+      -0.4rem -0.4rem 0 rgba($color: $pink, $alpha: 0.5);
   }
 
   84% {
     opacity: 0;
     color: $textColor;
-    text-shadow: 0.1rem 0.1rem 0 $blue, -0.1rem -0.1rem 0 $pink;
+    text-shadow: 0.2rem 0.2rem 0 rgba($color: $blue, $alpha: 0.5),
+      -0.2rem -0.2rem 0 rgba($color: $pink, $alpha: 0.5);
   }
 
   100% {
     opacity: 1;
     color: $textColor;
-    text-shadow: 0 0 0 $blue, 0 0 0 $pink;
+    text-shadow: 0 0 0 rgba($color: $blue, $alpha: 0.5),
+      0 0 0 rgba($color: $pink, $alpha: 0.5);
+  }
+}
+
+@keyframes glitchInBg {
+  0% {
+    opacity: 0;
+    background-color: $blue;
+    box-shadow: 0 0 0 rgba($color: $blue, $alpha: 0.5),
+      0 0 0 rgba($color: $pink, $alpha: 0.5);
+  }
+
+  28% {
+    opacity: 0.5;
+    background-color: $blue;
+    box-shadow: 0.4rem 0.4rem 0 rgba($color: $blue, $alpha: 0.5),
+      -0.4rem -0.4rem 0 rgba($color: $pink, $alpha: 0.5);
+  }
+
+  56% {
+    opacity: 0;
+    background-color: $pink;
+    box-shadow: 0 0 0 rgba($color: $blue, $alpha: 0.5),
+      0 0 0 rgba($color: $pink, $alpha: 0.5);
+  }
+
+  70% {
+    opacity: 0.5;
+    background-color: $pink;
+    box-shadow: 0.4rem 0.4rem 0 rgba($color: $blue, $alpha: 0.5),
+      -0.4rem -0.4rem 0 rgba($color: $pink, $alpha: 0.5);
+  }
+
+  84% {
+    opacity: 0;
+    background-color: $textColor;
+    box-shadow: 0.2rem 0.2rem 0 rgba($color: $blue, $alpha: 0.5),
+      -0.2rem -0.2rem 0 rgba($color: $pink, $alpha: 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    background-color: $textColor;
+    box-shadow: 0 0 0 rgba($color: $blue, $alpha: 0.5),
+      0 0 0 rgba($color: $pink, $alpha: 0.5);
   }
 }
