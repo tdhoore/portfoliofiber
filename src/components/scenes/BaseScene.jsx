@@ -16,6 +16,8 @@ const BasicScene = props => {
     state => state.sceneReducer.currentPageIndex
   );
   const pages = useSelector(state => state.sceneReducer.pages);
+  const currentItem = useSelector(state => state.pageReducer.currentItem);
+  const projects = useSelector(state => state.pageReducer.projects);
 
   //<div className="gradiant"></div>
 
@@ -54,7 +56,7 @@ const BasicScene = props => {
             <WorkScene />
             <AboutScene />
             <BgPillars />
-            <SignScene />
+            <SignScene currentImage={projects[currentItem]} />
           </a.group>
           <Suspense fallback={<SignScene />}>
             <Effects glitch={false} />
@@ -66,4 +68,3 @@ const BasicScene = props => {
 };
 
 export default BasicScene;
-//<ProjectsScene />
