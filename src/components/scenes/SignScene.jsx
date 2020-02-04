@@ -38,12 +38,16 @@ export default function SignScene(props) {
     updatePosition();
   };
 
-  const transitions = useTransition(image, props.currentImage.id, {
-    from: { opacity: 0 },
-    enter: { opacity: 0.95 },
-    leave: { opacity: 0 },
-    config: { mass: 5, tension: 350, friction: 100 }
-  });
+  const transitions = useTransition(
+    image,
+    props.currentImage ? props.currentImage.id : null,
+    {
+      from: { opacity: 0 },
+      enter: { opacity: 0.95 },
+      leave: { opacity: 0 },
+      config: { mass: 5, tension: 350, friction: 100 }
+    }
+  );
 
   useEffect(() => {
     //move texture

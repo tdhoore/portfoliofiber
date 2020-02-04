@@ -456,15 +456,51 @@ button:focus {
   left: 0;
   right: 0;
   bottom: 0;
+  overflow: hidden;
+
+  & .detailHeader {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: $pad * 3;
+    margin-top: $pad * 10;
+
+    & h2 {
+      font-size: $pad * 8;
+    }
+
+    & p {
+      font-size: $pad * 4;
+      margin-bottom: $pad;
+      margin-top: $pad * 5;
+    }
+
+    & .imageHolder {
+      height: 50vh;
+      overflow: hidden;
+
+      & img {
+        object-fit: cover;
+        margin-top: -25vh;
+      }
+    }
+  }
 }
 
 .blurSvg {
-  /*position: absolute;
+  position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;*/
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(1rem);
+  overflow: auto;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: $pad * 128;
+  margin: 0 auto;
 }

@@ -37,12 +37,16 @@ const Page = props => {
   const getPage = sceneName => {
     switch (sceneName) {
       case "Home":
+        scrollController.canAnimate = true;
         return <Home />;
       case "Work":
+        scrollController.canAnimate = props.match.params.title ? false : true;
         return <Work detail={props.match.params.title} />;
       case "About":
+        scrollController.canAnimate = true;
         return <About />;
       default:
+        scrollController.canAnimate = true;
         return <Work />;
     }
   };

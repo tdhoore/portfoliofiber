@@ -10,6 +10,7 @@ export default class ScrollController {
 
     this.outroAnimFunc = false;
     this.isAnimating = false;
+    this.canAnimate = true;
 
     this.timeOut = 1000;
   }
@@ -30,7 +31,7 @@ export default class ScrollController {
   }
 
   handleScoll(e) {
-    if (!this.isAnimating) {
+    if (this.canAnimate) {
       //wait for the animation or task to complete
       this.isAnimating = true;
 
