@@ -8,32 +8,31 @@ const WorkDetail = props => {
       <div className="blurSvg">
         <div className="wrapper">
           <header className="detailHeader">
-            <h2>Lorem ipsum</h2>
-            <p>Jeet</p>
+            <div className="info">
+              <h2>Lorem ipsum</h2>
+              <p>Jeet</p>
+              <dl>
+                <div>
+                  <dt>Role</dt>
+                  <dd>lorem</dd>
+                </div>
+                <div>
+                  <dt>Client</dt>
+                  <dd>lorem</dd>
+                </div>
+                <div>
+                  <dt>Created</dt>
+                  <dd>2017</dd>
+                </div>
+              </dl>
+              <Link to="/" className="websiteLink linkButton linkButtonBlack">
+                Visit the website
+              </Link>
+            </div>
             <div className="imageHolder">
               <img src={image} alt="" />
             </div>
           </header>
-          <section className="workStats">
-            <header className="hide">
-              <h3 className="hide">project statistics</h3>
-            </header>
-            <dl>
-              <div>
-                <dt>Role</dt>
-                <dd>lorem</dd>
-              </div>
-              <div>
-                <dt>Client</dt>
-                <dd>lorem</dd>
-              </div>
-              <div>
-                <dt>Created</dt>
-                <dd>2017</dd>
-              </div>
-            </dl>
-            <Link to="/">Visit the website</Link>
-          </section>
           <section className="workDetails">
             <header>
               <h3>project details</h3>
@@ -47,7 +46,7 @@ const WorkDetail = props => {
             <img src={image} alt="" />
           </section>
           <section className="workImages">
-            <header className="hidden">
+            <header className="hide">
               <h3>project screenshots</h3>
             </header>
             <img src={image} alt="" />
