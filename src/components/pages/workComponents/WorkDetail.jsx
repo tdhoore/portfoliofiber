@@ -29,20 +29,34 @@ const WorkDetail = props => {
                 Visit the website
               </Link>
             </div>
-            <div className="imageHolder">
-              <img src={image} alt="" />
-            </div>
+            <img src={image} alt="" />
           </header>
           <section className="workDetails">
-            <header>
-              <h3>project details</h3>
+            <div className="texts">
+              <header>
+                <h3>project details</h3>
+              </header>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Iure, amet inventore? Doloremque numquam necessitatibus error
+                  rerum maiores, reiciendis enim nobis rem ad suscipit, incidunt
+                  veritatis nihil est quaerat aut architecto. Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit.
+                </p>
+                <p>
+                  Iure, amet inventore? Doloremque numquam necessitatibus error
+                  rerum maiores, reiciendis enim nobis rem ad suscipit, incidunt
+                  veritatis nihil est quaerat aut architecto.
+                </p>
+              </div>
+            </div>
+            <img src={image} alt="" />
+          </section>
+          <section className="fullImage">
+            <header className="hide">
+              <h3>project main screenshots</h3>
             </header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
-              amet inventore? Doloremque numquam necessitatibus error rerum
-              maiores, reiciendis enim nobis rem ad suscipit, incidunt veritatis
-              nihil est quaerat aut architecto.
-            </p>
             <img src={image} alt="" />
           </section>
           <section className="workImages">
