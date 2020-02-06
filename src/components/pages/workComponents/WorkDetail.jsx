@@ -68,7 +68,9 @@ const WorkDetail = props => {
             <img src={image} alt="" />
           </section>
           <footer>
-            <a>next project</a>
+            <Link to="/" className="websiteLink linkButton linkButtonBlack">
+              next project
+            </Link>
           </footer>
         </div>
       </div>

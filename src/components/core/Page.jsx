@@ -67,7 +67,11 @@ const Page = props => {
         <h1 className="mainTitle">
           <span>Tim D'hoore</span>
         </h1>
-        <Nav routes={props.allRoutes} scrollController={scrollController} />
+        <Nav
+          routes={props.allRoutes}
+          scrollController={scrollController}
+          isWorkDetail={props.match.params.title ? true : false}
+        />
       </header>
       <main className="contentWrapper">{getPage(props.route.title)}</main>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { setCurretPageIndex } from "../scenes/api";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Nav = props => {
   const handleClickNav = e => {
@@ -16,7 +17,13 @@ const Nav = props => {
     state => state.sceneReducer.currentPageIndex
   );
 
-  return (
+  return props.isWorkDetail ? (
+    <div className="backBtn">
+      <Link to="/work" className="websiteLink linkButton linkButtonBlack">
+        back
+      </Link>
+    </div>
+  ) : (
     <div className="mainNav">
       <nav>
         <ul>

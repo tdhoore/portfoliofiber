@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import WorkItem from "./workComponents/WorkItem";
 import { setProjects } from "./api";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
