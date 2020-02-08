@@ -117,11 +117,12 @@ button:focus {
 
   &:hover::before,
   &:hover::after {
-    transform: scale(0.8);
+    //transform: scale(0.8);
   }
 
   &:hover {
-    border: solid $line $textColor;
+    //border: solid $line $textColor;
+    animation: glitchHoverText 292ms forwards ease-in-out;
   }
 }
 
@@ -259,7 +260,8 @@ button:focus {
   }
 
   & li a:hover {
-    color: #000;
+    color: $darkText;
+    animation: glitchHoverText 292ms forwards ease-in-out;
   }
 
   & li a:hover::before {
@@ -418,6 +420,10 @@ button:focus {
     font-size: $pad * 4;
     opacity: 0;
     animation: glitchInText 292ms 83ms forwards ease-in-out;
+  }
+
+  &:hover {
+    animation: glitchHoverText 292ms forwards ease-in-out;
   }
 }
 
