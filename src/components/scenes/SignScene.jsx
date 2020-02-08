@@ -6,7 +6,6 @@ import work from "../../meshes/work.glb";
 import tester from "../../assets/img/tester.png";
 import { TextureLoader } from "three";
 import { useTransition, useSpring, animated as a } from "react-spring/three";
-import { blueColor } from "../../material/materials";
 
 export default function SignScene(props) {
   const group = useRef();

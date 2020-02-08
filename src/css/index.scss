@@ -150,7 +150,6 @@ button:focus {
   }
 
   &:hover::before {
-    //border: none;
     background-color: $bgColor;
   }
 }
@@ -183,15 +182,21 @@ button:focus {
 
 .mainHeader {
   position: absolute;
-  top: $pad * 3;
-  right: $pad * 3;
+  bottom: $pad * 3;
+  width: 100%;
   z-index: 1000;
   display: flex;
+  justify-content: center;
   align-items: center;
-}
 
-.backBtn {
-  margin-right: $pad;
+  & .backBtn {
+    margin-bottom: -$pad * 3;
+    width: 100%;
+
+    & .linkButton {
+      justify-content: center;
+    }
+  }
 }
 
 .mainTitle {
@@ -745,5 +750,19 @@ button:focus {
   header {
     left: auto;
     right: -$pad;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mainHeader {
+    top: $pad * 3;
+    bottom: auto;
+    right: $pad * 3;
+    z-index: 1000;
+    width: auto;
+  }
+
+  .backBtn {
+    margin-right: $pad;
   }
 }
