@@ -651,46 +651,49 @@ button:focus {
 
 .workImages {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   max-width: $pad * 128;
-  margin: 0 auto $pad * 20;
+  margin: 0 auto $pad * 10;
 
   & img {
     display: block;
     object-fit: cover;
     height: 100%;
-    width: 55%;
-    margin-right: -5%;
-    margin-top: $pad * 8;
+    width: 80%;
     transform: perspective(1920px) rotateY(10deg);
   }
 
   & img:nth-of-type(2n) {
-    margin-left: -5%;
     transform: perspective(1920px) rotateY(-10deg);
+    margin-right: $pad * 2;
+    margin-left: auto;
+    margin-top: -$pad * 5;
   }
 
   & img:first-of-type {
     margin-top: 0;
+    margin-left: $pad * 2;
   }
 }
 
 .fullImage {
-  margin: 0 0 $pad * 20;
+  margin: 0 auto $pad * 20;
   display: flex;
   justify-content: center;
+  max-width: $pad * 128;
 
   & img {
     object-fit: cover;
-    max-width: $pad * 128;
     height: auto;
   }
 }
 
 .moreWorkHolder {
   display: flex;
+  flex-wrap: wrap;
   max-width: $pad * 128;
-  margin: 0 auto $pad * 20;
+  margin: 0 auto $pad * 10;
+  padding: 0 $pad * 2;
 }
 
 .moreWorkItem {
@@ -698,12 +701,12 @@ button:focus {
   color: $textColor;
   text-decoration: none;
   transform-origin: center left;
-  transform: perspective(1920px) rotateY(-10deg);
-  width: 50%;
+  transform: perspective(1920px);
+  width: 100%;
 
   header {
     position: absolute;
-    left: -$pad;
+    left: $pad * 4;
     bottom: $pad * 4;
     display: flex;
     flex-direction: column-reverse;
@@ -713,33 +716,31 @@ button:focus {
     height: auto;
 
     & h3 {
-      font-size: $pad * 6;
+      font-size: $pad * 4;
       max-width: $pad * 44;
     }
 
     & p {
       margin-bottom: $pad;
-      font-size: $pad * 3;
-    }
-
-    &:hover {
-      //animation: glitchHoverText 292ms forwards ease-in-out;
+      font-size: $pad * 2;
     }
   }
 
   & img {
     width: 100%;
-    height: 100%;
+    height: 50vh;
     object-fit: cover;
   }
 }
+
 .moreWorkItemLeft {
   transform-origin: center right;
-  transform: perspective(1920px) rotateY(10deg);
-  margin-right: $pad * 5;
+  transform: perspective(1920px);
+  margin-bottom: $pad * 5;
+
   header {
     left: auto;
-    right: -$pad;
+    right: $pad * 2;
   }
 }
 
@@ -814,6 +815,72 @@ button:focus {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       height: 40vh;
+    }
+  }
+
+  .workImages {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto $pad * 20;
+
+    & img {
+      width: 55%;
+      margin-right: -5%;
+      margin-top: $pad * 8;
+      transform: perspective(1920px) rotateY(10deg);
+    }
+
+    & img:nth-of-type(2n) {
+      margin-left: -5%;
+      margin-right: 0;
+      transform: perspective(1920px) rotateY(-10deg);
+    }
+
+    & img:first-of-type {
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  .moreWorkHolder {
+    flex-wrap: nowrap;
+    margin: 0 auto $pad * 20;
+  }
+
+  .moreWorkItem {
+    position: relative;
+    color: $textColor;
+    text-decoration: none;
+    transform-origin: center left;
+    transform: perspective(1920px) rotateY(-10deg);
+    width: 50%;
+
+    header {
+      position: absolute;
+      left: -$pad;
+      bottom: $pad * 4;
+      display: flex;
+      flex-direction: column-reverse;
+      background-color: $darkText;
+      padding: $pad * 4;
+      width: auto;
+      height: auto;
+
+      & h3 {
+        font-size: $pad * 6;
+        max-width: $pad * 44;
+      }
+
+      & p {
+        margin-bottom: $pad;
+        font-size: $pad * 3;
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
