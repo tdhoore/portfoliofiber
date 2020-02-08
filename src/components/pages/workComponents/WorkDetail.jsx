@@ -69,7 +69,7 @@ const WorkDetail = props => {
           <div className="moreWorkHolder">
             <Link to="/" className="moreWorkItem moreWorkItemLeft">
               <article>
-                <header>
+                <header className="solidButton solidButtonBlack">
                   <h3>Next project</h3>
                   <p>Jeet</p>
                 </header>
@@ -78,7 +78,7 @@ const WorkDetail = props => {
             </Link>
             <Link to="/" className="moreWorkItem">
               <article>
-                <header>
+                <header className="solidButton solidButtonBlack">
                   <h3>Next project</h3>
                   <p>Jeet</p>
                 </header>
