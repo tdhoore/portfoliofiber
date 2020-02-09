@@ -22,13 +22,33 @@ export default function SignScene(props) {
     config: { mass: 5, tension: 350, friction: 100 }
   }));
 
+  const [signAnim, setSignAnim] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 5, tension: 350, friction: 100 }
+  }));
+
   const updatePosition = () => {
     if (window.innerHeight - window.innerWidth > 0) {
       //move the position
       setPos({ position: [0.5, 0.4, 0] });
+      setSignAnim({
+        scale: [1, 0.6, 1]
+      });
+
+      //for half scale
+      //done
+      image.repeat.set(1, 0.6);
+      image.offset.set(0, 0.3);
     } else {
       if (pos !== 0) {
         setPos({ position: [0, 0, 0] });
+        setSignAnim({
+          scale: [1, 1, 1]
+        });
+
+        //set texture space
+        image.repeat.set(1, 1);
+        image.offset.set(0, 0);
       }
     }
   };
@@ -74,7 +94,7 @@ export default function SignScene(props) {
       <a.group {...pos}>
         {transitions.map(({ item, props, key }) => {
           return (
-            <mesh
+            <a.mesh
               name="imageHolder"
               position={[
                 -0.5345349311828613,
@@ -82,7 +102,7 @@ export default function SignScene(props) {
                 -0.9867019653320312
               ]}
               key={key}
-              scale={[1, 0.5, 1]}
+              {...signAnim}
             >
               <bufferGeometry attach="geometry" {...gltf.__$[12].geometry} />
               <a.meshBasicMaterial
@@ -92,7 +112,7 @@ export default function SignScene(props) {
                 transparent
                 {...props}
               ></a.meshBasicMaterial>
-            </mesh>
+            </a.mesh>
           );
         })}
       </a.group>

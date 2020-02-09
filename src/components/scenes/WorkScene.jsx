@@ -19,13 +19,24 @@ export default function WorkScene(props) {
     config: { mass: 5, tension: 350, friction: 100 }
   }));
 
+  const [signAnim, setSignAnim] = useSpring(() => ({
+    scale: [1, 1, 1],
+    config: { mass: 5, tension: 350, friction: 100 }
+  }));
+
   const updatePosition = () => {
     if (window.innerHeight - window.innerWidth > 0) {
       //move the position
       setPos({ position: [0.5, 0.4, 0] });
+      setSignAnim({
+        scale: [1, 0.6, 1]
+      });
     } else {
       if (pos !== 0) {
         setPos({ position: [0, 0, 0] });
+        setSignAnim({
+          scale: [1, 1, 1]
+        });
       }
     }
   };
@@ -145,14 +156,14 @@ export default function WorkScene(props) {
             name="default"
           />
         </mesh>
-        <group
+        <a.group
           name="billboard"
+          {...signAnim}
           position={[
             -0.5345349311828613,
             2.091779947280884,
             -0.9867019653320312
           ]}
-          scale={[1, 0.5, 1]}
         >
           <mesh name="CUPlane.000_0">
             <bufferGeometry attach="geometry" {...gltf.__$[15].geometry} />
@@ -170,7 +181,7 @@ export default function WorkScene(props) {
               name="Material.002"
             />
           </mesh>
-        </group>
+        </a.group>
         <group
           name="beam"
           position={[

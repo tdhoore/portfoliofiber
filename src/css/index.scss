@@ -397,12 +397,15 @@ button:focus {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: $pad * 15;
+  top: 50%;
+  height: 45vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   transform-origin: center left;
   transform: perspective(1920px);
+  padding-bottom: $pad * 12;
 }
 
 .workItem {
@@ -413,11 +416,12 @@ button:focus {
   & .headerWrapper {
     display: flex;
     flex-direction: column-reverse;
-    margin: 0 $pad * 2;
+    margin: 0 $pad * 4;
 
     & h3 {
       font-size: 10vw;
       opacity: 0;
+      max-width: $pad * 40;
       animation: glitchInText 292ms forwards ease-in-out;
     }
 
@@ -764,7 +768,7 @@ button:focus {
 
   .workHolder {
     position: absolute;
-    bottom: auto;
+    top: auto;
     left: auto;
     right: auto;
     display: flex;
