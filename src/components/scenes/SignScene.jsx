@@ -25,7 +25,7 @@ export default function SignScene(props) {
   const updatePosition = () => {
     if (window.innerHeight - window.innerWidth > 0) {
       //move the position
-      setPos({ position: [0.5, 0, 0] });
+      setPos({ position: [0.5, 0.4, 0] });
     } else {
       if (pos !== 0) {
         setPos({ position: [0, 0, 0] });
@@ -51,7 +51,12 @@ export default function SignScene(props) {
   useEffect(() => {
     //move texture
     image.wrapS = THREE.RepeatWrapping;
-    image.repeat.x = 1;
+    //image.repeat.x = 1;
+
+    //for half scale
+    //done
+    image.repeat.set(1, 0.5);
+    image.offset.set(0, 0.25);
 
     //update the pos of the sign
     updatePosition();
@@ -63,7 +68,7 @@ export default function SignScene(props) {
       window.removeEventListener("resize", resizeWork);
     };
   });
-
+  //0.08
   return (
     <group ref={group} {...props} position={[0, 0.08, -46.6]}>
       <a.group {...pos}>
@@ -77,6 +82,7 @@ export default function SignScene(props) {
                 -0.9867019653320312
               ]}
               key={key}
+              scale={[1, 0.5, 1]}
             >
               <bufferGeometry attach="geometry" {...gltf.__$[12].geometry} />
               <a.meshBasicMaterial

@@ -22,7 +22,7 @@ export default function WorkScene(props) {
   const updatePosition = () => {
     if (window.innerHeight - window.innerWidth > 0) {
       //move the position
-      setPos({ position: [0.5, 0, 0] });
+      setPos({ position: [0.5, 0.4, 0] });
     } else {
       if (pos !== 0) {
         setPos({ position: [0, 0, 0] });
@@ -152,6 +152,7 @@ export default function WorkScene(props) {
             2.091779947280884,
             -0.9867019653320312
           ]}
+          scale={[1, 0.5, 1]}
         >
           <mesh name="CUPlane.000_0">
             <bufferGeometry attach="geometry" {...gltf.__$[15].geometry} />
