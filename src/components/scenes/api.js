@@ -84,3 +84,7 @@ export const playGlitch = () => {
     store.dispatch(glitch(false));
   }, 250);
 };
+
+export const goToUrl = url => {
+  store.dispatch(push(url));
+};

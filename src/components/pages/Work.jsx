@@ -19,9 +19,9 @@ const Work = props => {
     leave: { opacity: 0 }
   });
 
-  return transitions.map(({ item, key, props }) =>
+  return transitions.map(({ item, key, transProps }) =>
     item ? (
-      <a.section className="workSection" style={props} key={key}>
+      <a.section className="workSection" style={transProps} key={key}>
         <header className="hide">
           <h2>Work</h2>
         </header>
@@ -41,8 +41,8 @@ const Work = props => {
         </TransitionGroup>
       </a.section>
     ) : (
-      <a.div style={props} key={key}>
-        <WorkDetail content={props.detail} />
+      <a.div style={transProps} key={key}>
+        <WorkDetail linkTitle={props.detail} />
       </a.div>
     )
   );

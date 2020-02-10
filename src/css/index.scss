@@ -1,7 +1,6 @@
 @import "vars.scss";
 @import "fonts.scss";
 @import "animation.scss";
-
 ::selection {
   background-color: rgba(255, 68, 180, 0.5);
   color: $textColor;
@@ -28,8 +27,8 @@ body {
 }
 
 *,
-*::before,
-*::after {
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -54,7 +53,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-
 button:focus {
   outline: none;
 }
@@ -72,8 +70,8 @@ button:focus {
   background: linear-gradient(150deg, $pink 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.solidButton,
-.linkButton {
+.linkButton,
+.solidButton {
   position: relative;
   font-size: 0;
   background: none;
@@ -105,13 +103,12 @@ button:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/texture.gif);
+    background-image: url("../assets/img/texture.gif");
     opacity: 0.1;
     transition: all 150ms ease-in-out;
   }
-
   &:hover {
-    animation: glitchHoverText 292ms forwards ease-in-out;
+    animation: glitchHoverLight 292ms forwards ease-in-out;
   }
 }
 
@@ -136,18 +133,16 @@ button:focus {
     height: $pad * 2;
     background: none;
     opacity: 1;
-    background-color: $textColor;
+    background-color: $darkText;
     margin-right: $pad * 2;
   }
 
-  &:hover,
-  &:hover::before,
-  &:hover::after {
-    transform: scale(1);
+  &:hover::before {
+    background-color: $darkText;
   }
 
-  &:hover::before {
-    background-color: $bgColor;
+  &:hover::after {
+    background-color: $textColor;
   }
 }
 
@@ -157,6 +152,14 @@ button:focus {
 
 .linkButtonBlack {
   background-color: $darkText;
+
+  &:hover {
+    animation: glitchHoverText 292ms forwards ease-in-out;
+  }
+
+  &:hover::after {
+    background-color: $darkText;
+  }
 }
 
 .linkButtonBlack,
@@ -166,16 +169,13 @@ button:focus {
   &::before {
     background-color: $darkText;
   }
-
   &:hover {
     border-color: $darkText;
     color: $darkText;
   }
-
   &:hover::before {
     background-color: $textColor;
   }
-
   &:hover::after {
     background-color: $darkText;
   }
@@ -259,20 +259,17 @@ button:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/texture.gif);
+    background-image: url("../assets/img/texture.gif");
     opacity: 0;
   }
-
   & li a:hover {
     color: $darkText;
     animation: glitchHoverText 292ms forwards ease-in-out;
   }
-
   & li a:hover::before {
     opacity: 1;
     animation: buttonOnFlicker 150ms;
   }
-
   & li a:hover::after {
     opacity: 0.1;
     animation: buttonOnFlickerGrain 150ms;
@@ -393,8 +390,10 @@ button:focus {
   width: 100vw;
   height: 100vh;
 }
+
 .workHolder {
   position: absolute;
+  z-index: 2;
   left: 0;
   right: 0;
   top: 50%;
@@ -431,7 +430,6 @@ button:focus {
       opacity: 0;
       animation: glitchInText 292ms 83ms forwards ease-in-out;
     }
-
     &:hover {
       animation: glitchHoverText 292ms forwards ease-in-out;
     }
@@ -463,7 +461,6 @@ button:focus {
     animation: glitchInBg 292ms 83ms forwards ease-in-out;
     opacity: 0;
   }
-
   & div:first-of-type {
     margin-left: 0;
   }
@@ -511,15 +508,13 @@ button:focus {
     user-select: none;
     pointer-events: none;
   }
-
   & .workNavButtons:hover {
     border: none;
     cursor: auto;
     transition-delay: 1000s;
   }
-
-  & .workNavButtons:hover::before,
-  & .workNavButtons:hover::after {
+  & .workNavButtons:hover::after,
+  & .workNavButtons:hover::before {
     transform: scale(1);
   }
 }
@@ -653,7 +648,6 @@ button:focus {
   & p {
     margin-top: $pad * 2.5;
   }
-
   & p:first-of-type {
     margin-top: 0;
   }
@@ -681,7 +675,6 @@ button:focus {
     width: 100%;
     margin-top: $pad * 5;
   }
-
   & img:first-of-type {
     margin-top: 0;
   }
@@ -749,7 +742,6 @@ button:focus {
 .lastItem {
   margin-bottom: $pad * 10;
 }
-
 @media only screen and (min-width: 600px) {
   .mainHeader {
     top: $pad * 3;
@@ -878,7 +870,6 @@ button:focus {
       margin-top: 0;
       margin-right: $pad * 5;
     }
-
     & img:last-of-type {
       margin-right: 0;
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { setCurretPageIndex } from "../scenes/api";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -17,9 +17,36 @@ const Nav = props => {
     state => state.sceneReducer.currentPageIndex
   );
 
+  const [blackBackBtn, setBlackBackBtn] = useState(true);
+
+  const resizeNav = () => {
+    if (props.isWorkDetail) {
+      if (window.innerWidth > 1400) {
+        setBlackBackBtn(false);
+      } else {
+        setBlackBackBtn(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    resizeNav();
+
+    window.addEventListener("resize", resizeNav);
+
+    return () => {
+      window.removeEventListener("resize", resizeNav);
+    };
+  });
+
   return props.isWorkDetail ? (
     <div className="backBtn">
-      <Link to="/work" className="websiteLink linkButton linkButtonBlack">
+      <Link
+        to="/work"
+        className={`websiteLink linkButton ${
+          blackBackBtn ? "linkButtonBlack" : ""
+        }`}
+      >
         back
       </Link>
     </div>

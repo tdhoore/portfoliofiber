@@ -1,8 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import image from "../../../assets/img/tester.png";
+import { checkCurrentItem } from "../api";
+import { useSelector } from "react-redux";
 
 const WorkDetail = props => {
+  //make sure that the title and the selected item are the same
+  checkCurrentItem(props.linkTitle);
+
+  const projects = useSelector(state => state.pageReducer.projects);
+  const currentItem = useSelector(state => state.pageReducer.currentItem);
+  const data = projects[currentItem];
+
+  console.log(data);
+
   return (
     <article className="workDetail">
       <div className="blurSvg">
