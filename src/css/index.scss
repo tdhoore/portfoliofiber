@@ -169,13 +169,20 @@ button:focus {
   &::before {
     background-color: $darkText;
   }
+
+  &::after {
+    background-color: $textColor;
+  }
+
   &:hover {
     border-color: $darkText;
     color: $darkText;
   }
+
   &:hover::before {
     background-color: $textColor;
   }
+
   &:hover::after {
     background-color: $darkText;
   }

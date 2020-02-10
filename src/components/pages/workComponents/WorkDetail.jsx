@@ -12,35 +12,38 @@ const WorkDetail = props => {
   const currentItem = useSelector(state => state.pageReducer.currentItem);
   const data = projects[currentItem];
 
-  console.log(data);
-
   return (
     <article className="workDetail">
       <div className="blurSvg">
         <div className="wrapper">
           <header className="detailHeader">
             <div className="info">
-              <h2>Lorem ipsum</h2>
-              <p>Jeet</p>
+              <h2>{data.title}</h2>
+              <p>{data.category}</p>
               <dl>
                 <div>
                   <dt>Role</dt>
-                  <dd>lorem</dd>
+                  <dd>{data.role}</dd>
                 </div>
                 <div>
                   <dt>Client</dt>
-                  <dd>lorem</dd>
+                  <dd>{data.client}</dd>
                 </div>
                 <div>
                   <dt>Created</dt>
-                  <dd>2017</dd>
+                  <dd>{data.created}</dd>
                 </div>
               </dl>
-              <Link to="/" className="websiteLink linkButton linkButtonBlack">
-                Visit the website
-              </Link>
+              {data.websiteLink ? (
+                <a
+                  href={data.websiteLink}
+                  className="websiteLink linkButton linkButtonBlack"
+                >
+                  Visit the website
+                </a>
+              ) : null}
             </div>
-            <img src={image} alt="" />
+            <img src={image} alt={data.title} />
           </header>
           <section className="workDetails">
             <div className="texts">
@@ -48,18 +51,7 @@ const WorkDetail = props => {
                 <h3>project details</h3>
               </header>
               <div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Iure, amet inventore? Doloremque numquam necessitatibus error
-                  rerum maiores, reiciendis enim nobis rem ad suscipit, incidunt
-                  veritatis nihil est quaerat aut architecto. Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit.
-                </p>
-                <p>
-                  Iure, amet inventore? Doloremque numquam necessitatibus error
-                  rerum maiores, reiciendis enim nobis rem ad suscipit, incidunt
-                  veritatis nihil est quaerat aut architecto.
-                </p>
+                <p>{data.desc}</p>
               </div>
             </div>
             <img src={image} alt="" />

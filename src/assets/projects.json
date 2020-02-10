@@ -5,7 +5,12 @@
     "mainImage": "tester.png",
     "category": "Yeet",
     "link": "/work/project1",
-    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
+    "role": "Designer",
+    "client": "Devine",
+    "created": 2017,
+    "detailCoverImg": "",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis.",
+    "descImg": ""
   },
   {
     "id": 1,
@@ -13,6 +18,9 @@
     "mainImage": "logo512.png",
     "category": "Yeet",
     "link": "/work/project2",
+    "role": "Designer",
+    "client": "Devine",
+    "created": 2017,
     "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin velit et mauris finibus, vitae consequat ligula varius. Donec iaculis a lorem et bibendum. Nulla at accumsan risus. Phasellus pretium ipsum non quam porttitor interdum. Nullam vehicula metus est, vel cursus nisi lobortis ut. Phasellus vitae ullamcorper ipsum. Sed at ullamcorper augue. In faucibus consectetur semper. Mauris condimentum semper sapien, id eleifend metus ornare non. Nulla pulvinar tellus lorem, eu vulputate lorem pharetra in. Fusce eu rutrum tellus. Fusce velit urna, aliquam at diam a, maximus pretium turpis."
   },
   {
