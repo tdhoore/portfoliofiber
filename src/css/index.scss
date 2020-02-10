@@ -672,25 +672,18 @@ button:focus {
   flex-direction: column;
   max-width: $pad * 175;
   margin: 0 auto $pad * 10;
+  padding: 0 $pad * 2;
 
   & img {
     display: block;
     object-fit: cover;
     height: 100%;
-    width: 80%;
-    transform: perspective(1920px) rotateY(10deg);
-  }
-
-  & img:nth-of-type(2n) {
-    transform: perspective(1920px) rotateY(-10deg);
-    margin-right: $pad * 2;
-    margin-left: auto;
-    margin-top: -$pad * 5;
+    width: 100%;
+    margin-top: $pad * 5;
   }
 
   & img:first-of-type {
     margin-top: 0;
-    margin-left: $pad * 2;
   }
 }
 
@@ -751,6 +744,10 @@ button:focus {
     height: 40vh;
     object-fit: cover;
   }
+}
+
+.lastItem {
+  margin-bottom: $pad * 10;
 }
 
 @media only screen and (min-width: 600px) {
@@ -873,23 +870,16 @@ button:focus {
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto $pad * 20;
+    padding: 0 $pad * 5;
 
     & img {
-      width: 55%;
-      margin-right: -5%;
-      margin-top: $pad * 8;
-      transform: perspective(1920px);
-    }
-
-    & img:nth-of-type(2n) {
-      margin-left: -5%;
-      margin-right: 0;
-      transform: perspective(1920px);
-    }
-
-    & img:first-of-type {
+      width: calc(50% - 2rem);
       margin-top: 0;
-      margin-left: 0;
+      margin-right: $pad * 5;
+    }
+
+    & img:last-of-type {
+      margin-right: 0;
     }
   }
 
@@ -938,6 +928,10 @@ button:focus {
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .lastItem {
+    margin-bottom: 0;
   }
 }
 

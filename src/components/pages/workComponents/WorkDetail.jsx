@@ -60,7 +60,7 @@ const WorkDetail = props => {
             <img src={image} alt="" />
             <img src={image} alt="" />
           </section>
-          <section className="fullImage">
+          <section className="fullImage lastItem">
             <header className="hide">
               <h3>project main screenshot</h3>
             </header>
@@ -68,7 +68,7 @@ const WorkDetail = props => {
           </section>
         </div>
         <footer>
-          <div className="moreWorkHolder">
+          <div className="moreWorkHolder hide">
             <Link to="/" className="moreWorkItem">
               <article>
                 <header className="solidButton solidButtonBlack">
