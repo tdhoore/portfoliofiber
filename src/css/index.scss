@@ -802,7 +802,8 @@ button:focus {
   }
 
   .wrapper {
-    padding: $pad * 5 0;
+    margin: 0 auto $pad * 10;
+    padding: $pad * 5;
   }
 
   .workDetail {
