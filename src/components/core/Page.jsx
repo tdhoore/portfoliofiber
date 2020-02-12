@@ -1,5 +1,5 @@
 import React from "react";
-import { setCurretPageIndex } from "../scenes/api";
+import { setCurretPageIndex, setLastPageIndex } from "../scenes/api";
 import Home from "../pages/Home";
 import Work from "../pages/Work";
 import About from "../pages/About";
@@ -53,12 +53,11 @@ const Page = props => {
 
   if (isFirstCall) {
     isFirstCall = false;
-    setCurretPageIndex(
-      getInitPageIndex(props.route.title),
-      false,
-      false,
-      props.route.url
-    );
+
+    const firstIndex = getInitPageIndex(props.route.title);
+
+    setCurretPageIndex(firstIndex, false, false, props.route.url);
+    setLastPageIndex(0);
   }
 
   return (

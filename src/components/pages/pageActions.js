@@ -5,3 +5,7 @@ export const currentItem = actions => {
 export const projects = actions => {
   return { type: "SET_PROJECTS", payload: actions };
 };
+
+export const lastItem = actions => {
+  return { type: "SET_LASTITEM", payload: actions };
+};

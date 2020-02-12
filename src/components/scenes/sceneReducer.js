@@ -4,22 +4,26 @@ const initialState = {
       title: "Home",
       url: "/",
       canAnimate: true,
+      visible: true,
       camPos: [0, 0, 0]
     },
     {
       title: "Work",
       url: "/work",
       canAnimate: true,
+      visible: false,
       camPos: [0, 0, 45]
     },
     {
       title: "About",
       url: "/about",
       canAnimate: true,
+      visible: false,
       camPos: [0, 0, 60]
     }
   ],
   currentPageIndex: 0,
+  lastPageIndex: 0,
   glitch: false,
   actions: {}
 };
@@ -31,19 +35,20 @@ export default (state = initialState, action) => {
         ...state,
         actions: action.payload
       };
-    case "SET_CANANIMATE":
-      const pages = state.pages.map(page => {
-        if (
-          page.title.toLowerCase() === action.payload.title.toLowerCase() ||
-          action.payload.title === ""
-        ) {
+    case "SET_LASTPAGE":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "SET_VISIBLE":
+      const pages = state.pages.map((page, index) => {
+        if (index === action.payload.index) {
           //set animation
-          page.canAnimate = action.payload.canAnimate;
+          page.visible = action.payload.visible;
         }
 
         return { ...page };
       });
-
       return {
         ...state,
         ...pages

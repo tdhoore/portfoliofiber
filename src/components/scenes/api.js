@@ -4,7 +4,9 @@ import {
   actions,
   canAnimateAction,
   curretPageIndex,
-  glitch
+  glitch,
+  lastPageIndex,
+  visible
 } from "./sceneActions";
 
 export const setActions = (anims = {}) => {
@@ -49,8 +51,12 @@ export const getCurrentPageIndex = () => {
   return store.getState().sceneReducer.currentPageIndex;
 };
 
-export const setInitCurretPageIndex = index => {
-  store.dispatch(curretPageIndex(index));
+export const setLastPageIndex = index => {
+  store.dispatch(lastPageIndex(index));
+};
+
+export const setVisible = (index = 0, isVisible = false) => {
+  store.dispatch(visible(index, isVisible));
 };
 
 export const setCurretPageIndex = (
@@ -65,6 +71,10 @@ export const setCurretPageIndex = (
     if (disableAll) {
       //setAllCanAnimate();
     }
+
+    //set the lastPageIndex
+    const lastPage = store.getState().sceneReducer.currentPageIndex;
+    setLastPageIndex(lastPage);
 
     store.dispatch(curretPageIndex(index));
 
@@ -87,4 +97,8 @@ export const playGlitch = () => {
 
 export const goToUrl = url => {
   store.dispatch(push(url));
+};
+
+export const getLastPageIndex = () => {
+  return store.getState().sceneReducer.lastPageIndex;
 };

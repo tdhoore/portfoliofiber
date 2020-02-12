@@ -13,3 +13,11 @@ export const curretPageIndex = (currentPageIndex = 0) => {
 export const glitch = (glitch = false) => {
   return { type: "SET_GLITCH", payload: { glitch } };
 };
+
+export const lastPageIndex = (lastPageIndex = 0) => {
+  return { type: "SET_LASTPAGE", payload: { lastPageIndex } };
+};
+
+export const visible = (index, visible = false) => {
+  return { type: "SET_VISIBLE", payload: { index, visible } };
+};

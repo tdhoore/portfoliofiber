@@ -1,7 +1,6 @@
 import { store } from "../../redux/configureStore";
 import work from "../../assets/projects.json";
-
-import { currentItem, projects } from "./pageActions";
+import { currentItem, projects, lastItem } from "./pageActions";
 
 export const setCurrentItem = index => {
   store.dispatch(currentItem(index));
