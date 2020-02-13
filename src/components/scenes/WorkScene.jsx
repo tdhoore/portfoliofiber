@@ -16,25 +16,75 @@ export default function WorkScene(props) {
   const { nodes, materials, animations } = useLoader(GLTFLoader, work);
   console.log(nodes);
   /*
-<group name="Point047" position={[-0.53, 2.09, -0.93]}>
-          <primitive object={nodes.Point047_Orientation} />
-        </group>
-        <group name="Point048" position={[0.81, 2.24, -1.23]}>
-          <primitive object={nodes.Point048_Orientation} />
-        </group>
-        <group name="Point049" position={[-0.42, 3.36, -1.18]}>
-          <primitive object={nodes.Point049_Orientation} />
-        </group>
-        <group name="Point050" position={[-0.68, 1.38, -0.63]}>
-          <primitive object={nodes.Point050_Orientation} />
-        </group>
-        <group name="Point051" position={[-0.68, 3.12, -0.63]}>
-          <primitive object={nodes.Point051_Orientation} />
-        </group>
+
 */
   console.log(materials["default"]);
   return (
     <group ref={group} {...props} dispose={null} position={[0, 0.08, -46.6]}>
+      <object3D
+        name="Point047"
+        position={[-0.5345349311828613, 2.091779947280884, -0.9273430705070496]}
+      >
+        <pointLight
+          name="Point047_Orientation"
+          rotation={[-1.5707962925663537, 0, 0]}
+          distance={1.5}
+          intensity={0.2}
+          color={blueColor}
+        />
+      </object3D>
+      <object3D
+        name="Point048"
+        position={[0.8144582509994507, 2.2368969917297363, -1.2322880029678345]}
+      >
+        <pointLight
+          name="Point048_Orientation"
+          rotation={[-1.5707962925663537, 0, 0]}
+          distance={1}
+          intensity={0.3}
+          color={pinkColor}
+        />
+      </object3D>
+      <object3D
+        name="Point049"
+        position={[
+          -0.4237495958805084,
+          3.3583593368530273,
+          -1.1837471723556519
+        ]}
+      >
+        <pointLight
+          name="Point049_Orientation"
+          rotation={[-1.5707962925663537, 0, 0]}
+          distance={1}
+          intensity={0.3}
+          color={pinkColor}
+        />
+      </object3D>
+      <object3D
+        name="Point050"
+        position={[-0.6795758605003357, 1.378262996673584, -0.6296080350875854]}
+      >
+        <pointLight
+          name="Point050_Orientation"
+          rotation={[-1.5707962925663537, 0, 0]}
+          distance={1}
+          intensity={0.3}
+          color={pinkColor}
+        />
+      </object3D>
+      <object3D
+        name="Point051"
+        position={[-0.6795758605003357, 3.116321086883545, -0.6296080350875854]}
+      >
+        <pointLight
+          name="Point051_Orientation"
+          rotation={[-1.5707962925663537, 0, 0]}
+          distance={1}
+          intensity={0.3}
+          color={pinkColor}
+        />
+      </object3D>
       <mesh
         geometry={nodes.buildingRight.geometry}
         name="buildingRight"
@@ -43,28 +93,17 @@ export default function WorkScene(props) {
         <meshStandardMaterial attach="material" {...defaultMat} />
       </mesh>
       <mesh
-        material={materials.sign}
-        geometry={nodes.imageHolder.geometry}
-        name="imageHolder"
-        position={[-0.53, 2.09, -0.99]}
-      />
-      <mesh
-        material={defaultMat}
         geometry={nodes.buildingLeft.geometry}
         name="buildingLeft"
         position={[-2.2, -0.29, -1.56]}
-      />
+      >
+        <meshStandardMaterial attach="material" {...defaultMat} />
+      </mesh>
       <group name="billboard" position={[-0.53, 2.09, -0.99]}>
-        <mesh
-          material={defaultMat}
-          geometry={nodes["CUPlane.000_0"].geometry}
-          name="CUPlane.000_0"
-        />
-        <mesh
-          material={materials["Material.002"]}
-          geometry={nodes["CUPlane.000_1"].geometry}
-          name="CUPlane.000_1"
-        >
+        <mesh geometry={nodes["CUPlane.000_0"].geometry} name="CUPlane.000_0">
+          <meshStandardMaterial attach="material" {...defaultMat} />
+        </mesh>
+        <mesh geometry={nodes["CUPlane.000_1"].geometry} name="CUPlane.000_1">
           <meshStandardMaterial attach="material" {...glowMat} />
         </mesh>
       </group>
@@ -73,11 +112,9 @@ export default function WorkScene(props) {
         position={[0, 2.93, -1.68]}
         rotation={[0.09, -0.04, -0.07]}
       >
-        <mesh
-          material={defaultMat}
-          geometry={nodes["Cube.342_0"].geometry}
-          name="Cube.342_0"
-        />
+        <mesh geometry={nodes["Cube.342_0"].geometry} name="Cube.342_0">
+          <meshStandardMaterial attach="material" {...defaultMat} />
+        </mesh>
         <mesh
           material={materials["Material.002"]}
           geometry={nodes["Cube.342_1"].geometry}
@@ -92,11 +129,9 @@ export default function WorkScene(props) {
         rotation={[0, 0, 0]}
         scale={[1.87, 1.87, 1.87]}
       >
-        <mesh
-          material={defaultMat}
-          geometry={nodes["Plane.033_0"].geometry}
-          name="Plane.033_0"
-        />
+        <mesh geometry={nodes["Plane.033_0"].geometry} name="Plane.033_0">
+          <meshStandardMaterial attach="material" {...defaultMat} />
+        </mesh>
         <mesh
           material={materials["Material.002"]}
           geometry={nodes["Plane.033_1"].geometry}
@@ -115,7 +150,9 @@ export default function WorkScene(props) {
           material={defaultMat}
           geometry={nodes["Plane.037_0"].geometry}
           name="Plane.037_0"
-        />
+        >
+          <meshStandardMaterial attach="material" {...defaultMat} />
+        </mesh>
         <mesh
           material={materials["Material.002"]}
           geometry={nodes["Plane.037_1"].geometry}
@@ -129,11 +166,9 @@ export default function WorkScene(props) {
         position={[-1.14, 3.05, -1.05]}
         rotation={[-Math.PI, -0.2, 0]}
       >
-        <mesh
-          material={materials["default"]}
-          geometry={nodes["Plane.015_0"].geometry}
-          name="Plane.015_0"
-        />
+        <mesh geometry={nodes["Plane.015_0"].geometry} name="Plane.015_0">
+          <meshStandardMaterial attach="material" {...defaultMat} />
+        </mesh>
         <mesh
           material={materials["Material.002"]}
           geometry={nodes["Plane.015_1"].geometry}
@@ -147,16 +182,12 @@ export default function WorkScene(props) {
         position={[-1.34, 1.8, -2.82]}
         scale={[1.68, 1.68, 1.68]}
       >
-        <mesh
-          material={materials["Metal.001"]}
-          geometry={nodes["Plane.050_0"].geometry}
-          name="Plane.050_0"
-        />
-        <mesh
-          material={materials["Material.002"]}
-          geometry={nodes["Plane.050_1"].geometry}
-          name="Plane.050_1"
-        />
+        <mesh geometry={nodes["Plane.050_0"].geometry} name="Plane.050_0">
+          <meshStandardMaterial attach="material" {...defaultMat} />
+        </mesh>
+        <mesh geometry={nodes["Plane.050_1"].geometry} name="Plane.050_1">
+          <meshStandardMaterial attach="material" {...glowMat} />
+        </mesh>
       </group>
     </group>
   );
