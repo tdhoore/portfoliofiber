@@ -2,12 +2,11 @@ import React, { Suspense, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas } from "react-three-fiber";
 import Effects from "../Effects";
-import HomeScene from "../scenes/HomeScene";
+import HomeScene from "./HomeScene";
 import AboutScene from "./AboutScene";
 import { useSelector } from "react-redux";
-import BgPillars from "./bgPillars";
 import WorkScene from "./WorkScene";
-import SignScene from "./SignScene";
+import BgScene from "./BgScene";
 import { useSpring, animated as a } from "react-spring/three";
 import FPSStats from "react-fps-stats";
 
@@ -41,28 +40,32 @@ const BasicScene = props => {
     <div className="canvasHolder">
       <FPSStats />
       <Canvas
-        camera={{ position: [0, 2.16, 0], fov: 35 }}
-        onCreated={({ gl }) => {
+        camera={{
+          position: [5.24, 6.53, 5.24],
+          //rotation: [1.18, 0.36, -0.71]
+          near: 0,
+          zoom: 230
+        }}
+        onCreated={({ gl, camera }) => {
           if (gl) {
             gl.gammaInput = true;
             gl.toneMapping = THREE.Uncharted2ToneMapping;
-            gl.setClearColor(new THREE.Color("#0a0a0a"));
+            gl.setClearColor(new THREE.Color("#031829"));
+          }
+
+          if (camera) {
+            camera.lookAt(new THREE.Vector3(0, 1.84973, 0));
           }
         }}
         pixelRatio={1}
+        orthographic
       >
-        <fog attach="fog" args={["#0a0a0a", 0, 45]} />
+        <ambientLight />
         <Suspense fallback={null}>
-          <a.group name="completeScene" {...moveScene}>
-            <HomeScene />
-            <WorkScene />
+          <group position={[0, -0.3, 0]}>
             <AboutScene />
-            <BgPillars />
-            <SignScene currentImage={projects[currentItem]} />
-          </a.group>
-          <Suspense>
-            <Effects />
-          </Suspense>
+            <BgScene />
+          </group>
         </Suspense>
       </Canvas>
     </div>
@@ -70,3 +73,20 @@ const BasicScene = props => {
 };
 
 export default BasicScene;
+/*
+<a.group name="completeScene">
+            
+            <WorkScene />
+          </a.group>
+   <Suspense>
+            <Effects />
+          </Suspense>
+
+
+
+<HomeScene />
+            <WorkScene />
+            <AboutScene />
+            <BgPillars />
+            <SignScene currentImage={projects[currentItem]} />
+*/
