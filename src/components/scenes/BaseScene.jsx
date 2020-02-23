@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas } from "react-three-fiber";
 import Effects from "../Effects";
@@ -9,7 +9,6 @@ import BgPillars from "./bgPillars";
 import WorkScene from "./WorkScene";
 import SignScene from "./SignScene";
 import { useSpring, animated as a } from "react-spring/three";
-import { setVisible, getCurrentPageIndex, getLastPageIndex } from "./api";
 import FPSStats from "react-fps-stats";
 
 const BasicScene = props => {
@@ -20,15 +19,6 @@ const BasicScene = props => {
   const pages = useSelector(state => state.sceneReducer.pages);
   const currentItem = useSelector(state => state.pageReducer.currentItem);
   const projects = useSelector(state => state.pageReducer.projects);
-
-  const tester = [false, false, false];
-
-  const [visible, set] = useState(
-    tester.map((test, index) => {
-      return index === getCurrentPageIndex();
-    })
-  );
-  //<div className="gradiant"></div>
 
   const [moveScene, setMoveScene] = useSpring(() => ({
     position: [0, 0, 0],
@@ -42,33 +32,6 @@ const BasicScene = props => {
   });
 
   const moveSceneFunc = () => {
-    const idjfhsdjkfh = [...visible];
-    pages.forEach((page, index) => {
-      let isVisible = false;
-
-      if (index === currentPageIndex) {
-        isVisible = true;
-      } else if (currentPageIndex !== lastPageIndex) {
-        if (currentPageIndex > lastPageIndex) {
-          //currentpage is bigger than lastPage
-
-          if (index <= currentPageIndex) {
-            isVisible = true;
-          }
-        } else {
-          //console.log("lastPageIndex");
-          if (index <= lastPageIndex) {
-            isVisible = true;
-          }
-        }
-      }
-
-      if (idjfhsdjkfh[index] !== isVisible) {
-        idjfhsdjkfh[index] = isVisible;
-        set(idjfhsdjkfh);
-      }
-    });
-
     setMoveScene({
       position: pages[currentPageIndex].camPos
     });
@@ -87,20 +50,15 @@ const BasicScene = props => {
           }
         }}
         pixelRatio={1}
-        noEvents={false}
       >
         <fog attach="fog" args={["#0a0a0a", 0, 45]} />
         <Suspense fallback={null}>
           <a.group name="completeScene" {...moveScene}>
-            <HomeScene visible={visible[0]} />
-            <WorkScene pageData={pages} visible={visible[1]} />
-            <AboutScene visible={visible[2]} pageData={pages[2]} />
-            <BgPillars visible={false} pageData={pages[2]} />
-            <SignScene
-              currentImage={projects[currentItem]}
-              visible={visible[1]}
-              pageData={pages[1]}
-            />
+            <HomeScene />
+            <WorkScene />
+            <AboutScene />
+            <BgPillars />
+            <SignScene currentImage={projects[currentItem]} />
           </a.group>
           <Suspense>
             <Effects />

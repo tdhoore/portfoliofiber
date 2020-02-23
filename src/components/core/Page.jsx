@@ -63,7 +63,7 @@ const Page = props => {
   return (
     <div style={{ display: "relative", height: "100vh" }}>
       <header className="mainHeader">
-        <h1 className="mainTitle">
+        <h1 className="hide">
           <span>Tim D'hoore</span>
         </h1>
         <Nav
@@ -72,7 +72,7 @@ const Page = props => {
           isWorkDetail={props.match.params.title ? true : false}
         />
       </header>
-      <main className="contentWrapper">{getPage(props.route.title)}</main>
+      <main className="contentWrapper hide">{getPage(props.route.title)}</main>
     </div>
   );
 };
