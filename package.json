@@ -7,7 +7,7 @@
     "connected-react-router": "^6.6.1",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
-    "postprocessing": "^6.10.0",
+    "postprocessing": "^6.11.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-fps-stats": "^0.1.2",
