@@ -24,42 +24,33 @@ const BasicScene = props => {
 
   const [moveScene, setMoveScene] = useSpring(() => ({
     rotation: [0, 0, 0],
-    config: true ? { mass: 5, tension: 350, friction: 100 } : { duration: 1 },
-    onStart: () => {},
-    onRest: () => {}
+    config: { mass: 5, tension: 350, friction: 100 }
   }));
 
-  const [resetScene, setResetScene] = useSpring(() => ({
-    rotation: [0, 0, 0],
-    config: { duration: 1 }
+  const [placeScene, setPlaceScene] = useSpring(() => ({
+    position: [0, 0, 0],
+    scale: [1, 1, 1],
+    config: { mass: 5, tension: 350, friction: 100 }
   }));
 
   useEffect(() => {
     moveSceneFunc();
+    placeSceneFunc();
   });
 
-  const moveSceneFunc = () => {
-    let rotationZ = currentPageIndex;
-    setMoveScene({
-      rotation: [0, 0, sceneRotation]
+  const placeSceneFunc = () => {
+    const place = pages[currentPageIndex].moveMe;
+    console.log(place);
+    setPlaceScene({
+      position: place.position,
+      scale: place.scale
     });
   };
 
-  const moveOrReset = () => {
-    let result = true;
-
-    if (lastPageIndex !== currentPageIndex) {
-      if (lastPageIndex === pages.length - 1 && currentPageIndex === 0) {
-        console.log(lastPageIndex, currentPageIndex);
-        result = false;
-      }
-    }
-
-    if (result) {
-      return moveScene;
-    } else {
-      return resetScene;
-    }
+  const moveSceneFunc = () => {
+    setMoveScene({
+      rotation: [0, 0, sceneRotation]
+    });
   };
 
   return (
@@ -87,7 +78,7 @@ const BasicScene = props => {
       >
         <ambientLight color="#031829" intensity={0.7} />
         <Suspense fallback={null}>
-          <a.group position={[0, -0.3, 0]} {...moveScene}>
+          <a.group position={[0, -0.3, 0]} {...moveScene} {...placeScene}>
             <WorkScene />
             <AboutScene />
             <CubeScene />

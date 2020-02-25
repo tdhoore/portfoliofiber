@@ -3,22 +3,38 @@ const initialState = {
     {
       title: "Home",
       url: "/",
-      visible: true
+      visible: true,
+      moveMe: {
+        position: [0, 0, 0],
+        scale: [1, 1, 1]
+      }
     },
     {
       title: "Work",
       url: "/work",
-      visible: false
+      visible: false,
+      moveMe: {
+        position: [0, -0.2, 0],
+        scale: [0.3, 0.3, 0.3]
+      }
     },
     {
       title: "About",
       url: "/about",
-      visible: false
+      visible: false,
+      moveMe: {
+        position: [0, 0, 0],
+        scale: [1, 1, 1]
+      }
     },
     {
       title: "Contact",
       url: "/contact",
-      visible: false
+      visible: false,
+      moveMe: {
+        position: [0, 0, 0],
+        scale: [1, 1, 1]
+      }
     }
   ],
   currentPageIndex: 0,

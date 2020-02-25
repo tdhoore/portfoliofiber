@@ -56,7 +56,6 @@ const Nav = props => {
       <nav>
         <ul>
           {props.routes.map((route, index) => {
-            console.log(route);
             return (
               <li key={route.url}>
                 <a
