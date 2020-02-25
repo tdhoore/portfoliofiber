@@ -1,51 +1,11 @@
 import { store } from "../../redux/configureStore";
 import { push } from "connected-react-router";
 import {
-  actions,
-  canAnimateAction,
   curretPageIndex,
-  glitch,
   lastPageIndex,
-  visible
+  visible,
+  sceneRotation
 } from "./sceneActions";
-
-export const setActions = (anims = {}) => {
-  store.dispatch(actions(anims));
-  return getCurrentactions();
-};
-
-export const clearActions = () => {
-  store.dispatch(actions({}));
-};
-
-export const getCurrentactions = () => {
-  return store.getState().sceneReducer.actions;
-};
-
-export const setCanAnimate = (title = "", canAnimate = false) => {
-  store.dispatch(canAnimateAction(title, canAnimate));
-};
-
-export const getCanAnimate = (title = "") => {
-  const pages = store.getState().sceneReducer.pages;
-  let result = true;
-
-  pages.forEach((page, index) => {
-    if (typeof title === "string") {
-      if (page.title.toLowerCase() === title.toLowerCase()) {
-        result = page.canAnimate;
-      }
-    } else if (index === title) {
-      result = page.canAnimate;
-    }
-  });
-
-  return result;
-};
-
-export const setAllCanAnimate = (canAnimate = false) => {
-  store.dispatch(canAnimateAction("", canAnimate));
-};
 
 export const getCurrentPageIndex = () => {
   return store.getState().sceneReducer.currentPageIndex;
@@ -59,6 +19,14 @@ export const setVisible = (index = 0, isVisible = false) => {
   store.dispatch(visible(index, isVisible));
 };
 
+export const setSceneRotation = (rotZ = 0) => {
+  store.dispatch(sceneRotation(rotZ));
+};
+
+export const getSceneRotation = () => {
+  return store.getState().sceneReducer.sceneRotation;
+};
+
 export const setCurretPageIndex = (
   index = -1,
   animate = false,
@@ -67,32 +35,57 @@ export const setCurretPageIndex = (
 ) => {
   const pages = store.getState().sceneReducer.pages;
 
-  if (index >= 0 && pages.length > index) {
-    if (disableAll) {
-      //setAllCanAnimate();
-    }
+  //set the lastPageIndex
+  const lastPage = store.getState().sceneReducer.currentPageIndex;
+  setLastPageIndex(lastPage);
 
-    //set the lastPageIndex
-    const lastPage = store.getState().sceneReducer.currentPageIndex;
-    setLastPageIndex(lastPage);
+  if (index < 0) {
+    index = pages.length - 1;
+  }
 
-    store.dispatch(curretPageIndex(index));
+  if (pages.length <= index) {
+    index = 0;
+  }
 
-    if (url !== "") {
-      store.dispatch(push(url));
+  let newRot = store.getState().sceneReducer.sceneRotation;
+
+  //update scene rotation
+  if (lastPage !== index) {
+    console.log(lastPage, index);
+    if (
+      (lastPage === pages.length - 1 && index === 0) ||
+      (index === pages.length - 1 && lastPage === 0)
+    ) {
+      //start new loop
+      if (lastPage < index) {
+        newRot -= Math.PI / 2;
+      } else {
+        newRot += Math.PI / 2;
+      }
     } else {
-      store.dispatch(push(pages[index].url));
+      //just add to the direction
+      if (lastPage < index) {
+        const dif = index - lastPage;
+        console.log("+", dif);
+        newRot += (Math.PI / 2) * dif;
+      } else {
+        const dif = lastPage - index;
+        console.log("-", dif);
+        newRot -= (Math.PI / 2) * dif;
+      }
     }
   }
-};
+  console.log(newRot);
 
-export const playGlitch = () => {
-  store.dispatch(glitch(true));
+  setSceneRotation(newRot);
 
-  //deactivate after timer
-  setTimeout(() => {
-    store.dispatch(glitch(false));
-  }, 250);
+  store.dispatch(curretPageIndex(index));
+
+  if (url !== "") {
+    store.dispatch(push(url));
+  } else {
+    store.dispatch(push(pages[index].url));
+  }
 };
 
 export const goToUrl = url => {

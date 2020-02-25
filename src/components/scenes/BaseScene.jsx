@@ -17,15 +17,21 @@ const BasicScene = props => {
     state => state.sceneReducer.currentPageIndex
   );
   const lastPageIndex = useSelector(state => state.sceneReducer.lastPageIndex);
+  const sceneRotation = useSelector(state => state.sceneReducer.sceneRotation);
   const pages = useSelector(state => state.sceneReducer.pages);
   const currentItem = useSelector(state => state.pageReducer.currentItem);
   const projects = useSelector(state => state.pageReducer.projects);
 
   const [moveScene, setMoveScene] = useSpring(() => ({
-    position: [0, 0, 0],
+    rotation: [0, 0, 0],
     config: true ? { mass: 5, tension: 350, friction: 100 } : { duration: 1 },
     onStart: () => {},
     onRest: () => {}
+  }));
+
+  const [resetScene, setResetScene] = useSpring(() => ({
+    rotation: [0, 0, 0],
+    config: { duration: 1 }
   }));
 
   useEffect(() => {
@@ -33,9 +39,27 @@ const BasicScene = props => {
   });
 
   const moveSceneFunc = () => {
+    let rotationZ = currentPageIndex;
     setMoveScene({
-      position: pages[currentPageIndex].camPos
+      rotation: [0, 0, sceneRotation]
     });
+  };
+
+  const moveOrReset = () => {
+    let result = true;
+
+    if (lastPageIndex !== currentPageIndex) {
+      if (lastPageIndex === pages.length - 1 && currentPageIndex === 0) {
+        console.log(lastPageIndex, currentPageIndex);
+        result = false;
+      }
+    }
+
+    if (result) {
+      return moveScene;
+    } else {
+      return resetScene;
+    }
   };
 
   return (
@@ -44,7 +68,6 @@ const BasicScene = props => {
       <Canvas
         camera={{
           position: [5.24, 6.53, 5.24],
-
           near: 0,
           zoom: 230
         }}
@@ -64,14 +87,13 @@ const BasicScene = props => {
       >
         <ambientLight color="#031829" intensity={0.7} />
         <Suspense fallback={null}>
-          <group position={[0, -0.3, 0]}>
+          <a.group position={[0, -0.3, 0]} {...moveScene}>
+            <WorkScene />
             <AboutScene />
             <CubeScene />
-            <BgScene />
-          </group>
-          <Suspense>
-            <Effects />
-          </Suspense>
+          </a.group>
+          <BgScene />
+          <Effects />
         </Suspense>
       </Canvas>
     </div>

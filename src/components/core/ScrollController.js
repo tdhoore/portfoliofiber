@@ -1,4 +1,9 @@
-import { setCurretPageIndex, getCurrentPageIndex } from "../scenes/api";
+import {
+  setCurretPageIndex,
+  getCurrentPageIndex,
+  setSceneRotation,
+  getSceneRotation
+} from "../scenes/api";
 
 export default class ScrollController {
   constructor() {

@@ -29,6 +29,8 @@ const Page = props => {
         return 1;
       case "About":
         return 2;
+      case "Contact":
+        return 3;
       default:
         return 1;
     }

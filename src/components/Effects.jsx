@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useMemo } from "react";
-import * as THREE from "three";
+import React, { useRef, useEffect } from "react";
 import { extend, useThree, useFrame } from "react-three-fiber";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
@@ -19,9 +18,6 @@ extend({
 export default function Effects(props) {
   const composer = useRef();
   const { scene, gl, size, camera } = useThree();
-  const aspect = useMemo(() => new THREE.Vector2(size.width, size.height), [
-    size
-  ]);
 
   useEffect(() => {
     //set size for composer
@@ -35,7 +31,7 @@ export default function Effects(props) {
   return (
     <effectComposer ref={composer} args={[gl]}>
       <renderPass attachArray="passes" scene={scene} camera={camera} />
-      <unrealBloomPass attachArray="passes" args={[aspect, 1.5, 0.4, 0.8]} />
+      <unrealBloomPass attachArray="passes" args={[undefined, 1.5, 0.4, 0.8]} />
       <shaderPass
         attachArray="passes"
         args={[FXAAShader]}

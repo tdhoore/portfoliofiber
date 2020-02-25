@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import { setCurretPageIndex } from "../scenes/api";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSceneRotation } from "../scenes/api";
 
 const Nav = props => {
+  const currentPageIndex = useSelector(
+    state => state.sceneReducer.currentPageIndex
+  );
+
+  const [blackBackBtn, setBlackBackBtn] = useState(true);
+
   const handleClickNav = e => {
     e.preventDefault();
     setCurretPageIndex(
@@ -12,12 +19,6 @@ const Nav = props => {
       true
     );
   };
-
-  const currentPageIndex = useSelector(
-    state => state.sceneReducer.currentPageIndex
-  );
-
-  const [blackBackBtn, setBlackBackBtn] = useState(true);
 
   const resizeNav = () => {
     if (props.isWorkDetail) {
@@ -55,6 +56,7 @@ const Nav = props => {
       <nav>
         <ul>
           {props.routes.map((route, index) => {
+            console.log(route);
             return (
               <li key={route.url}>
                 <a

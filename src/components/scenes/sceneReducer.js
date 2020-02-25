@@ -3,38 +3,31 @@ const initialState = {
     {
       title: "Home",
       url: "/",
-      canAnimate: true,
-      visible: true,
-      camPos: [0, 0, 0]
+      visible: true
     },
     {
       title: "Work",
       url: "/work",
-      canAnimate: true,
-      visible: false,
-      camPos: [0, 0, 45]
+      visible: false
     },
     {
       title: "About",
       url: "/about",
-      canAnimate: true,
-      visible: false,
-      camPos: [0, 0, 60]
+      visible: false
+    },
+    {
+      title: "Contact",
+      url: "/contact",
+      visible: false
     }
   ],
   currentPageIndex: 0,
   lastPageIndex: 0,
-  glitch: false,
-  actions: {}
+  sceneRotation: 0
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "SET_ACTIONS":
-      return {
-        ...state,
-        actions: action.payload
-      };
     case "SET_LASTPAGE":
       return {
         ...state,
@@ -58,7 +51,7 @@ export default (state = initialState, action) => {
         ...state,
         ...action.payload
       };
-    case "SET_GLITCH":
+    case "SET_SCENEROT":
       return {
         ...state,
         ...action.payload
