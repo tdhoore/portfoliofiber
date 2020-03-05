@@ -3,7 +3,7 @@ import logo from "../../assets/img/timdhooreLogoWhite.svg";
 
 const Home = props => {
   useEffect(() => {});
-
+  console.log("render");
   return (
     <article className="home">
       <header>

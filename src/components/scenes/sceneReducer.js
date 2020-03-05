@@ -5,7 +5,7 @@ const initialState = {
       url: "/",
       visible: true,
       moveMe: {
-        position: [0, 0, 0],
+        position: [0, -0.5, 0],
         scale: [1, 1, 1]
       }
     },
@@ -14,7 +14,7 @@ const initialState = {
       url: "/work",
       visible: false,
       moveMe: {
-        position: [0, -0.2, 0],
+        position: [0, 0, 0],
         scale: [0.3, 0.3, 0.3]
       }
     },
@@ -23,7 +23,7 @@ const initialState = {
       url: "/about",
       visible: false,
       moveMe: {
-        position: [0, 0, 0],
+        position: [0, -0.5, 0],
         scale: [1, 1, 1]
       }
     },
@@ -32,7 +32,7 @@ const initialState = {
       url: "/contact",
       visible: false,
       moveMe: {
-        position: [0, 0, 0],
+        position: [0, -0.5, 0],
         scale: [1, 1, 1]
       }
     }

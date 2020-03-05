@@ -28,7 +28,7 @@ const BasicScene = props => {
   }));
 
   const [placeScene, setPlaceScene] = useSpring(() => ({
-    position: [0, 0, 0],
+    position: [0, -0.5, 0],
     scale: [1, 1, 1],
     config: { mass: 5, tension: 350, friction: 100 }
   }));
@@ -40,7 +40,7 @@ const BasicScene = props => {
 
   const placeSceneFunc = () => {
     const place = pages[currentPageIndex].moveMe;
-    console.log(place);
+
     setPlaceScene({
       position: place.position,
       scale: place.scale
@@ -78,7 +78,7 @@ const BasicScene = props => {
       >
         <ambientLight color="#031829" intensity={0.7} />
         <Suspense fallback={null}>
-          <a.group position={[0, -0.3, 0]} {...moveScene} {...placeScene}>
+          <a.group position={[0, -0.5, 0]} {...moveScene} {...placeScene}>
             <WorkScene />
             <AboutScene />
             <CubeScene />
@@ -92,18 +92,3 @@ const BasicScene = props => {
 };
 
 export default BasicScene;
-/*
-<a.group name="completeScene">
-            
-            <WorkScene />
-          </a.group>
-   
-
-
-
-<HomeScene />
-            <WorkScene />
-            <AboutScene />
-            <BgPillars />
-            <SignScene currentImage={projects[currentItem]} />
-*/

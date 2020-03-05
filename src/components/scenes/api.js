@@ -51,7 +51,6 @@ export const setCurretPageIndex = (
 
   //update scene rotation
   if (lastPage !== index) {
-    console.log(lastPage, index);
     if (
       (lastPage === pages.length - 1 && index === 0) ||
       (index === pages.length - 1 && lastPage === 0)
@@ -66,16 +65,15 @@ export const setCurretPageIndex = (
       //just add to the direction
       if (lastPage < index) {
         const dif = index - lastPage;
-        console.log("+", dif);
+
         newRot += (Math.PI / 2) * dif;
       } else {
         const dif = lastPage - index;
-        console.log("-", dif);
+
         newRot -= (Math.PI / 2) * dif;
       }
     }
   }
-  console.log(newRot);
 
   setSceneRotation(newRot);
 

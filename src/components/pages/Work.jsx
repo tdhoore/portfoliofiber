@@ -25,7 +25,7 @@ const Work = props => {
         <header className="hide">
           <h2>Work</h2>
         </header>
-        <TransitionGroup>
+        <TransitionGroup className="workHolder">
           <CSSTransition
             in={true}
             appear={true}
@@ -33,10 +33,7 @@ const Work = props => {
             timeout={292}
             key={currentItem}
           >
-            <div className="workHolder">
-              <WorkItem content={projects[currentItem]} />
-              <WorkNav />
-            </div>
+            <WorkItem content={projects[currentItem]} />
           </CSSTransition>
         </TransitionGroup>
       </a.section>

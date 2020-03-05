@@ -74,7 +74,7 @@ const Page = props => {
           isWorkDetail={props.match.params.title ? true : false}
         />
       </header>
-      <main className="contentWrapper hide">{getPage(props.route.title)}</main>
+      <main className="contentWrapper">{getPage(props.route.title)}</main>
     </div>
   );
 };
