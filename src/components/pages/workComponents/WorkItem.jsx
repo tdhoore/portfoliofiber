@@ -9,11 +9,11 @@ const WorkItem = props => {
       className={
         props.position
           ? `workItem workItemBack workItemBack${props.position}`
-          : `workItem`
+          : `workItem ${props.side}`
       }
     >
       <article>
-        <header className="headerWrapper">
+        <header className="headerWrapper hide">
           <h3>{props.content.title}</h3>
         </header>
         <div className="imgHolder">

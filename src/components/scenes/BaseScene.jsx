@@ -78,7 +78,7 @@ const BasicScene = props => {
       >
         <ambientLight color="#031829" intensity={0.7} />
         <Suspense fallback={null}>
-          <a.group position={[0, -0.5, 0]} {...moveScene} {...placeScene}>
+          <a.group {...moveScene} {...placeScene}>
             <WorkScene />
             <AboutScene />
             <CubeScene />

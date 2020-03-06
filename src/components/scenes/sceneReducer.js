@@ -14,7 +14,7 @@ const initialState = {
       url: "/work",
       visible: false,
       moveMe: {
-        position: [0, 0, 0],
+        position: [0, -0.5, 0],
         scale: [0.3, 0.3, 0.3]
       }
     },

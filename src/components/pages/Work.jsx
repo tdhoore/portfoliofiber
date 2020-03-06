@@ -25,17 +25,12 @@ const Work = props => {
         <header className="hide">
           <h2>Work</h2>
         </header>
-        <TransitionGroup className="workHolder">
-          <CSSTransition
-            in={true}
-            appear={true}
-            classNames="workAnim"
-            timeout={292}
-            key={currentItem}
-          >
-            <WorkItem content={projects[currentItem]} />
-          </CSSTransition>
-        </TransitionGroup>
+        <div className="workHolder">
+          <WorkItem content={projects[currentItem]} side="front" />
+          <WorkItem content={projects[currentItem]} side="bottom" />
+          <WorkItem content={projects[currentItem]} side="back" />
+          <WorkItem content={projects[currentItem]} side="top" />
+        </div>
       </a.section>
     ) : (
       <a.div style={transProps} key={key}>
@@ -46,3 +41,16 @@ const Work = props => {
 };
 
 export default Work;
+/*
+<TransitionGroup className="workHolder">
+          <CSSTransition
+            in={true}
+            appear={true}
+            classNames="workAnim"
+            timeout={292}
+            key={currentItem}
+          >
+            <WorkItem content={projects[currentItem]} />
+          </CSSTransition>
+        </TransitionGroup>
+*/
