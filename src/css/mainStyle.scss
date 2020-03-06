@@ -69,7 +69,8 @@ button:focus {
   z-index: 2;
 }
 
-h2 {
+h2,
+h3 {
   font-size: $pad * 5;
   margin-bottom: -$pad * 2;
   margin-top: $pad;

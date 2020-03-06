@@ -15,9 +15,8 @@ const WorkItem = props => {
       <article>
         <header className="headerWrapper">
           <h3>{props.content.title}</h3>
-          <p>{props.content.category}</p>
         </header>
-        <div className="imgHolder hide">
+        <div className="imgHolder">
           <img src={image} alt={props.title} />
         </div>
       </article>
