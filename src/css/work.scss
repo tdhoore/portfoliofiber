@@ -5,15 +5,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 80vh;
 }
 
 .workHolder {
   position: relative;
-  height: 50vh;
+  height: 60vh;
   width: $pad * 128;
   transform-style: preserve-3d;
-  transform: translateZ(-25vh) rotateX(0);
+  transform: translateZ(-30vh) rotateX(0);
 }
 
 .workItem {
@@ -21,7 +21,6 @@
   display: block;
   height: 100%;
   width: 100%;
-  background-color: red;
 
   & article {
     width: 100%;
@@ -39,25 +38,70 @@
       //display: none;
     }
   }
+
+  & .headerWrapper {
+    position: absolute;
+    top: $pad * 2;
+    left: $pad * 2;
+    right: $pad * 2;
+    bottom: $pad * 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: solid $line $textColor;
+
+    & h3 {
+      position: relative;
+      z-index: 3;
+      display: inline-block;
+      color: $darkText;
+    }
+
+    & h3:after {
+      content: "";
+      position: absolute;
+      top: -$pad/2;
+      left: -$pad * 2;
+      right: -$pad * 2;
+      z-index: -1;
+      display: block;
+      width: calc(100% + 3.2rem);
+      height: 50%;
+      background-color: rgba($color: $green, $alpha: 0.6);
+    }
+
+    & h3:before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      top: -$pad * 4;
+      left: -$pad * 4;
+      z-index: -1;
+      display: block;
+      width: calc(100% + 6.4rem);
+      height: calc(100% + 1.6rem);
+      background-color: $textColor;
+    }
+  }
 }
 
 .front {
-  transform: rotateY(0deg) translateZ(25vh);
+  transform: rotateY(0deg) translateZ(30vh);
   background-color: green;
 }
 
 .bottom {
-  transform: rotateX(-90deg) translateZ(25vh);
+  transform: rotateX(-90deg) translateZ(30vh);
   background-color: pink;
 }
 
 .back {
-  transform: rotateY(180deg) translateZ(25vh) rotateX(180deg);
+  transform: rotateY(180deg) translateZ(30vh) rotateX(180deg);
   background-color: yellow;
 }
 
 .top {
-  transform: rotateX(90deg) translateZ(25vh);
+  transform: rotateX(90deg) translateZ(30vh);
 }
 
 /*.workItem {

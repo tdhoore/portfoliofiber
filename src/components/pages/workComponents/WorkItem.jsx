@@ -13,7 +13,7 @@ const WorkItem = props => {
       }
     >
       <article>
-        <header className="headerWrapper hide">
+        <header className="headerWrapper">
           <h3>{props.content.title}</h3>
         </header>
         <div className="imgHolder">
