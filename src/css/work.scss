@@ -35,7 +35,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      //display: none;
     }
   }
 
@@ -87,21 +86,22 @@
 
 .front {
   transform: rotateY(0deg) translateZ(30vh);
-  background-color: green;
+  background-color: $bgColor;
 }
 
 .bottom {
   transform: rotateX(-90deg) translateZ(30vh);
-  background-color: pink;
+  background-color: $bgColor;
 }
 
 .back {
-  transform: rotateY(180deg) translateZ(30vh) rotateX(180deg);
-  background-color: yellow;
+  transform: rotateY(180deg) translateZ(30vh) rotateX(180deg) scaleX(-1);
+  background-color: $bgColor;
 }
 
 .top {
   transform: rotateX(90deg) translateZ(30vh);
+  background-color: $bgColor;
 }
 
 /*.workItem {
