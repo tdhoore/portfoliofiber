@@ -1,7 +1,8 @@
 const initialState = {
   currentItem: 0,
   lastItem: 0,
-  projects: []
+  projects: [],
+  workRotation: 0
 };
 
 export default (state = initialState, action) => {
@@ -20,6 +21,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload
+      };
+
+    case "SET_WORKROT":
+      return {
+        ...state,
+        workRotation: action.payload
       };
     default:
       return state;

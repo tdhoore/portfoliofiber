@@ -9,3 +9,7 @@ export const projects = actions => {
 export const lastItem = actions => {
   return { type: "SET_LASTITEM", payload: actions };
 };
+
+export const workRot = actions => {
+  return { type: "SET_WORKROT", payload: actions };
+};
